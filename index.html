@@ -15,6 +15,8 @@
 .ft-done input{width:22px; height:22px; accent-color:var(--ok); flex:none}
 .ft-step.done .ft-done{color:var(--ok)}
 .ft-next{text-decoration:none; font-weight:700; padding:10px 14px; border-radius:10px; background:var(--accent); color:var(--accent-ink); margin-left:auto}
+.ft-work{padding-left:22px; margin:6px 0; font-family:var(--f-mono); font-size:14.5px; line-height:1.8}
+.ft-work li{margin:3px 0; max-width:none}
 details.sol{margin-top:-2px}
 details.sol > summary{padding:4px 0}
 .calc{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr)); gap:8px; margin:8px 0}
@@ -347,13 +349,12 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
 <nav class="toc" id="toc" hidden aria-label="Contents">
   <div class="toc-head"><strong>Contents</strong><button class="btn" id="tocClose" type="button">Close</button></div>
   <ol class="toc-list"><li class="t2"><a href="#fast-track">Midterm fast track</a></li>
+<li class="t3"><a href="#ft-0">Step 0 · The basics</a></li>
 <li class="t3"><a href="#ft-1">Step 1 · Lecture 1 theory</a></li>
-<li class="t3"><a href="#ft-2">Step 2 · Half-wave R and R-L</a></li>
-<li class="t3"><a href="#ft-3">Step 3 · Bridge + firing angle α</a></li>
+<li class="t3"><a href="#ft-2">Step 2 · Half-wave, R load</a></li>
+<li class="t3"><a href="#ft-3">Step 3 · Half-wave, R-L load</a></li>
 <li class="t3"><a href="#ft-4">Step 4 · Controlled bridge, R-L</a></li>
-<li class="t3"><a href="#ft-5">Step 5 · FWD and capacitor filter</a></li>
-<li class="t3"><a href="#ft-6">Step 6 · Full-wave waveforms</a></li>
-<li class="t3"><a href="#ft-7">Step 7 · Mock exam</a></li>
+<li class="t3"><a href="#ft-5">Step 5 · Do the 2025 paper</a></li>
 <li class="t2"><a href="#what-to-do-now">What to do now</a></li>
 <li class="t2"><a href="#big-picture">The big picture</a></li>
 <li class="t3"><a href="#map">Lecture → what they ask</a></li>
@@ -426,33 +427,62 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
 </section>
 
 <section id="fast">
-  <div class="kicker">Short on time · for Dr. Elgohary's midterm</div>
+  <div class="kicker">First time? Short on time? Start here</div>
   <h2 id="fast-track">Midterm fast track</h2>
-  <p class="lede">One path through only what the midterm needs, in an order where each step uses the one before it. About 7–8 hours in total. Tick each step when you finish it; your progress is saved on this device.</p>
-  <div class="ft-progress" aria-live="polite"><div class="ft-bar"><i id="ftBar"></i></div><span id="ftCount">0 of 7 steps done</span></div>
+  <p class="lede">Six steps, about 5–6 hours, read top to bottom. Each step only uses what came before it, and everything you need is written here. You don't have to jump anywhere else. In the Dec 2025 midterm these steps covered all 20 marks.</p>
+  <div class="ft-progress" aria-live="polite"><div class="ft-bar"><i id="ftBar"></i></div><span id="ftCount">0 of 6 steps done</span></div>
 
-  <div class="box now"><span class="bh">Only 3–4 hours?</span>
-    <p>Do <a href="#ft-1">step 1</a>, <a href="#ft-2">step 2</a> and <a href="#ft-4">step 4</a> (read step 3's short intro first). In the Dec 2025 midterm those three covered <b>all 20 marks</b>: Lect 1 theory 4 marks, Lect 2 half-wave R-L 11 marks, Lect 7 controlled bridge 5 marks.</p>
-  </div>
-  <div class="box"><span class="bh">Left out on purpose</span>
-    <p>Lecture 5 (three-phase), most of Lecture 6, Lecture 8, Lectures 9–11 (choppers, not in the midterm), the device list in Lecture 1 (TRIAC, GTO, IGBT…), Sheet 2. Battery charging is only skimmed. The full lectures are still further down the page if you finish early.</p>
-  </div>
-
-  <ol class="ft-map">
-    <li><a href="#ft-1">Lecture 1 theory</a> <span class="small">30 min</span></li>
-    <li><a href="#ft-2">Lecture 2: half-wave R and R-L</a> <span class="small">2–3 h</span></li>
-    <li><a href="#ft-3">Bridge circuit + firing angle α</a> <span class="small">25 min</span></li>
-    <li><a href="#ft-4">Lecture 7: controlled bridge, R-L</a> <span class="small">45 min</span></li>
-    <li><a href="#ft-5">Lecture 3: FWD and capacitor filter</a> <span class="small">1 h</span></li>
-    <li><a href="#ft-6">Lecture 4: full-wave waveforms</a> <span class="small">1 h</span></li>
-    <li><a href="#ft-7">Mock exam + night before</a> <span class="small">1 h +</span></li>
+  <ol class="ft-map" start="0">
+    <li><a href="#ft-0">The basics</a> <span class="small">20 min</span></li>
+    <li><a href="#ft-1">Lecture 1 theory</a> <span class="small">30 min · 4 marks</span></li>
+    <li><a href="#ft-2">Half-wave rectifier, R load</a> <span class="small">30 min</span></li>
+    <li><a href="#ft-3">Half-wave rectifier, R-L load</a> <span class="small">2 h · 11 marks</span></li>
+    <li><a href="#ft-4">Controlled bridge, R-L load</a> <span class="small">1 h · 5 marks</span></li>
+    <li><a href="#ft-5">Do the 2025 paper</a> <span class="small">1 h</span></li>
   </ol>
+
+  <!-- ================= STEP 0 ================= -->
+  <div class="ft-step" data-step="0">
+    <div class="ft-head"><h3 id="ft-0">Step 0 · The basics</h3><span class="tag">20 min</span></div>
+    <div class="box plain"><span class="bh">What this course is about</span>
+      <p>The mains supply is <b>AC</b>: the voltage goes up and down like a wave, 50 times a second. Many loads (battery chargers, DC motors) need <b>DC</b>: one direction only. A circuit that turns AC into DC is a <b>rectifier</b>. Power electronics builds rectifiers from <b>switches</b> (diodes and thyristors) that let current through at the right moments.</p>
+    </div>
+    <div class="box"><span class="bh">1 · The sine wave</span>
+      <p>The supply is <span class="mx">\(v_{s}=V_{m}\sin \omega t\)</span>.</p>
+      <ul class="tight">
+        <li><b>V<sub>m</sub></b> is the <b>peak</b> (top) of the wave. Questions often give the <b>rms</b> value instead: <span class="mx">\(V_{m}=\sqrt{2}\,V_{\mathrm{rms}}\)</span>. Example: 120 V rms → V<sub>m</sub> = 169.7 V.</li>
+        <li><b>ω</b> is how fast it turns: <span class="mx">\(\omega =2\pi f\)</span>. 50 Hz → ω = 314 rad/s; 60 Hz → ω = 377 rad/s.</li>
+        <li><b>ωt</b> is the <b>angle</b> along the wave. One full cycle is 2π (360°); the positive half is 0 → π, the negative half is π → 2π. Put the calculator in <b>radians</b> for this course.</li>
+      </ul>
+    </div>
+    <div class="box"><span class="bh">2 · Average and rms</span>
+      <ul class="tight">
+        <li><b>Average (dc) value</b> = area under the wave over one cycle ÷ 2π. It is what a DC voltmeter reads. Example: one positive half sine has area 2V<sub>m</sub>, so if the output is that half sine then zero, the average is 2V<sub>m</sub>/2π = <b>V<sub>m</sub>/π</b>.</li>
+        <li><b>RMS value</b> is the "heating" value: square the wave, average it, take the root. Power in a resistor uses it: <span class="mx">\(P=I_{\mathrm{rms}}^{2}R\)</span>.</li>
+        <li><b>Power factor</b> = real power ÷ (supply rms voltage × rms current): <span class="mx">\(\mathrm{PF}=\dfrac{P}{V_{\mathrm{s,rms}}I_{\mathrm{rms}}}\)</span>. It says how well the supply is used (1 is perfect).</li>
+      </ul>
+    </div>
+    <div class="box"><span class="bh">3 · The parts</span>
+      <ul class="tight">
+        <li><b>Diode</b>: a one-way switch that works by itself. Voltage pushing forward → ON (closed). Voltage pushing backward → OFF (open).</li>
+        <li><b>Resistor R</b>: current follows the voltage instantly, i = v/R.</li>
+        <li><b>Inductor L</b>: <b>resists changes in current</b>. It stores energy while the current rises and gives it back while it falls, so its current lags behind the voltage. Its "AC resistance" is ωL. With R and L in series:
+          <span class="mx">\(Z=\sqrt{R^{2}+(\omega L)^{2}}\)</span> (total opposition) and <span class="mx">\(\theta =\tan ^{-1}\dfrac{\omega L}{R}\)</span> (how far the current lags).</li>
+      </ul>
+    </div>
+    <div class="q"><div class="qh"><span class="qn">Check yourself</span></div><div class="qb">
+      <p>(a) A supply is 150 V rms. What is V<sub>m</sub>? (b) f = 60 Hz. What is ω? (c) R = 100 Ω, L = 0.1 H, ω = 314 rad/s. Find Z and θ.</p></div></div>
+    <details class="sol"><summary>Show the answer</summary>
+      <p>(a) V<sub>m</sub> = √2 × 150 = <b>212.1 V</b> · (b) ω = 2π × 60 = <b>377 rad/s</b> · (c) ωL = 31.4 Ω, Z = √(100² + 31.4²) = <b>104.8 Ω</b>, θ = tan<sup>−1</sup>(31.4/100) = <b>17.43° = 0.304 rad</b>. You will meet these exact numbers again in steps 3 and 4.</p>
+    </details>
+    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="0"> I got the check right</label><a class="ft-next" href="#ft-1">Next: step 1 →</a></div>
+  </div>
 
   <!-- ================= STEP 1 ================= -->
   <div class="ft-step" data-step="1">
     <div class="ft-head"><h3 id="ft-1">Step 1 · Lecture 1 theory</h3><span class="tag hi">4 marks in 2025</span><span class="tag">30 min</span></div>
     <div class="box plain"><span class="bh">The idea</span>
-      <p>Power electronics converts electrical power (AC → DC, DC → AC…) using <b>semiconductor switches</b> instead of machines. The exam asks two things about this: <b>why</b> it is worth it (merits and demerits), and <b>how a real switch falls short of an ideal one</b> (the losses). These questions came up in 4 of 6 midterms, almost word for word, so they are free marks.</p>
+      <p>Step 0 said power electronics uses switches. The exam asks two things about this: <b>why</b> it is worth it (merits and demerits), and <b>how a real switch falls short of an ideal one</b> (its losses). These questions came up in 4 of 6 midterms, almost word for word, so learn the answers below and write them as they are.</p>
     </div>
     <div class="box mem"><span class="bh">Write these from memory</span>
       <div class="fgrid">
@@ -460,48 +490,99 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
         <div class="f"><span class="fl">Demerits (write 3–4)</span><span class="fx">Harmonics in supply and load · low input power factor under some conditions · regeneration of power is difficult · low overload capacity</span></div>
         <div class="f"><span class="fl">Ideal switch</span><span class="fx">ON: zero voltage, any current · OFF: zero current, any voltage · switches in zero time · zero loss</span></div>
         <div class="f"><span class="fl">Real switch</span><span class="fx">ON: small on-voltage, finite max current · OFF: small leakage current, finite max voltage · takes time to switch · has losses</span></div>
-        <div class="f"><span class="fl">The two losses (2025 Q1.2)</span><span class="fx"><b>Conduction loss</b>: on-voltage × current while ON (and leakage × voltage while OFF). <b>Switching loss</b>: while changing state, V and I are both non-zero for a short time.</span></div>
-        <div class="f"><span class="fl">SCR (you need it in step 3)</span><span class="fx">Turns ON with forward bias + gate pulse. Turns OFF only when its current falls below the <b>holding current I<sub>H</sub></b>. Latching current I<sub>L</sub>: minimum current to stay on once the gate pulse is removed.</span></div>
+        <div class="f"><span class="fl">The two losses (2025 Q1.2)</span><span class="fx"><b>Conduction loss</b>: on-voltage × current while ON (and leakage × voltage while OFF). <b>Switching loss</b>: while changing state, voltage and current are both non-zero for a short time.</span></div>
+        <div class="f"><span class="fl">Thyristor (SCR), used in step 4</span><span class="fx">A diode that waits: it turns ON only with forward voltage <b>and</b> a gate pulse. It turns OFF when its current falls below the <b>holding current I<sub>H</sub></b>.</span></div>
       </div></div>
-    <p class="small">More detail: <a href="#merits">merits</a> · <a href="#ideal-switch">ideal vs real switch</a> · <a href="#scr">SCR</a>.</p>
     <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="1"> I can write all of these without looking</label><a class="ft-next" href="#ft-2">Next: step 2 →</a></div>
   </div>
 
   <!-- ================= STEP 2 ================= -->
   <div class="ft-step" data-step="2">
-    <div class="ft-head"><h3 id="ft-2">Step 2 · Lecture 2: the half-wave rectifier</h3><span class="tag hi">11 of 20 marks in 2025</span><span class="tag">2–3 h</span></div>
-
-    <h4>2A · With a resistor (the base case)</h4>
+    <div class="ft-head"><h3 id="ft-2">Step 2 · Half-wave rectifier with a resistor</h3><span class="tag">30 min · needed for step 3</span></div>
     <div class="box plain"><span class="bh">The idea</span>
-      <p>A diode is a switch that works by itself: <b>ON when v<sub>s</sub> is positive, OFF when it is negative</b>. With one diode in series with R, the load gets the positive half-cycles only. Every number below comes from that one picture: a half sine from 0 to π, then zero.</p>
+      <p>The simplest rectifier: one diode in series with a resistor. Using step 0's diode rule:</p>
+      <ul class="tight">
+        <li><b>0 → π</b> (v<sub>s</sub> positive): the diode is ON, so the load sees v<sub>o</sub> = v<sub>s</sub>.</li>
+        <li><b>π → 2π</b> (v<sub>s</sub> negative): the diode is OFF, no current, v<sub>o</sub> = 0. The diode holds the negative supply voltage, at most V<sub>m</sub> (its PIV).</li>
+      </ul>
+      <p>So the output is only the positive half sines. In the picture below, follow the orange line (v<sub>o</sub>): half sine, then flat, then half sine again.</p>
     </div>
-    <div class="box mem"><span class="bh">Formulas to memorise (R load)</span>
+    <figure class="wv"><div class="scroll" tabindex="0"><svg class="wave" viewBox="0 0 700 432" role="img" aria-label="Half-wave rectifier with R load: supply, output voltage, current and diode voltage" xmlns="http://www.w3.org/2000/svg">
+<line class="grid" x1="58.0" y1="20" x2="58.0" y2="388"/>
+<line class="grid" x1="214.5" y1="20" x2="214.5" y2="388"/>
+<line class="grid" x1="371.0" y1="20" x2="371.0" y2="388"/>
+<line class="grid" x1="527.5" y1="20" x2="527.5" y2="388"/>
+<line class="grid" x1="684.0" y1="20" x2="684.0" y2="388"/>
+<line class="ax" x1="58" y1="57.0" x2="684" y2="57.0"/>
+<line class="ax" x1="58" y1="20" x2="58" y2="94"/>
+<line class="tick" x1="54" y1="24.8" x2="58" y2="24.8"/>
+<line class="ref" x1="58" y1="24.8" x2="684" y2="24.8"/>
+<text class="yl" x="52" y="28.3" text-anchor="end">V<tspan class="sub">m</tspan></text>
+<line class="tick" x1="54" y1="89.2" x2="58" y2="89.2"/>
+<line class="ref" x1="58" y1="89.2" x2="684" y2="89.2"/>
+<text class="yl" x="52" y="92.7" text-anchor="end">−V<tspan class="sub">m</tspan></text>
+<path class="tr t-vs" d="M58.0 57.0 L83.1 41.5 L92.9 36.3 L101.9 32.2 L110.8 28.9 L119.3 26.7 L127.8 25.3 L136.3 24.8 L144.8 25.3 L153.8 26.8 L162.7 29.3 L171.7 32.6 L181.5 37.2 L191.8 42.8 L232.5 68.4 L250.4 78.2 L260.3 82.6 L269.6 85.8 L279.0 88.0 L288.0 89.0 L297.4 89.0 L307.2 87.8 L317.1 85.4 L327.4 81.7 L337.2 77.2 L348.0 71.4 L388.7 45.8 L406.1 36.1 L416.0 31.7 L424.9 28.6 L433.9 26.3 L442.8 25.1 L452.7 24.9 L463.0 26.0 L473.2 28.5 L484.0 32.3 L493.8 36.9 L505.0 43.0 L544.4 67.7 L560.9 77.0 L570.3 81.4 L578.8 84.6 L587.3 87.0 L595.4 88.5 L605.2 89.2 L614.6 88.7 L624.5 86.9 L634.8 83.9 L645.1 79.7 L655.8 74.3 L667.9 67.2 L684.0 57.0"/>
+<text class="pl" x="62" y="15">v<tspan class="sub">s</tspan></text>
+<rect class="cond" x="58.0" y="118" width="156.5" height="74"/>
+<rect class="cond" x="371.0" y="118" width="156.5" height="74"/>
+<line class="ax" x1="58" y1="181.0" x2="684" y2="181.0"/>
+<line class="ax" x1="58" y1="118" x2="58" y2="192"/>
+<line class="tick" x1="54" y1="126.2" x2="58" y2="126.2"/>
+<line class="ref" x1="58" y1="126.2" x2="684" y2="126.2"/>
+<text class="yl" x="52" y="129.7" text-anchor="end">V<tspan class="sub">m</tspan></text>
+<line class="tick" x1="54" y1="163.6" x2="58" y2="163.6"/>
+<line class="ref" x1="58" y1="163.6" x2="684" y2="163.6"/>
+<polygon class="f-vo" points="58.0,181.0 58.0,181.0 72.3,165.5 83.1,154.6 92.9,145.7 101.9,138.8 110.8,133.2 119.3,129.4 127.8,127.0 136.3,126.2 144.8,127.0 153.3,129.4 161.8,133.3 170.8,138.9 179.7,145.8 189.1,154.3 214.6,181.0 370.8,181.0 396.7,154.0 406.1,145.5 415.1,138.6 424.0,133.1 432.5,129.3 441.0,127.0 449.1,126.2 457.6,127.0 466.1,129.3 474.6,133.2 483.5,138.7 492.5,145.6 501.9,154.1 527.8,181.0 684.0,181.0 684.0,181.0"/>
+<path class="tr t-vo" d="M58.0 181.0 L72.3 165.5 L83.1 154.6 L92.9 145.7 L101.9 138.8 L110.8 133.2 L119.3 129.4 L127.8 127.0 L136.3 126.2 L144.8 127.0 L153.3 129.4 L161.8 133.3 L170.8 138.9 L179.7 145.8 L189.1 154.3 L214.6 181.0 L370.8 181.0 L396.7 154.0 L406.1 145.5 L415.1 138.6 L424.0 133.1 L432.5 129.3 L441.0 127.0 L449.1 126.2 L457.6 127.0 L466.1 129.3 L474.6 133.2 L483.5 138.7 L492.5 145.6 L501.9 154.1 L527.8 181.0 L684.0 181.0"/>
+<text class="nt" x="679.0" y="159.2" text-anchor="end">V<tspan class="sub">dc</tspan> = V<tspan class="sub">m</tspan>/π</text>
+<text class="pl" x="62" y="113">v<tspan class="sub">o</tspan></text>
+<line class="ax" x1="58" y1="279.0" x2="684" y2="279.0"/>
+<line class="ax" x1="58" y1="216" x2="58" y2="290"/>
+<line class="tick" x1="54" y1="224.2" x2="58" y2="224.2"/>
+<line class="ref" x1="58" y1="224.2" x2="684" y2="224.2"/>
+<text class="yl" x="52" y="227.7" text-anchor="end">V<tspan class="sub">m</tspan>/R</text>
+<path class="tr t-io" d="M58.0 279.0 L72.3 263.5 L83.1 252.6 L92.9 243.7 L101.9 236.8 L110.8 231.2 L119.3 227.4 L127.8 225.0 L136.3 224.2 L144.8 225.0 L153.3 227.4 L161.8 231.3 L170.8 236.9 L179.7 243.8 L189.1 252.3 L214.6 279.0 L370.8 279.0 L396.7 252.0 L406.1 243.5 L415.1 236.6 L424.0 231.1 L432.5 227.3 L441.0 225.0 L449.1 224.2 L457.6 225.0 L466.1 227.3 L474.6 231.2 L483.5 236.7 L492.5 243.6 L501.9 252.1 L527.8 279.0 L684.0 279.0"/>
+<text class="pl" x="62" y="211">i<tspan class="sub">o</tspan></text>
+<line class="ax" x1="58" y1="351.0" x2="684" y2="351.0"/>
+<line class="ax" x1="58" y1="314" x2="58" y2="388"/>
+<line class="tick" x1="54" y1="318.8" x2="58" y2="318.8"/>
+<line class="ref" x1="58" y1="318.8" x2="684" y2="318.8"/>
+<text class="yl" x="52" y="322.3" text-anchor="end">V<tspan class="sub">m</tspan></text>
+<line class="tick" x1="54" y1="383.2" x2="58" y2="383.2"/>
+<line class="ref" x1="58" y1="383.2" x2="684" y2="383.2"/>
+<text class="yl" x="52" y="386.7" text-anchor="end">−V<tspan class="sub">m</tspan></text>
+<path class="tr t-vd" d="M58.0 351.0 L214.2 351.0 L240.1 366.8 L249.5 371.8 L258.5 375.8 L267.4 379.1 L275.9 381.4 L284.4 382.7 L292.9 383.2 L301.0 382.7 L309.5 381.4 L318.0 379.1 L326.9 375.9 L335.9 371.9 L345.3 366.9 L371.2 351.0 L527.4 351.0 L552.9 366.7 L562.3 371.7 L571.2 375.8 L580.2 379.0 L588.7 381.3 L597.2 382.7 L605.7 383.2 L614.2 382.7 L622.7 381.3 L631.2 379.1 L640.1 375.8 L649.1 371.7 L658.9 366.5 L684.0 351.0"/>
+<text class="nt" x="366.0" y="375.1" text-anchor="end">PIV = V<tspan class="sub">m</tspan></text>
+<text class="pl" x="62" y="309">v<tspan class="sub">D</tspan></text>
+<text class="xl" x="58.0" y="404" text-anchor="middle">0</text>
+<text class="xl" x="214.5" y="404" text-anchor="middle">π</text>
+<text class="xl" x="371.0" y="404" text-anchor="middle">2π</text>
+<text class="xl" x="527.5" y="404" text-anchor="middle">3π</text>
+<text class="xl" x="684.0" y="404" text-anchor="middle">4π</text>
+<text class="xl" x="684" y="416" text-anchor="end">ωt</text>
+</svg></div><span class="swipe" aria-hidden="true">swipe →</span><figcaption>To scale. Conduction interval shaded: 0 → π. The diode voltage reaches −V<sub>m</sub> (PIV = V<sub>m</sub>).</figcaption></figure>
+    <div class="box mem"><span class="bh">Formulas (each one comes from that picture)</span>
       <div class="fgrid">
-        <div class="f"><span class="fl">Average</span><span class="fx"><span class="mx">\(V_{\mathrm{dc}}=\dfrac{V_{m}}{\pi }\)</span>, <span class="mx">\(I_{\mathrm{dc}}=\dfrac{V_{m}}{\pi R}\)</span></span></div>
+        <div class="f"><span class="fl">Average: area of one half sine 2V<sub>m</sub> ÷ 2π</span><span class="fx"><span class="mx">\(V_{\mathrm{dc}}=\dfrac{V_{m}}{\pi }\)</span>, <span class="mx">\(I_{\mathrm{dc}}=\dfrac{V_{m}}{\pi R}\)</span></span></div>
         <div class="f"><span class="fl">RMS</span><span class="fx"><span class="mx">\(V_{\mathrm{rms}}=\dfrac{V_{m}}{2}\)</span>, <span class="mx">\(I_{\mathrm{rms}}=\dfrac{V_{m}}{2R}\)</span></span></div>
-        <div class="f"><span class="fl">Power factor</span><span class="fx"><span class="mx">\(\mathrm{PF}=\dfrac{P}{V_{\mathrm{s,rms}}I_{\mathrm{rms}}}=0.707\)</span></span></div>
-        <div class="f"><span class="fl">Figures of merit (MCQ favourites)</span><span class="fx">FF = 1.57 · RF = 1.21 · η = 40.5% · TUF = 0.287 · PIV = V<sub>m</sub></span></div>
+        <div class="f"><span class="fl">Power factor</span><span class="fx"><span class="mx">\(\mathrm{PF}=\dfrac{I_{\mathrm{rms}}^{2}R}{V_{\mathrm{s,rms}}I_{\mathrm{rms}}}=0.707\)</span></span></div>
+        <div class="f"><span class="fl">Diode with a resistance r<sub>on</sub> (asked in 3 past papers)</span><span class="fx">Peak current <span class="mx">\(I_{m}=\dfrac{V_{m}}{R+r_{\mathrm{on}}}\)</span>, output peak I<sub>m</sub>R, then the same formulas with that peak. Diode rms current = I<sub>m</sub>/2. Input power uses R + r<sub>on</sub>. Diode drawn reversed → the output is the negative half: add a minus sign.</span></div>
       </div></div>
-    <div class="box trap"><span class="bh">The r<sub>on</sub> version (2022, 2024 and DU: 6 marks each)</span>
-      <ol class="tight">
-        <li>Peak current: <span class="mx">\(I_{m}=\dfrac{V_{m}}{R+r_{\mathrm{on}}}\)</span>; output peak: <span class="mx">\(V_{m,o}=I_{m}R\)</span>.</li>
-        <li><span class="mx">\(V_{\mathrm{avg}}=V_{m,o}/\pi \)</span>. If the diode is drawn <b>reversed</b>, the output is the negative half: put a minus sign.</li>
-        <li>Diode rms current <span class="mx">\(I_{D,\mathrm{rms}}=I_{m}/2\)</span>. Don't forget to divide by the resistance (the 2022 student wrote 54.9 A instead of 5.49 mA).</li>
-        <li>PF = P / (V<sub>s,rms</sub> I<sub>rms</sub>) ≈ 0.707 when r<sub>on</sub> ≪ R.</li>
-      </ol>
-    </div>
-    <div class="q"><div class="qh"><span class="qn">Try it</span><span class="tag src">Dec 2022 Q5 · 6 marks</span></div><div class="qb">
-      <p>Half-wave rectifier, diode drawn reversed, ideal except r<sub>on</sub>.</p>
-      <table class="given"><tr><th>Supply</th><td>v<sub>s</sub> = 110 sin ωt V</td></tr><tr><th>Load</th><td>R = 10 kΩ, r<sub>on</sub> = 10 Ω</td></tr></table>
-      <p class="find"><b>FIND</b> sketch v<sub>o</sub>; (a) V<sub>avg</sub> (b) I<sub>D,rms</sub> (c) input PF</p></div></div>
+    <div class="q"><div class="qh"><span class="qn">Try it</span><span class="tag src">Dec 2024 Q6 · 6 marks</span></div><div class="qb">
+      <table class="given"><tr><th>Supply</th><td>v<sub>s</sub> = 110 sin ωt V</td></tr><tr><th>Load</th><td>R = 10 Ω, diode r<sub>on</sub> = 1 Ω</td></tr></table>
+      <p class="find"><b>FIND</b> (a) average output voltage (b) diode rms current (c) power factor</p></div></div>
     <details class="sol"><summary>Show the answer</summary>
-      <p>I<sub>m</sub> = 110 / 10 010 = 10.99 mA → V<sub>m,o</sub> = 109.89 V on the negative half-cycles.<br>(a) V<sub>avg</sub> = −109.89/π = <b>−34.98 V</b> · (b) I<sub>D,rms</sub> = I<sub>m</sub>/2 = <b>5.49 mA</b> · (c) PF = <b>0.707</b>. Full solution: <a href="#ex-2022">Dec 2022 paper</a>.</p>
+      <p>I<sub>m</sub> = 110/11 = 10 A → output peak = 10 × 10 = 100 V.<br>(a) V<sub>dc</sub> = 100/π = <b>31.83 V</b> · (b) I<sub>D,rms</sub> = I<sub>m</sub>/2 = <b>5 A</b> · (c) Input power includes the diode's r<sub>on</sub>: P = 5² × (10 + 1) = 275 W; S = (110/√2) × 5 = 388.9 VA; PF = 275/388.9 = <b>0.707</b>. (The student who used only the load's 250 W got 0.643.)</p>
     </details>
+    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="2"> I solved it without looking</label><a class="ft-next" href="#ft-3">Next: step 3 →</a></div>
+  </div>
 
-    <h4>2B · With an R-L load (the biggest question)</h4>
-    <div class="box plain"><span class="bh">The idea, building on 2A</span>
-      <p>Now add an inductor. An inductor resists changes in current: it stores energy while the current rises and gives it back while it falls. So at π, when v<sub>s</sub> turns negative, <b>the current is still flowing and the diode stays ON</b>. It only turns off when the stored energy is used up and the current reaches zero at the <b>extinction angle β</b> (between π and 2π).</p>
-      <p>Between π and β the diode is ON, so v<sub>o</sub> = v<sub>s</sub>, which is <b>negative</b>. That negative piece is why the average is lower than the R-load value. Every formula below just integrates from 0 to β instead of 0 to π.</p>
+  <!-- ================= STEP 3 ================= -->
+  <div class="ft-step" data-step="3">
+    <div class="ft-head"><h3 id="ft-3">Step 3 · Half-wave rectifier with an R-L load</h3><span class="tag hi">11 of 20 marks in 2025</span><span class="tag">2 h</span></div>
+    <div class="box plain"><span class="bh">The idea: step 2 plus an inductor</span>
+      <p>Same circuit as step 2, but the load now has an inductor. From step 0, the inductor resists changes in current. So at π, when v<sub>s</sub> turns negative, <b>the current is still flowing and the diode stays ON</b>. It only turns off when the inductor's stored energy is used up and the current reaches zero, at an angle called <b>β</b> (the extinction angle), somewhere between π and 2π.</p>
+      <p>Between π and β the diode is ON, so v<sub>o</sub> = v<sub>s</sub>, which is <b>negative</b>. In the picture: the orange v<sub>o</sub> dips below zero after π, and the blue current is zero again only at β. That negative piece makes the average smaller than step 2's V<sub>m</sub>/π.</p>
     </div>
     <figure class="wv"><div class="scroll" tabindex="0"><svg class="wave" viewBox="0 0 700 432" role="img" aria-label="Half-wave R-L: the output follows the supply until the extinction angle beta = 201 degrees" xmlns="http://www.w3.org/2000/svg">
 <line class="grid" x1="58.0" y1="20" x2="58.0" y2="388"/>
@@ -561,51 +642,51 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
 <text class="gl" x="545.5" y="404" text-anchor="middle">2π+β</text>
 <text class="xl" x="684" y="416" text-anchor="end">ωt</text>
 </svg></div><span class="swipe" aria-hidden="true">swipe →</span><figcaption>To scale for the Lect 2 example (R = 100 Ω, L = 0.1 H, ω = 377): β = 201°. Shaded: the diode conducts from 0 to β.</figcaption></figure>
-    <div class="box mem"><span class="bh">Formulas to memorise (R-L load)</span>
+    <div class="box mem"><span class="bh">Formulas to memorise</span>
       <div class="fgrid">
-        <div class="f"><span class="fl">Load constants</span><span class="fx"><span class="mx">\(Z=\sqrt{R^{2}+(\omega L)^{2}}\)</span>, <span class="mx">\(\theta =\tan ^{-1}\dfrac{\omega L}{R}\)</span>, <span class="mx">\(\omega \tau =\dfrac{\omega L}{R}\)</span></span></div>
-        <div class="f"><span class="fl">Current, 0 ≤ ωt ≤ β</span><span class="fx"><span class="mx">\(i(\omega t)=\dfrac{V_{m}}{Z}[\sin (\omega t-\theta )+\sin \theta \ e^{-\omega t/\omega \tau }]\)</span></span></div>
-        <div class="f"><span class="fl">β: set i(β) = 0, then SOLVE</span><span class="fx"><span class="mx">\(\sin (\beta -\theta )+\sin \theta \ e^{-\beta /\omega \tau }=0\)</span></span></div>
-        <div class="f"><span class="fl">Average</span><span class="fx"><span class="mx">\(V_{\mathrm{dc}}=\dfrac{V_{m}}{2\pi }(1-\cos \beta )\)</span>, <span class="mx">\(I_{\mathrm{dc}}=\dfrac{V_{\mathrm{dc}}}{R}\)</span></span></div>
+        <div class="f"><span class="fl">Load constants (from step 0)</span><span class="fx"><span class="mx">\(Z=\sqrt{R^{2}+(\omega L)^{2}}\)</span>, <span class="mx">\(\theta =\tan ^{-1}\dfrac{\omega L}{R}\)</span>, <span class="mx">\(\omega \tau =\dfrac{\omega L}{R}\)</span></span></div>
+        <div class="f"><span class="fl">Current while the diode is ON (0 → β)</span><span class="fx"><span class="mx">\(i(\omega t)=\dfrac{V_{m}}{Z}[\sin (\omega t-\theta )+\sin \theta \ e^{-\omega t/\omega \tau }]\)</span></span></div>
+        <div class="f"><span class="fl">β: the angle where that current is zero</span><span class="fx"><span class="mx">\(\sin (\beta -\theta )+\sin \theta \ e^{-\beta /\omega \tau }=0\)</span> (solve on the calculator)</span></div>
+        <div class="f"><span class="fl">Average: same as step 2, but the area runs 0 → β</span><span class="fx"><span class="mx">\(V_{\mathrm{dc}}=\dfrac{V_{m}}{2\pi }(1-\cos \beta )\)</span>, <span class="mx">\(I_{\mathrm{dc}}=\dfrac{V_{\mathrm{dc}}}{R}\)</span></span></div>
         <div class="f"><span class="fl">RMS (slide formula)</span><span class="fx"><span class="mx">\(V_{\mathrm{rms}}=\sqrt{\dfrac{V_{m}^{2}}{4\pi }(\beta -\tfrac{1}{2}\sin 2\beta )}\)</span>, <span class="mx">\(I_{\mathrm{rms}}=\dfrac{V_{\mathrm{rms}}}{Z}\)</span></span></div>
-        <div class="f"><span class="fl">Power, PF</span><span class="fx"><span class="mx">\(P=I_{\mathrm{rms}}^{2}R\)</span>, <span class="mx">\(\mathrm{PF}=\dfrac{P}{V_{\mathrm{s,rms}}I_{\mathrm{rms}}}\)</span> (not cos θ)</span></div>
+        <div class="f"><span class="fl">Power and PF</span><span class="fx"><span class="mx">\(P=I_{\mathrm{rms}}^{2}R\)</span>, <span class="mx">\(\mathrm{PF}=\dfrac{P}{V_{\mathrm{s,rms}}I_{\mathrm{rms}}}\)</span> (not cos θ)</span></div>
       </div></div>
-    <div class="box"><span class="bh">The 7-line recipe (write it in this order)</span>
-      <ol class="tight">
-        <li>Z, θ and ωτ. Keep θ and ωτ <b>in radians</b>.</li>
-        <li>Write i(ωt) with your numbers: that is part (a).</li>
-        <li>Solve for β on the calculator (box below).</li>
-        <li>V<sub>dc</sub>, then I<sub>dc</sub> = V<sub>dc</sub>/R.</li>
-        <li>V<sub>rms</sub>, then I<sub>rms</sub> = V<sub>rms</sub>/Z.</li>
-        <li>P = I<sub>rms</sub><sup>2</sup>R.</li>
-        <li>PF = P / (V<sub>s,rms</sub> × I<sub>rms</sub>), with V<sub>s,rms</sub> = V<sub>m</sub>/√2.</li>
-      </ol>
-    </div>
     <div class="box trap"><span class="bh">Finding β on the calculator (Casio fx-991)</span>
       <ol class="tight">
-        <li>Set the calculator to <b>radians</b> (fx-991ES: SHIFT MODE → Rad · fx-991EX/CW: SHIFT SETUP → Radian).</li>
-        <li>Type the equation with X for β, using your numbers. For 2025: <code>sin(X − 0.3043) + 0.2996 × e^(−X ÷ 0.314)</code>.</li>
-        <li>Press <b>SHIFT CALC</b> (SOLVE). When it asks for a start value, enter <b>3.5</b> and press =.</li>
-        <li>Check: β must be between π (3.14) and 2π (6.28). For 2025 you should get <b>3.4458 rad = 197.4°</b>.</li>
+        <li>Set <b>radians</b> (fx-991ES: SHIFT MODE → Rad · fx-991EX/CW: SHIFT SETUP → Radian).</li>
+        <li>Type the β equation with X in place of β and your numbers in place of θ and ωτ.</li>
+        <li>Press <b>SHIFT CALC</b> (SOLVE), enter <b>3.5</b> as the start value, press =.</li>
+        <li>β must be between π (3.14) and 2π (6.28). If not, start again from 4.</li>
       </ol>
     </div>
-    <div class="box"><span class="bh">The 4-mark "explain and draw" part (2025 Q1.3)</span>
-      <p>Write: while the diode is ON, KVL gives V<sub>m</sub> sin ωt = Ri + L di/dt. The current starts at zero, lags the voltage, and peaks after π/2. At π the inductor keeps the current flowing, so the diode stays ON and v<sub>o</sub> follows v<sub>s</sub> into the negative half until i = 0 at β. From β to 2π, i = 0 and v<sub>o</sub> = 0. Draw the waveform above: v<sub>o</sub> = v<sub>s</sub> from 0 to β, and i rising from 0, lagging, back to 0 at β.</p>
-    </div>
-    <div class="q"><div class="qh"><span class="qn">Try it first</span><span class="tag src">Lect 2 · slides 22–23 (Ex 2.8)</span></div><div class="qb">
+    <div class="q"><div class="qh"><span class="qn">Worked example</span><span class="tag src">Lect 2 · slides 22–23</span><span class="tag hi">2025 exam twin</span></div><div class="qb">
       <table class="given"><tr><th>Load</th><td>R = 100 Ω, L = 0.1 H</td></tr><tr><th>Supply</th><td>V<sub>m</sub> = 100 V, ω = 377 rad/s</td></tr></table>
       <p class="find"><b>FIND</b> (a) i(ωt) (b) I<sub>dc</sub> (c) I<sub>rms</sub> (d) P (e) PF</p></div></div>
-    <details class="sol"><summary>Show the answer</summary>
-      <p>Z = 106.87 Ω, θ = 0.36 rad, ωτ = 0.377 · i(ωt) = 0.936 sin(ωt − 0.36) + 0.330 e<sup>−ωt/0.377</sup> A · β = 3.502 rad = 201° · I<sub>dc</sub> = <b>0.308 A</b> · I<sub>rms</sub> = <b>0.470 A</b> · P = <b>22.1 W</b> · PF = <b>0.665</b>. (The slide prints 0.457 A / 21 W / 0.65; those are arithmetic slips.) Full working: <a href="#ex-hw-rl">Ex 2.8</a>.</p>
-    </details>
-    <div class="q"><div class="qh"><span class="qn">Then the real exam</span><span class="tag hi">Dec 2025 Q2.1 · 7 marks</span></div><div class="qb">
+    <div class="sol"><div class="sh">Read it line by line: this is how to write it</div>
+      <ol class="ft-work">
+        <li>ωL = 377 × 0.1 = 37.7 Ω → Z = √(100² + 37.7²) = <b>106.87 Ω</b></li>
+        <li>θ = tan<sup>−1</sup>(37.7/100) = 20.7° = <b>0.36 rad</b> · ωτ = 37.7/100 = <b>0.377 rad</b></li>
+        <li>(a) i(ωt) = (100/106.87)[sin(ωt − 0.36) + sin(0.36) e<sup>−ωt/0.377</sup>] = <b>0.936 sin(ωt − 0.36) + 0.330 e<sup>−ωt/0.377</sup> A</b></li>
+        <li>β: SOLVE sin(X − 0.36) + 0.3523 e<sup>−X/0.377</sup> = 0 from 3.5 → <b>β = 3.502 rad = 201°</b></li>
+        <li>V<sub>dc</sub> = (100/2π)(1 − cos 3.502) = 30.81 V → (b) I<sub>dc</sub> = 30.81/100 = <b>0.308 A</b></li>
+        <li>V<sub>rms</sub> = √[(100²/4π)(3.502 − ½ sin 7.004)] = 50.24 V → (c) I<sub>rms</sub> = 50.24/106.87 = <b>0.470 A</b></li>
+        <li>(d) P = 0.470² × 100 = <b>22.1 W</b></li>
+        <li>(e) PF = 22.1 / ((100/√2) × 0.470) = <b>0.665</b></li>
+      </ol>
+      <p class="small">The slide prints 0.457 A, 21 W and 0.65: those are arithmetic slips. The numbers above are right.</p>
+    </div>
+    <div class="box"><span class="bh">The 4-mark "explain and draw" question (2025 Q1.3)</span>
+      <p><b>Write:</b> When v<sub>s</sub> becomes positive the diode is forward biased and v<sub>o</sub> = v<sub>s</sub>. KVL: V<sub>m</sub> sin ωt = Ri + L di/dt. The current starts from zero and lags the voltage. At ωt = π the inductor keeps the current flowing, so the diode stays ON and v<sub>o</sub> follows v<sub>s</sub> into the negative half until i = 0 at β. From β to 2π the diode is OFF, i = 0 and v<sub>o</sub> = 0.</p>
+      <p><b>Draw:</b> the picture above: v<sub>o</sub> = v<sub>s</sub> from 0 to β (including the negative dip), and i rising from 0, peaking after π/2, back to zero at β.</p>
+    </div>
+    <div class="q"><div class="qh"><span class="qn">Your turn: the real exam</span><span class="tag hi">Dec 2025 Q2.1 · 7 marks</span></div><div class="qb">
       <table class="given"><tr><th>Load</th><td>R = 100 Ω, L = 0.1 H</td></tr><tr><th>Supply</th><td>V<sub>m</sub> = 200 V, ω = 314 rad/s</td></tr></table>
       <p class="find"><b>FIND</b> (a) i(ωt) (b) I<sub>dc</sub> (c) I<sub>rms</sub> (d) P (e) PF</p></div></div>
     <details class="sol"><summary>Show the answer</summary>
       <p>Z = 104.81 Ω, θ = 0.3043 rad, ωτ = 0.314 · i(ωt) = 1.908[sin(ωt − 0.304) + 0.300 e<sup>−ωt/0.314</sup>] A · β = 3.4458 rad = 197.4° · V<sub>dc</sub> = 62.2 V · I<sub>dc</sub> = <b>0.622 A</b> · I<sub>rms</sub> = <b>0.957 A</b> · P = <b>91.6 W</b> · PF = <b>0.677</b>.</p>
     </details>
-    <div class="box calc-box"><span class="bh">Check your own numbers</span>
-      <p class="small">Make up any R, L, ω and V<sub>m</sub>, solve on paper, then compare. Uses the same slide formulas as above.</p>
+    <div class="box calc-box"><span class="bh">Check any numbers of your own</span>
+      <p class="small">Change the values, solve on paper, then compare. Same formulas as above.</p>
       <div class="calc" id="calcHW">
         <label>R (Ω)<input type="number" step="any" inputmode="decimal" data-k="R" value="100"></label>
         <label>L (H)<input type="number" step="any" inputmode="decimal" data-k="L" value="0.1"></label>
@@ -614,15 +695,14 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
       </div>
       <div class="calc-out" id="outHW" aria-live="polite"></div>
     </div>
-    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="2"> I solved 2025 Q2.1 without looking</label><a class="ft-next" href="#ft-3">Next: step 3 →</a></div>
+    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="3"> I solved 2025 Q2.1 without looking</label><a class="ft-next" href="#ft-4">Next: step 4 →</a></div>
   </div>
 
-  <!-- ================= STEP 3 ================= -->
-  <div class="ft-step" data-step="3">
-    <div class="ft-head"><h3 id="ft-3">Step 3 · The bridge circuit and the firing angle α</h3><span class="tag">25 min · needed for step 4</span></div>
-    <div class="box plain"><span class="bh">Part 1: full wave (from Lecture 4)</span>
-      <p>The half-wave rectifier throws the negative half away. A <b>full-wave</b> rectifier flips it up instead, so the load gets a hump every half-cycle and the average doubles: <span class="mx">\(V_{o}=\dfrac{2V_{m}}{\pi }\)</span>.</p>
-      <p><b>Bridge</b> (4 diodes): D1 + D2 conduct together in the positive half, D3 + D4 together in the negative half. The current goes the same way through the load both times. Each diode blocks V<sub>m</sub>. <b>Centre-tap</b> (2 diodes): each half of the transformer secondary feeds the load for one half-cycle; each diode blocks 2V<sub>m</sub>.</p>
+  <!-- ================= STEP 4 ================= -->
+  <div class="ft-step" data-step="4">
+    <div class="ft-head"><h3 id="ft-4">Step 4 · Controlled bridge with an R-L load (Lecture 7)</h3><span class="tag hi">5 marks in 2025</span><span class="tag">1 h</span></div>
+    <div class="box plain"><span class="bh">Part 1: the bridge</span>
+      <p>Step 2 threw the negative half away. A <b>bridge</b> of 4 switches flips it up instead: in the positive half, switches 1 and 2 connect the load; in the negative half, switches 3 and 4 connect it the other way round. The current through the load goes the same direction both times, so the load gets a hump every half-cycle (picture below).</p>
     </div>
     <figure class="wv"><div class="scroll" tabindex="0"><svg class="wave" viewBox="0 0 700 628" role="img" aria-label="Bridge with R load: D1-D2 conduct in the positive half, D3-D4 in the negative half; PIV = Vm" xmlns="http://www.w3.org/2000/svg">
 <line class="grid" x1="58.0" y1="20" x2="58.0" y2="584"/>
@@ -687,26 +767,13 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
 <text class="xl" x="684.0" y="600" text-anchor="middle">4π</text>
 <text class="xl" x="684" y="612" text-anchor="end">ωt</text>
 </svg></div><span class="swipe" aria-hidden="true">swipe →</span><figcaption>Bridge with R, to scale. i<sub>s</sub> is a full sine in phase with v<sub>s</sub>, so PF = 1. v<sub>D1</sub> reaches −V<sub>m</sub>.</figcaption></figure>
-    <div class="box plain"><span class="bh">Part 2: swap the diodes for SCRs (from Lecture 6)</span>
-      <p>From step 1: an SCR does not turn on by itself. It needs forward bias <b>and</b> a gate pulse. We send the pulse late, at the <b>firing angle α</b>. Everything from 0 to α is cut off, so a bigger α gives a smaller average. That is how the DC output is controlled.</p>
-      <p>In a controlled bridge, T1 + T2 are fired at α and T3 + T4 at π + α. With a resistor only, each hump is trimmed the same way:</p>
-      <p><span class="mx">\(V_{o}=\dfrac{V_{m}}{\pi }(1+\cos \alpha )\)</span> &nbsp;(R load). At α = 0 this gives 2V<sub>m</sub>/π, the uncontrolled bridge.</p>
-      <p><b>Next:</b> put an inductor in the load, like step 2 did to the half-wave rectifier. That is Lecture 7.</p>
+    <div class="box plain"><span class="bh">Part 2: "controlled" means thyristors and the firing angle α</span>
+      <p>Replace the 4 diodes with thyristors (step 1: a thyristor waits for a gate pulse). We send the pulse late, at an angle <b>α</b> (the firing angle): T1 + T2 fire at α, T3 + T4 fire at π + α. Firing later means less of each hump gets through, so <b>α controls the DC output</b>.</p>
     </div>
-    <p class="small">More detail: <a href="#lect-4">bridge and centre-tap</a> · <a href="#lect-6">SCR and α</a> · <a href="#cfw-r">controlled bridge with R</a>.</p>
-    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="3"> I can explain α and draw the bridge</label><a class="ft-next" href="#ft-4">Next: step 4 →</a></div>
-  </div>
-
-  <!-- ================= STEP 4 ================= -->
-  <div class="ft-step" data-step="4">
-    <div class="ft-head"><h3 id="ft-4">Step 4 · Lecture 7: controlled bridge with an R-L load</h3><span class="tag hi">5 marks in 2025</span><span class="tag">45 min</span></div>
-    <div class="box plain"><span class="bh">The idea, building on steps 2 and 3</span>
-      <p>Same story as step 2: after T1 + T2 fire at α, the inductor keeps the current flowing past π, so v<sub>o</sub> follows v<sub>s</sub> into the negative half. Now there are two cases:</p>
-      <ul class="tight">
-        <li><b>Continuous</b>: the current is still flowing when T3 + T4 fire at π + α. They take over and T1 + T2 turn off. The current never reaches zero and v<sub>o</sub> is negative from π to π + α.</li>
-        <li><b>Discontinuous</b>: the current dies (at β) before π + α. This one is rarely asked.</li>
-      </ul>
-      <p>The test uses the same θ as step 2: <b>continuous if α ≤ θ = tan<sup>−1</sup>(ωL/R)</b>. Then each pair conducts for exactly half a cycle (α to π + α), and the average is a clean formula: no β and no SOLVE.</p>
+    <div class="box plain"><span class="bh">Part 3: add the inductor, as in step 3</span>
+      <p>Just like step 3, the inductor keeps T1 + T2 conducting after π, so v<sub>o</sub> follows v<sub>s</sub> into the negative half. If the current is still flowing when T3 + T4 fire at π + α, they take over and the current <b>never reaches zero</b>. This is called <b>continuous current</b>, and it happens when</p>
+      <p style="text-align:center"><span class="mx">\(\alpha \le \theta =\tan ^{-1}\dfrac{\omega L}{R}\)</span> &nbsp;(the same θ as step 3)</p>
+      <p>Then each pair conducts for exactly half a cycle, α to π + α, and the average comes out as a clean formula, with no β and no SOLVE. In the picture: the current (blue) never touches zero, and v<sub>o</sub> (orange) is negative from π to π + α.</p>
     </div>
     <figure class="wv"><div class="scroll" tabindex="0"><svg class="wave" viewBox="0 0 700 334" role="img" aria-label="Controlled bridge R-L with continuous current (alpha 60 below theta 75): the output goes negative after pi" xmlns="http://www.w3.org/2000/svg">
 <line class="grid" x1="58.0" y1="20" x2="58.0" y2="290"/>
@@ -755,31 +822,37 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
 </svg></div><span class="swipe" aria-hidden="true">swipe →</span><figcaption>To scale for the 2025 exam (α = 60°, θ = 75°): the current never touches zero and v<sub>o</sub> is negative from π to π + α.</figcaption></figure>
     <div class="box mem"><span class="bh">Formulas to memorise</span>
       <div class="fgrid">
-        <div class="f"><span class="fl">Continuous test</span><span class="fx"><span class="mx">\(\alpha \le \theta =\tan ^{-1}\dfrac{\omega L}{R}\)</span>, with <span class="mx">\(\omega =2\pi f\)</span></span></div>
+        <div class="f"><span class="fl">Continuous test (write it as a sentence)</span><span class="fx"><span class="mx">\(\theta =\tan ^{-1}\dfrac{\omega L}{R}\)</span>; α ≤ θ → continuous</span></div>
         <div class="f"><span class="fl">Average</span><span class="fx"><span class="mx">\(V_{\mathrm{dc}}=\dfrac{2V_{m}}{\pi }\cos \alpha \)</span>, <span class="mx">\(I_{\mathrm{dc}}=\dfrac{V_{\mathrm{dc}}}{R}\)</span></span></div>
-        <div class="f"><span class="fl">RMS and power (the doctor's method)</span><span class="fx"><span class="mx">\(I_{\mathrm{rms}}\cong I_{\mathrm{dc}}\)</span>, <span class="mx">\(P=I_{\mathrm{dc}}^{2}R\)</span></span></div>
-        <div class="f"><span class="fl">Bonus fact</span><span class="fx">α &gt; 90° → V<sub>dc</sub> negative (inverter mode)</span></div>
+        <div class="f"><span class="fl">RMS current and power (the doctor's method)</span><span class="fx"><span class="mx">\(I_{\mathrm{rms}}\cong I_{\mathrm{dc}}\)</span>, <span class="mx">\(P=I_{\mathrm{dc}}^{2}R\)</span></span></div>
       </div></div>
     <div class="box trap"><span class="bh">Traps</span>
       <ul class="tight">
-        <li>The question gives f, not ω: at 60 Hz, ω = 377 rad/s; at 50 Hz, ω = 314 rad/s.</li>
+        <li>The question gives f, not ω: ω = 2πf (60 Hz → 377 rad/s).</li>
         <li>The question gives V rms: V<sub>m</sub> = √2 × V<sub>rms</sub>.</li>
-        <li>Write the comparison as a sentence: "α = 60° &lt; θ = 75.14° → continuous". That line is a mark on its own.</li>
+        <li>Write "α = 60° &lt; θ = … → continuous". That line earns a mark on its own.</li>
       </ul>
     </div>
-    <div class="q"><div class="qh"><span class="qn">Try it first</span><span class="tag src">Lect 7 · slide 25 (Ex 7.2)</span></div><div class="qb">
+    <div class="q"><div class="qh"><span class="qn">Worked example</span><span class="tag src">Lect 7 · slide 25</span><span class="tag hi">2025 exam twin</span></div><div class="qb">
       <table class="given"><tr><th>Supply</th><td>120 V rms, 50 Hz</td></tr><tr><th>Load</th><td>R = 10 Ω, L = 100 mH</td></tr><tr><th>Firing angle</th><td>α = 60°</td></tr></table>
       <p class="find"><b>FIND</b> (a) show the current is continuous (b) I<sub>dc</sub> (c) power</p></div></div>
-    <details class="sol"><summary>Show the answer</summary>
-      <p>θ = tan<sup>−1</sup>(31.4/10) = 72.34° &gt; 60° → continuous · V<sub>dc</sub> = 2(169.7)cos 60°/π = 54.02 V · I<sub>dc</sub> = <b>5.40 A</b> · P ≅ 5.40² × 10 = <b>291.8 W</b>.</p>
-    </details>
-    <div class="q"><div class="qh"><span class="qn">Then the real exam</span><span class="tag hi">Dec 2025 Q2.2 · 5 marks</span></div><div class="qb">
+    <div class="sol"><div class="sh">Read it line by line: this is how to write it</div>
+      <ol class="ft-work">
+        <li>ω = 2π × 50 = 314.2 rad/s → ωL = 31.4 Ω</li>
+        <li>(a) θ = tan<sup>−1</sup>(31.4/10) = <b>72.34°</b>. α = 60° &lt; θ = 72.34° → <b>continuous current</b></li>
+        <li>V<sub>m</sub> = √2 × 120 = 169.7 V</li>
+        <li>V<sub>dc</sub> = (2 × 169.7/π) cos 60° = 54.02 V</li>
+        <li>(b) I<sub>dc</sub> = 54.02/10 = <b>5.40 A</b></li>
+        <li>(c) I<sub>rms</sub> ≅ I<sub>dc</sub> → P = 5.40² × 10 = <b>291.8 W</b></li>
+      </ol>
+    </div>
+    <div class="q"><div class="qh"><span class="qn">Your turn: the real exam</span><span class="tag hi">Dec 2025 Q2.2 · 5 marks</span></div><div class="qb">
       <table class="given"><tr><th>Supply</th><td>150 V rms, 60 Hz</td></tr><tr><th>Load</th><td>R = 10 Ω, L = 100 mH</td></tr><tr><th>Firing angle</th><td>α = 60°</td></tr></table>
       <p class="find"><b>FIND</b> (a) verify continuous current (b) I<sub>dc</sub> (c) power</p></div></div>
     <details class="sol"><summary>Show the answer</summary>
-      <p>θ = tan<sup>−1</sup>(37.7/10) = 75.14° &gt; 60° → continuous · V<sub>dc</sub> = 2(212.1)cos 60°/π = 67.52 V · I<sub>dc</sub> = <b>6.75 A</b> · P ≅ <b>455.9 W</b>.</p>
+      <p>ωL = 37.7 Ω → θ = 75.14° &gt; 60° → continuous · V<sub>m</sub> = 212.1 V · V<sub>dc</sub> = 67.52 V · I<sub>dc</sub> = <b>6.75 A</b> · P ≅ <b>455.9 W</b>.</p>
     </details>
-    <div class="box calc-box"><span class="bh">Check your own numbers</span>
+    <div class="box calc-box"><span class="bh">Check any numbers of your own</span>
       <div class="calc" id="calcCB">
         <label>V<sub>s</sub> (V rms)<input type="number" step="any" inputmode="decimal" data-k="Vs" value="150"></label>
         <label>f (Hz)<input type="number" step="any" inputmode="decimal" data-k="f" value="60"></label>
@@ -789,273 +862,25 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
       </div>
       <div class="calc-out" id="outCB" aria-live="polite"></div>
     </div>
-    <p class="small">More detail: <a href="#lect-7">Lecture 7</a> · <a href="#cont">continuous current</a>.</p>
     <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="4"> I solved 2025 Q2.2 without looking</label><a class="ft-next" href="#ft-5">Next: step 5 →</a></div>
   </div>
 
   <!-- ================= STEP 5 ================= -->
   <div class="ft-step" data-step="5">
-    <div class="ft-head"><h3 id="ft-5">Step 5 · Lecture 3: freewheeling diode and capacitor filter</h3><span class="tag md">4 of 6 exams</span><span class="tag">1 h</span></div>
-    <h4>5A · Freewheeling diode (FWD)</h4>
-    <div class="box plain"><span class="bh">The idea, fixing step 2's problem</span>
-      <p>In step 2, the negative piece of v<sub>o</sub> (π to β) lowered the average. Put a second diode D2 across the R-L load. When v<sub>s</sub> goes negative, the inductor's current now "freewheels" round L → R → D2 instead of through the supply, so <b>v<sub>o</sub> = 0 instead of negative</b>. The output is the plain half sine again, so the R-load formula comes back: <span class="mx">\(V_{o}=\dfrac{V_{m}}{\pi }\)</span>, <span class="mx">\(I_{o}=\dfrac{V_{o}}{R}\)</span>.</p>
-    </div>
-    <figure class="wv"><div class="scroll" tabindex="0"><svg class="wave" viewBox="0 0 700 432" role="img" aria-label="Half-wave with freewheeling diode: the output is never negative; D2 carries the current in the negative half" xmlns="http://www.w3.org/2000/svg">
-<line class="grid" x1="58.0" y1="20" x2="58.0" y2="388"/>
-<line class="grid" x1="214.5" y1="20" x2="214.5" y2="388"/>
-<line class="grid" x1="371.0" y1="20" x2="371.0" y2="388"/>
-<line class="grid" x1="527.5" y1="20" x2="527.5" y2="388"/>
-<line class="grid" x1="684.0" y1="20" x2="684.0" y2="388"/>
-<line class="ax" x1="58" y1="83.0" x2="684" y2="83.0"/>
-<line class="ax" x1="58" y1="20" x2="58" y2="94"/>
-<line class="tick" x1="54" y1="28.2" x2="58" y2="28.2"/>
-<line class="ref" x1="58" y1="28.2" x2="684" y2="28.2"/>
-<text class="yl" x="52" y="31.7" text-anchor="end">V<tspan class="sub">m</tspan></text>
-<polygon class="f-vo" points="58.0,83.0 58.0,83.0 72.3,67.5 83.1,56.6 92.9,47.7 101.9,40.8 110.8,35.2 119.3,31.4 127.8,29.0 136.3,28.2 144.8,29.0 153.3,31.4 161.8,35.3 170.8,40.9 179.7,47.8 189.1,56.3 214.6,83.0 370.8,83.0 396.7,56.0 406.1,47.5 415.1,40.6 424.0,35.1 432.5,31.3 441.0,29.0 449.1,28.2 457.6,29.0 466.1,31.3 474.6,35.2 483.5,40.7 492.5,47.6 501.9,56.1 527.8,83.0 684.0,83.0 684.0,83.0"/>
-<path class="tr t-vo" d="M58.0 83.0 L72.3 67.5 L83.1 56.6 L92.9 47.7 L101.9 40.8 L110.8 35.2 L119.3 31.4 L127.8 29.0 L136.3 28.2 L144.8 29.0 L153.3 31.4 L161.8 35.3 L170.8 40.9 L179.7 47.8 L189.1 56.3 L214.6 83.0 L370.8 83.0 L396.7 56.0 L406.1 47.5 L415.1 40.6 L424.0 35.1 L432.5 31.3 L441.0 29.0 L449.1 28.2 L457.6 29.0 L466.1 31.3 L474.6 35.2 L483.5 40.7 L492.5 47.6 L501.9 56.1 L527.8 83.0 L684.0 83.0"/>
-<text class="pl" x="62" y="15">v<tspan class="sub">o</tspan></text>
-<line class="ax" x1="58" y1="185.8" x2="684" y2="185.8"/>
-<line class="ax" x1="58" y1="118" x2="58" y2="192"/>
-<line class="tick" x1="54" y1="145.3" x2="58" y2="145.3"/>
-<line class="ref" x1="58" y1="145.3" x2="684" y2="145.3"/>
-<text class="yl" x="52" y="148.8" text-anchor="end">I<tspan class="sub">o</tspan></text>
-<path class="tr t-io" d="M58.0 161.0 L66.1 161.5 L73.2 161.4 L80.8 160.5 L90.2 158.5 L109.0 152.4 L141.7 138.7 L159.1 132.3 L168.1 129.9 L176.1 128.3 L183.7 127.4 L190.9 127.1 L199.0 127.5 L207.9 128.9 L258.0 141.5 L281.3 146.5 L309.0 151.7 L338.6 156.5 L371.2 161.0 L378.8 161.5 L386.4 161.3 L400.3 159.2 L414.2 155.3 L426.7 150.6 L459.4 136.8 L475.0 131.5 L488.9 128.3 L503.7 127.1 L511.7 127.5 L521.1 128.9 L563.2 139.7 L606.6 148.9 L643.7 155.3 L684.0 161.0"/>
-<text class="pl" x="62" y="113">i<tspan class="sub">o</tspan></text>
-<rect class="cond" x="58.0" y="216" width="156.5" height="74"/>
-<rect class="cond" x="371.0" y="216" width="156.5" height="74"/>
-<line class="ax" x1="58" y1="283.8" x2="684" y2="283.8"/>
-<line class="ax" x1="58" y1="216" x2="58" y2="290"/>
-<path class="tr t-io" d="M58.0 283.8 L58.4 259.0 L66.5 259.6 L75.0 259.2 L82.6 258.2 L92.0 256.1 L109.0 250.4 L141.7 236.7 L154.2 232.0 L168.1 227.9 L179.3 225.8 L188.2 225.1 L197.2 225.3 L206.6 226.6 L214.2 228.4 L214.6 283.8 L370.8 283.8 L371.2 259.0 L378.8 259.5 L386.4 259.3 L394.0 258.4 L403.4 256.5 L420.4 251.0 L456.2 236.1 L471.9 230.4 L479.5 228.3 L488.9 226.3 L503.7 225.1 L514.9 225.8 L527.4 228.4 L527.8 283.8 L684.0 283.8"/>
-<text class="pl" x="62" y="211">i<tspan class="sub">D1</tspan></text>
-<rect class="cond" x="214.5" y="314" width="156.5" height="74"/>
-<rect class="cond" x="527.5" y="314" width="156.5" height="74"/>
-<line class="ax" x1="58" y1="381.8" x2="684" y2="381.8"/>
-<line class="ax" x1="58" y1="314" x2="58" y2="388"/>
-<path class="tr t-ix" d="M58.0 357.0 L58.4 381.8 L214.2 381.8 L214.6 326.5 L251.8 336.1 L288.9 344.0 L327.8 350.8 L370.8 356.9 L371.2 381.8 L527.4 381.8 L527.8 326.6 L563.2 335.7 L602.1 344.0 L643.7 351.3 L684.0 357.0"/>
-<text class="pl" x="62" y="309">i<tspan class="sub">D2</tspan></text>
-<text class="xl" x="58.0" y="404" text-anchor="middle">0</text>
-<text class="xl" x="214.5" y="404" text-anchor="middle">π</text>
-<text class="xl" x="371.0" y="404" text-anchor="middle">2π</text>
-<text class="xl" x="527.5" y="404" text-anchor="middle">3π</text>
-<text class="xl" x="684.0" y="404" text-anchor="middle">4π</text>
-<text class="xl" x="684" y="416" text-anchor="end">ωt</text>
-</svg></div><span class="swipe" aria-hidden="true">swipe →</span><figcaption>To scale for the Lect 3 example (R = 2 Ω, L = 25 mH, 50 Hz): the current never reaches zero. D1 and D2 take turns.</figcaption></figure>
-    <div class="box"><span class="bh">Theory answer: "What does a FWD do to the output power?" (DU and MU)</span>
-      <p>The negative part of v<sub>o</sub> disappears, so <b>V<sub>dc</sub> and I<sub>dc</sub> increase</b> (P<sub>dc</sub> = V<sub>dc</sub>I<sub>dc</sub> increases), the <b>output rms voltage decreases</b>, and the load current becomes continuous and smoother.</p>
-    </div>
-    <h4>5B · Capacitor filter</h4>
-    <div class="box plain"><span class="bh">The idea</span>
-      <p>A capacitor across R works like a small water tank. It charges up to V<sub>m</sub> while the diode conducts. After the peak, v<sub>s</sub> falls faster than the capacitor can discharge, so the diode turns off and the capacitor feeds the load alone, decaying slowly (time constant RC). When v<sub>s</sub> rises above it again, the diode turns back on. The result is an almost flat output with a small saw-tooth <b>ripple ΔV<sub>o</sub></b>.</p>
-      <p>The exam question (2022, DU, 2024: 6 marks) is to <b>draw v<sub>o</sub> for low, medium and high C</b>: low C, v<sub>o</sub> almost follows the half sine; medium C, a visible saw-tooth; high C, nearly flat at V<sub>m</sub>.</p>
-    </div>
-    <figure class="wv"><div class="scroll" tabindex="0"><svg class="wave" viewBox="0 0 700 334" role="img" aria-label="Output voltage with a small, medium and large filter capacitor" xmlns="http://www.w3.org/2000/svg">
-<line class="grid" x1="58.0" y1="20" x2="58.0" y2="290"/>
-<line class="grid" x1="214.5" y1="20" x2="214.5" y2="290"/>
-<line class="grid" x1="371.0" y1="20" x2="371.0" y2="290"/>
-<line class="grid" x1="527.5" y1="20" x2="527.5" y2="290"/>
-<line class="grid" x1="684.0" y1="20" x2="684.0" y2="290"/>
-<line class="ax" x1="58" y1="57.0" x2="684" y2="57.0"/>
-<line class="ax" x1="58" y1="20" x2="58" y2="94"/>
-<line class="tick" x1="54" y1="24.8" x2="58" y2="24.8"/>
-<line class="ref" x1="58" y1="24.8" x2="684" y2="24.8"/>
-<text class="yl" x="52" y="28.3" text-anchor="end">V<tspan class="sub">m</tspan></text>
-<line class="tick" x1="54" y1="89.2" x2="58" y2="89.2"/>
-<line class="ref" x1="58" y1="89.2" x2="684" y2="89.2"/>
-<text class="yl" x="52" y="92.7" text-anchor="end">−V<tspan class="sub">m</tspan></text>
-<path class="tr t-vs dash" d="M58.0 57.0 L83.1 41.5 L92.9 36.3 L101.9 32.2 L110.8 28.9 L119.3 26.7 L127.8 25.3 L136.3 24.8 L144.8 25.3 L153.8 26.8 L162.7 29.3 L171.7 32.6 L181.5 37.2 L191.8 42.8 L232.5 68.4 L250.4 78.2 L260.3 82.6 L269.6 85.8 L279.0 88.0 L288.0 89.0 L297.4 89.0 L307.2 87.8 L317.1 85.4 L327.4 81.7 L337.2 77.2 L348.0 71.4 L388.7 45.8 L406.1 36.1 L416.0 31.7 L424.9 28.6 L433.9 26.3 L442.8 25.1 L452.7 24.9 L463.0 26.0 L473.2 28.5 L484.0 32.3 L493.8 36.9 L505.0 43.0 L544.4 67.7 L560.9 77.0 L570.3 81.4 L578.8 84.6 L587.3 87.0 L595.4 88.5 L605.2 89.2 L614.6 88.7 L624.5 86.9 L634.8 83.9 L645.1 79.7 L655.8 74.3 L667.9 67.2 L684.0 57.0"/>
-<path class="tr t-vo" d="M58.0 57.0 L83.1 41.5 L92.9 36.3 L101.9 32.2 L110.8 28.9 L119.3 26.7 L127.8 25.3 L136.3 24.8 L136.8 25.5 L137.2 24.8 L137.6 25.5 L138.1 24.8 L138.5 25.6 L139.0 24.9 L139.4 25.6 L139.9 24.9 L140.3 25.6 L140.8 25.0 L141.2 25.7 L141.7 25.0 L142.1 25.7 L142.6 25.1 L143.0 25.8 L143.5 25.2 L143.9 25.9 L144.4 25.3 L144.8 26.0 L145.3 25.4 L145.7 26.1 L146.2 25.5 L146.6 26.2 L147.0 25.6 L147.5 26.3 L147.9 25.7 L148.4 26.4 L148.8 25.8 L149.3 26.5 L149.7 26.0 L150.2 26.7 L150.6 26.2 L151.1 26.8 L151.5 26.3 L152.0 27.0 L152.4 26.5 L152.9 27.2 L153.3 26.7 L153.8 27.4 L154.2 26.9 L154.7 27.6 L155.1 27.1 L155.5 27.8 L156.0 27.3 L156.4 28.0 L156.9 27.5 L157.3 28.2 L157.8 27.8 L158.2 28.4 L158.7 28.0 L159.1 28.7 L159.6 28.3 L160.0 28.9 L160.5 28.6 L160.9 29.2 L161.4 28.8 L161.8 29.5 L162.3 29.1 L162.7 29.7 L163.2 29.4 L163.6 30.0 L164.0 29.7 L164.5 30.3 L164.9 30.0 L165.4 30.6 L165.8 30.3 L166.3 30.9 L166.7 30.7 L167.2 31.2 L167.6 31.0 L168.1 31.6 L168.5 31.3 L169.0 31.9 L170.3 32.1 L170.8 32.6 L172.1 32.8 L181.1 37.0 L181.9 37.9 L182.4 37.7 L183.3 38.5 L185.1 39.1 L199.8 47.5 L209.2 51.1 L223.1 54.1 L241.5 55.8 L278.6 56.8 L370.8 57.0 L396.7 41.1 L406.1 36.1 L415.1 32.1 L424.0 28.9 L432.5 26.6 L441.0 25.3 L449.1 24.8 L449.5 25.5 L450.0 24.8 L450.4 25.5 L450.9 24.8 L451.3 25.6 L451.8 24.9 L452.2 25.6 L452.7 24.9 L453.1 25.6 L453.6 24.9 L454.0 25.7 L454.5 25.0 L454.9 25.7 L455.3 25.1 L455.8 25.8 L456.2 25.1 L456.7 25.8 L457.1 25.2 L457.6 25.9 L458.0 25.3 L458.5 26.0 L458.9 25.4 L459.4 26.1 L459.8 25.5 L460.3 26.2 L460.7 25.7 L461.2 26.4 L461.6 25.8 L462.1 26.5 L462.5 26.0 L463.0 26.6 L463.4 26.1 L463.8 26.8 L464.3 26.3 L464.7 27.0 L465.2 26.5 L465.6 27.1 L466.1 26.6 L466.5 27.3 L467.0 26.8 L467.4 27.5 L467.9 27.0 L468.3 27.7 L468.8 27.3 L469.2 27.9 L469.7 27.5 L470.1 28.1 L470.6 27.7 L471.0 28.4 L471.5 28.0 L471.9 28.6 L472.4 28.2 L472.8 28.9 L473.2 28.5 L473.7 29.1 L474.1 28.8 L474.6 29.4 L475.0 29.0 L475.5 29.7 L475.9 29.3 L476.4 29.9 L476.8 29.6 L477.3 30.2 L477.7 29.9 L478.2 30.5 L478.6 30.3 L479.1 30.8 L479.5 30.6 L480.0 31.2 L481.3 31.3 L481.7 31.8 L483.1 32.0 L483.5 32.5 L484.0 32.3 L484.4 32.9 L484.9 32.7 L485.3 33.2 L485.8 33.1 L492.0 36.0 L494.7 37.8 L495.2 37.6 L496.1 38.4 L496.5 38.3 L502.3 41.4 L510.4 46.3 L516.2 49.0 L526.0 52.1 L537.7 54.3 L554.2 55.8 L577.5 56.6 L684.0 57.0"/>
-<text class="pl" x="62" y="15">low C</text>
-<line class="ax" x1="58" y1="155.0" x2="684" y2="155.0"/>
-<line class="ax" x1="58" y1="118" x2="58" y2="192"/>
-<line class="tick" x1="54" y1="122.8" x2="58" y2="122.8"/>
-<line class="ref" x1="58" y1="122.8" x2="684" y2="122.8"/>
-<text class="yl" x="52" y="126.3" text-anchor="end">V<tspan class="sub">m</tspan></text>
-<line class="tick" x1="54" y1="187.2" x2="58" y2="187.2"/>
-<line class="ref" x1="58" y1="187.2" x2="684" y2="187.2"/>
-<text class="yl" x="52" y="190.7" text-anchor="end">−V<tspan class="sub">m</tspan></text>
-<path class="tr t-vs dash" d="M58.0 155.0 L83.1 139.5 L92.9 134.3 L101.9 130.2 L110.8 126.9 L119.3 124.7 L127.8 123.3 L136.3 122.8 L144.8 123.3 L153.8 124.8 L162.7 127.3 L171.7 130.6 L181.5 135.2 L191.8 140.8 L232.5 166.4 L250.4 176.2 L260.3 180.6 L269.6 183.8 L279.0 186.0 L288.0 187.0 L297.4 187.0 L307.2 185.8 L317.1 183.4 L327.4 179.7 L337.2 175.2 L348.0 169.4 L388.7 143.8 L406.1 134.1 L416.0 129.7 L424.9 126.6 L433.9 124.3 L442.8 123.1 L452.7 122.9 L463.0 124.0 L473.2 126.5 L484.0 130.3 L493.8 134.9 L505.0 141.0 L544.4 165.7 L560.9 175.0 L570.3 179.4 L578.8 182.6 L587.3 185.0 L595.4 186.5 L605.2 187.2 L614.6 186.7 L624.5 184.9 L634.8 181.9 L645.1 177.7 L655.8 172.3 L667.9 165.2 L684.0 155.0"/>
-<path class="tr t-vo" d="M58.0 144.8 L72.8 145.5 L91.6 134.9 L107.2 128.1 L114.8 125.8 L122.0 124.1 L129.1 123.2 L136.3 122.8 L145.7 123.4 L175.2 127.8 L206.1 131.7 L256.2 136.9 L317.5 141.7 L385.5 145.5 L404.8 134.8 L420.0 128.2 L427.6 125.8 L434.8 124.2 L441.9 123.2 L449.1 122.8 L458.0 123.3 L518.9 131.6 L564.5 136.4 L621.4 141.0 L684.0 144.8"/>
-<text class="pl" x="62" y="113">medium C</text>
-<line class="ax" x1="58" y1="253.0" x2="684" y2="253.0"/>
-<line class="ax" x1="58" y1="216" x2="58" y2="290"/>
-<line class="tick" x1="54" y1="220.8" x2="58" y2="220.8"/>
-<line class="ref" x1="58" y1="220.8" x2="684" y2="220.8"/>
-<text class="yl" x="52" y="224.3" text-anchor="end">V<tspan class="sub">m</tspan></text>
-<line class="tick" x1="54" y1="285.2" x2="58" y2="285.2"/>
-<line class="ref" x1="58" y1="285.2" x2="684" y2="285.2"/>
-<text class="yl" x="52" y="288.7" text-anchor="end">−V<tspan class="sub">m</tspan></text>
-<path class="tr t-vs dash" d="M58.0 253.0 L83.1 237.5 L92.9 232.3 L101.9 228.2 L110.8 224.9 L119.3 222.7 L127.8 221.3 L136.3 220.8 L144.8 221.3 L153.8 222.8 L162.7 225.3 L171.7 228.6 L181.5 233.2 L191.8 238.8 L232.5 264.4 L250.4 274.2 L260.3 278.6 L269.6 281.8 L279.0 284.0 L288.0 285.0 L297.4 285.0 L307.2 283.8 L317.1 281.4 L327.4 277.7 L337.2 273.2 L348.0 267.4 L388.7 241.8 L406.1 232.1 L416.0 227.7 L424.9 224.6 L433.9 222.3 L442.8 221.1 L452.7 220.9 L463.0 222.0 L473.2 224.5 L484.0 228.3 L493.8 232.9 L505.0 239.0 L544.4 263.7 L560.9 273.0 L570.3 277.4 L578.8 280.6 L587.3 283.0 L595.4 284.5 L605.2 285.2 L614.6 284.7 L624.5 282.9 L634.8 279.9 L645.1 275.7 L655.8 270.3 L667.9 263.2 L684.0 253.0"/>
-<path class="tr t-vo" d="M58.0 222.7 L117.1 223.1 L126.9 221.4 L136.3 220.8 L430.3 223.1 L439.7 221.4 L449.1 220.8 L684.0 222.7"/>
-<text class="pl" x="62" y="211">high C</text>
-<text class="xl" x="58.0" y="306" text-anchor="middle">0</text>
-<text class="xl" x="214.5" y="306" text-anchor="middle">π</text>
-<text class="xl" x="371.0" y="306" text-anchor="middle">2π</text>
-<text class="xl" x="527.5" y="306" text-anchor="middle">3π</text>
-<text class="xl" x="684.0" y="306" text-anchor="middle">4π</text>
-<text class="xl" x="684" y="318" text-anchor="end">ωt</text>
-</svg></div><span class="swipe" aria-hidden="true">swipe →</span><figcaption>Dashed: v<sub>s</sub>. Low C: v<sub>o</sub> almost follows the half-wave (fast decay). Medium C: visible saw-tooth ripple. High C: almost flat at V<sub>m</sub>.</figcaption></figure>
-    <div class="box mem"><span class="bh">Formulas to memorise</span>
-      <div class="fgrid">
-        <div class="f"><span class="fl">Ripple (approximate)</span><span class="fx"><span class="mx">\(\Delta V_{o}\approx \dfrac{V_{m}}{fRC}\)</span> → <span class="mx">\(C=\dfrac{V_{m}}{fR\,\Delta V_{o}}\)</span></span></div>
-        <div class="f"><span class="fl">Ripple (exact, if α is given or asked)</span><span class="fx"><span class="mx">\(\Delta V_{o}=V_{m}(1-\sin \alpha )\)</span></span></div>
-        <div class="f"><span class="fl">Trade-off</span><span class="fx">Bigger C → smaller ripple, but a shorter and higher diode current pulse</span></div>
-        <div class="f"><span class="fl">Full-wave rectifier with C</span><span class="fx">The capacitor discharges for half a period: use 2f instead of f</span></div>
-      </div></div>
-    <div class="box"><span class="bh">Skim only: battery charging</span>
-      <p class="small">Diode conducts from α = sin<sup>−1</sup>(E/V<sub>m</sub>) to π − α; I<sub>o</sub> = (V<sub>o</sub> − E)/R; η = E·I<sub>o</sub>/P. Asked only in Ghanem's 2021 MCQs. Details: <a href="#bemf">battery load</a>.</p>
-    </div>
-    <p class="small">More detail: <a href="#fwd">FWD</a> · <a href="#cap">capacitor filter</a>.</p>
-    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="5"> I can draw the three capacitor cases and explain the FWD</label><a class="ft-next" href="#ft-6">Next: step 6 →</a></div>
-  </div>
-
-  <!-- ================= STEP 6 ================= -->
-  <div class="ft-step" data-step="6">
-    <div class="ft-head"><h3 id="ft-6">Step 6 · Lecture 4: full-wave waveforms</h3><span class="tag md">8 marks in Hamouda papers</span><span class="tag">1 h</span></div>
-    <div class="box plain"><span class="bh">The idea, finishing step 3</span>
-      <p>The repeated question (2022, DU, 2024) gives the <b>centre-tap</b> circuit and asks for four waveforms: v<sub>o</sub>, i<sub>o</sub>, the diode currents and the supply current, for (a) a pure R and (b) a very high L. Think about where the current goes in each half-cycle and the drawings follow:</p>
-      <ul class="tight">
-        <li><b>Pure R:</b> v<sub>o</sub> = humps; i<sub>o</sub> = the same humps ÷ R; i<sub>D1</sub> = the positive-half humps only; i<sub>D2</sub> = the negative-half humps only; i<sub>s</sub> = a full sine in phase with v<sub>s</sub>.</li>
-        <li><b>L ≫ R:</b> v<sub>o</sub> = <b>still humps</b>; i<sub>o</sub> = a flat line at I<sub>o</sub>; i<sub>D1</sub>, i<sub>D2</sub> = rectangles of height I<sub>o</sub>, taking turns; i<sub>s</sub> = a square wave ±I<sub>o</sub>.</li>
-      </ul>
-    </div>
-    <figure class="wv"><div class="scroll" tabindex="0"><svg class="wave" viewBox="0 0 700 628" role="img" aria-label="Centre-tapped rectifier with R load: one diode at a time; PIV = 2Vm" xmlns="http://www.w3.org/2000/svg">
-<line class="grid" x1="58.0" y1="20" x2="58.0" y2="584"/>
-<line class="grid" x1="214.5" y1="20" x2="214.5" y2="584"/>
-<line class="grid" x1="371.0" y1="20" x2="371.0" y2="584"/>
-<line class="grid" x1="527.5" y1="20" x2="527.5" y2="584"/>
-<line class="grid" x1="684.0" y1="20" x2="684.0" y2="584"/>
-<line class="ax" x1="58" y1="57.0" x2="684" y2="57.0"/>
-<line class="ax" x1="58" y1="20" x2="58" y2="94"/>
-<line class="tick" x1="54" y1="24.8" x2="58" y2="24.8"/>
-<line class="ref" x1="58" y1="24.8" x2="684" y2="24.8"/>
-<text class="yl" x="52" y="28.3" text-anchor="end">V<tspan class="sub">m</tspan></text>
-<line class="tick" x1="54" y1="89.2" x2="58" y2="89.2"/>
-<line class="ref" x1="58" y1="89.2" x2="684" y2="89.2"/>
-<text class="yl" x="52" y="92.7" text-anchor="end">−V<tspan class="sub">m</tspan></text>
-<path class="tr t-vs" d="M58.0 57.0 L83.1 41.5 L92.9 36.3 L101.9 32.2 L110.8 28.9 L119.3 26.7 L127.8 25.3 L136.3 24.8 L144.8 25.3 L153.8 26.8 L162.7 29.3 L171.7 32.6 L181.5 37.2 L191.8 42.8 L232.5 68.4 L250.4 78.2 L260.3 82.6 L269.6 85.8 L279.0 88.0 L288.0 89.0 L297.4 89.0 L307.2 87.8 L317.1 85.4 L327.4 81.7 L337.2 77.2 L348.0 71.4 L388.7 45.8 L406.1 36.1 L416.0 31.7 L424.9 28.6 L433.9 26.3 L442.8 25.1 L452.7 24.9 L463.0 26.0 L473.2 28.5 L484.0 32.3 L493.8 36.9 L505.0 43.0 L544.4 67.7 L560.9 77.0 L570.3 81.4 L578.8 84.6 L587.3 87.0 L595.4 88.5 L605.2 89.2 L614.6 88.7 L624.5 86.9 L634.8 83.9 L645.1 79.7 L655.8 74.3 L667.9 67.2 L684.0 57.0"/>
-<text class="pl" x="62" y="15">v<tspan class="sub">s1</tspan></text>
-<line class="ax" x1="58" y1="181.0" x2="684" y2="181.0"/>
-<line class="ax" x1="58" y1="118" x2="58" y2="192"/>
-<line class="tick" x1="54" y1="126.2" x2="58" y2="126.2"/>
-<line class="ref" x1="58" y1="126.2" x2="684" y2="126.2"/>
-<text class="yl" x="52" y="129.7" text-anchor="end">V<tspan class="sub">m</tspan></text>
-<polygon class="f-vo" points="58.0,181.0 58.0,181.0 72.3,165.5 83.1,154.6 92.9,145.7 101.9,138.8 110.8,133.2 119.3,129.4 127.8,127.0 136.3,126.2 144.4,126.9 152.9,129.2 161.4,133.0 170.3,138.5 179.3,145.4 188.7,153.9 214.6,180.9 237.9,156.2 246.8,147.9 255.3,141.0 263.4,135.5 271.4,131.2 279.0,128.3 286.7,126.6 295.6,126.3 305.0,127.9 314.4,131.3 323.8,136.5 333.6,143.7 343.9,152.7 355.6,164.3 370.8,180.8 371.2,180.8 389.6,161.1 399.9,151.0 410.6,141.9 420.4,135.1 430.3,130.1 440.1,127.1 449.5,126.2 459.4,127.4 466.5,129.5 473.7,132.7 481.3,137.2 488.9,142.7 497.0,149.5 505.5,157.6 527.4,180.9 544.4,162.8 554.7,152.6 564.5,143.9 573.9,137.0 583.3,131.7 592.3,128.2 601.2,126.4 610.2,126.4 617.8,127.8 625.8,130.6 633.9,134.7 642.4,140.4 650.9,147.2 660.3,155.9 684.0,181.0 684.0,181.0"/>
-<path class="tr t-vo" d="M58.0 181.0 L72.3 165.5 L83.1 154.6 L92.9 145.7 L101.9 138.8 L110.8 133.2 L119.3 129.4 L127.8 127.0 L136.3 126.2 L144.4 126.9 L152.9 129.2 L161.4 133.0 L170.3 138.5 L179.3 145.4 L188.7 153.9 L214.6 180.9 L237.9 156.2 L246.8 147.9 L255.3 141.0 L263.4 135.5 L271.4 131.2 L279.0 128.3 L286.7 126.6 L295.6 126.3 L305.0 127.9 L314.4 131.3 L323.8 136.5 L333.6 143.7 L343.9 152.7 L355.6 164.3 L370.8 180.8 L371.2 180.8 L389.6 161.1 L399.9 151.0 L410.6 141.9 L420.4 135.1 L430.3 130.1 L440.1 127.1 L449.5 126.2 L459.4 127.4 L466.5 129.5 L473.7 132.7 L481.3 137.2 L488.9 142.7 L497.0 149.5 L505.5 157.6 L527.4 180.9 L544.4 162.8 L554.7 152.6 L564.5 143.9 L573.9 137.0 L583.3 131.7 L592.3 128.2 L601.2 126.4 L610.2 126.4 L617.8 127.8 L625.8 130.6 L633.9 134.7 L642.4 140.4 L650.9 147.2 L660.3 155.9 L684.0 181.0"/>
-<text class="pl" x="62" y="113">v<tspan class="sub">o</tspan></text>
-<rect class="cond" x="58.0" y="216" width="156.5" height="74"/>
-<rect class="cond" x="371.0" y="216" width="156.5" height="74"/>
-<line class="ax" x1="58" y1="279.0" x2="684" y2="279.0"/>
-<line class="ax" x1="58" y1="216" x2="58" y2="290"/>
-<path class="tr t-io" d="M58.0 279.0 L72.3 263.5 L83.1 252.6 L92.9 243.7 L101.9 236.8 L110.8 231.2 L119.3 227.4 L127.8 225.0 L136.3 224.2 L144.8 225.0 L153.3 227.4 L161.8 231.3 L170.8 236.9 L179.7 243.8 L189.1 252.3 L214.6 279.0 L370.8 279.0 L396.7 252.0 L406.1 243.5 L415.1 236.6 L424.0 231.1 L432.5 227.3 L441.0 225.0 L449.1 224.2 L457.6 225.0 L466.1 227.3 L474.6 231.2 L483.5 236.7 L492.5 243.6 L501.9 252.1 L527.8 279.0 L684.0 279.0"/>
-<text class="pl" x="62" y="211">i<tspan class="sub">D1</tspan></text>
-<rect class="cond" x="214.5" y="314" width="156.5" height="74"/>
-<rect class="cond" x="527.5" y="314" width="156.5" height="74"/>
-<line class="ax" x1="58" y1="377.0" x2="684" y2="377.0"/>
-<line class="ax" x1="58" y1="314" x2="58" y2="388"/>
-<path class="tr t-ix" d="M58.0 377.0 L214.2 377.0 L240.1 350.1 L249.5 341.6 L258.5 334.7 L267.4 329.2 L275.9 325.3 L284.4 323.0 L292.9 322.2 L301.0 323.0 L309.5 325.3 L318.0 329.1 L326.9 334.6 L335.9 341.5 L345.3 350.0 L371.2 377.0 L527.4 377.0 L552.9 350.3 L562.3 341.8 L571.2 334.9 L580.2 329.3 L588.7 325.4 L597.2 323.0 L605.7 322.2 L614.2 323.0 L622.7 325.4 L631.2 329.2 L640.1 334.8 L649.1 341.7 L658.9 350.6 L669.7 361.5 L684.0 377.0"/>
-<text class="pl" x="62" y="309">i<tspan class="sub">D2</tspan></text>
-<line class="ax" x1="58" y1="449.0" x2="684" y2="449.0"/>
-<line class="ax" x1="58" y1="412" x2="58" y2="486"/>
-<line class="tick" x1="54" y1="416.8" x2="58" y2="416.8"/>
-<line class="ref" x1="58" y1="416.8" x2="684" y2="416.8"/>
-<path class="tr t-is" d="M58.0 449.0 L83.1 433.5 L92.9 428.3 L101.9 424.2 L110.8 420.9 L119.3 418.7 L127.8 417.3 L136.3 416.8 L144.8 417.3 L153.8 418.8 L162.7 421.3 L171.7 424.6 L181.5 429.2 L191.8 434.8 L232.5 460.4 L250.4 470.2 L260.3 474.6 L269.6 477.8 L279.0 480.0 L288.0 481.0 L297.4 481.0 L307.2 479.8 L317.1 477.4 L327.4 473.7 L337.2 469.2 L348.0 463.4 L388.7 437.8 L406.1 428.1 L416.0 423.7 L424.9 420.6 L433.9 418.3 L442.8 417.1 L452.7 416.9 L463.0 418.0 L473.2 420.5 L484.0 424.3 L493.8 428.9 L505.0 435.0 L544.4 459.7 L560.9 469.0 L570.3 473.4 L578.8 476.6 L587.3 479.0 L595.4 480.5 L605.2 481.2 L614.6 480.7 L624.5 478.9 L634.8 475.9 L645.1 471.7 L655.8 466.3 L667.9 459.2 L684.0 449.0"/>
-<text class="pl" x="62" y="407">i<tspan class="sub">s</tspan></text>
-<line class="ax" x1="58" y1="518.9" x2="684" y2="518.9"/>
-<line class="ax" x1="58" y1="510" x2="58" y2="584"/>
-<line class="tick" x1="54" y1="578.1" x2="58" y2="578.1"/>
-<line class="ref" x1="58" y1="578.1" x2="684" y2="578.1"/>
-<text class="yl" x="52" y="581.6" text-anchor="end">−2V<tspan class="sub">m</tspan></text>
-<path class="tr t-vd" d="M58.0 518.9 L214.2 518.9 L240.1 548.0 L249.5 557.1 L258.5 564.6 L267.4 570.6 L275.9 574.7 L284.4 577.3 L292.9 578.1 L301.0 577.3 L309.5 574.8 L318.0 570.7 L326.9 564.7 L335.9 557.2 L345.3 548.1 L371.2 518.9 L527.4 518.9 L552.9 547.8 L562.3 556.9 L571.2 564.4 L580.2 570.5 L588.7 574.6 L597.2 577.2 L605.7 578.1 L614.2 577.2 L622.7 574.7 L631.2 570.5 L640.1 564.5 L649.1 557.0 L658.9 547.4 L669.7 535.7 L684.0 518.9"/>
-<text class="pl" x="62" y="505">v<tspan class="sub">D1</tspan></text>
-<text class="xl" x="58.0" y="600" text-anchor="middle">0</text>
-<text class="xl" x="214.5" y="600" text-anchor="middle">π</text>
-<text class="xl" x="371.0" y="600" text-anchor="middle">2π</text>
-<text class="xl" x="527.5" y="600" text-anchor="middle">3π</text>
-<text class="xl" x="684.0" y="600" text-anchor="middle">4π</text>
-<text class="xl" x="684" y="612" text-anchor="end">ωt</text>
-</svg></div><span class="swipe" aria-hidden="true">swipe →</span><figcaption>Centre-tap with R. Same v<sub>o</sub>; but the off diode sees −2V<sub>m</sub> (PIV = 2V<sub>m</sub>).</figcaption></figure>
-    <figure class="wv"><div class="scroll" tabindex="0"><svg class="wave" viewBox="0 0 700 530" role="img" aria-label="Highly inductive load: the output voltage is still the full-wave sine, the current is flat, the supply current is a square wave" xmlns="http://www.w3.org/2000/svg">
-<line class="grid" x1="58.0" y1="20" x2="58.0" y2="486"/>
-<line class="grid" x1="214.5" y1="20" x2="214.5" y2="486"/>
-<line class="grid" x1="371.0" y1="20" x2="371.0" y2="486"/>
-<line class="grid" x1="527.5" y1="20" x2="527.5" y2="486"/>
-<line class="grid" x1="684.0" y1="20" x2="684.0" y2="486"/>
-<line class="ax" x1="58" y1="83.0" x2="684" y2="83.0"/>
-<line class="ax" x1="58" y1="20" x2="58" y2="94"/>
-<line class="tick" x1="54" y1="28.2" x2="58" y2="28.2"/>
-<line class="ref" x1="58" y1="28.2" x2="684" y2="28.2"/>
-<text class="yl" x="52" y="31.7" text-anchor="end">V<tspan class="sub">m</tspan></text>
-<line class="tick" x1="54" y1="48.1" x2="58" y2="48.1"/>
-<line class="ref" x1="58" y1="48.1" x2="684" y2="48.1"/>
-<polygon class="f-vo" points="58.0,83.0 58.0,83.0 72.3,67.5 83.1,56.6 92.9,47.7 101.9,40.8 110.8,35.2 119.3,31.4 127.8,29.0 136.3,28.2 144.4,28.9 152.9,31.2 161.4,35.0 170.3,40.5 179.3,47.4 188.7,55.9 214.6,82.9 237.9,58.2 246.8,49.9 255.3,43.0 263.4,37.5 271.4,33.2 279.0,30.3 286.7,28.6 295.6,28.3 305.0,29.9 314.4,33.3 323.8,38.5 333.6,45.7 343.9,54.7 355.6,66.3 370.8,82.8 371.2,82.8 389.6,63.1 399.9,53.0 410.6,43.9 420.4,37.1 430.3,32.1 440.1,29.1 449.5,28.2 459.4,29.4 466.5,31.5 473.7,34.7 481.3,39.2 488.9,44.7 497.0,51.5 505.5,59.6 527.4,82.9 544.4,64.8 554.7,54.6 564.5,45.9 573.9,39.0 583.3,33.7 592.3,30.2 601.2,28.4 610.2,28.4 617.8,29.8 625.8,32.6 633.9,36.7 642.4,42.4 650.9,49.2 660.3,57.9 684.0,83.0 684.0,83.0"/>
-<path class="tr t-vo" d="M58.0 83.0 L72.3 67.5 L83.1 56.6 L92.9 47.7 L101.9 40.8 L110.8 35.2 L119.3 31.4 L127.8 29.0 L136.3 28.2 L144.4 28.9 L152.9 31.2 L161.4 35.0 L170.3 40.5 L179.3 47.4 L188.7 55.9 L214.6 82.9 L237.9 58.2 L246.8 49.9 L255.3 43.0 L263.4 37.5 L271.4 33.2 L279.0 30.3 L286.7 28.6 L295.6 28.3 L305.0 29.9 L314.4 33.3 L323.8 38.5 L333.6 45.7 L343.9 54.7 L355.6 66.3 L370.8 82.8 L371.2 82.8 L389.6 63.1 L399.9 53.0 L410.6 43.9 L420.4 37.1 L430.3 32.1 L440.1 29.1 L449.5 28.2 L459.4 29.4 L466.5 31.5 L473.7 34.7 L481.3 39.2 L488.9 44.7 L497.0 51.5 L505.5 59.6 L527.4 82.9 L544.4 64.8 L554.7 54.6 L564.5 45.9 L573.9 39.0 L583.3 33.7 L592.3 30.2 L601.2 28.4 L610.2 28.4 L617.8 29.8 L625.8 32.6 L633.9 36.7 L642.4 42.4 L650.9 49.2 L660.3 57.9 L684.0 83.0"/>
-<text class="pl" x="62" y="15">v<tspan class="sub">o</tspan></text>
-<line class="ax" x1="58" y1="181.0" x2="684" y2="181.0"/>
-<line class="ax" x1="58" y1="118" x2="58" y2="192"/>
-<line class="tick" x1="54" y1="146.1" x2="58" y2="146.1"/>
-<line class="ref" x1="58" y1="146.1" x2="684" y2="146.1"/>
-<text class="yl" x="52" y="149.6" text-anchor="end">I<tspan class="sub">o</tspan></text>
-<path class="tr t-io" d="M58.0 146.1 L684.0 146.1"/>
-<text class="pl" x="62" y="113">i<tspan class="sub">o</tspan></text>
-<rect class="cond" x="58.0" y="216" width="156.5" height="74"/>
-<rect class="cond" x="371.0" y="216" width="156.5" height="74"/>
-<line class="ax" x1="58" y1="279.0" x2="684" y2="279.0"/>
-<line class="ax" x1="58" y1="216" x2="58" y2="290"/>
-<path class="tr t-io" d="M58.0 244.1 L214.2 244.1 L214.6 279.0 L370.8 279.0 L371.2 244.1 L527.4 244.1 L527.8 279.0 L684.0 279.0"/>
-<text class="pl" x="62" y="211">i<tspan class="sub">D1,D2</tspan>  (centre-tap: i<tspan class="sub">D1</tspan>)</text>
-<rect class="cond" x="214.5" y="314" width="156.5" height="74"/>
-<rect class="cond" x="527.5" y="314" width="156.5" height="74"/>
-<line class="ax" x1="58" y1="377.0" x2="684" y2="377.0"/>
-<line class="ax" x1="58" y1="314" x2="58" y2="388"/>
-<path class="tr t-ix" d="M58.0 377.0 L214.2 377.0 L214.6 342.1 L370.8 342.1 L371.2 377.0 L527.4 377.0 L527.8 342.1 L684.0 342.1"/>
-<text class="pl" x="62" y="309">i<tspan class="sub">D3,D4</tspan>  (centre-tap: i<tspan class="sub">D2</tspan>)</text>
-<line class="ax" x1="58" y1="449.0" x2="684" y2="449.0"/>
-<line class="ax" x1="58" y1="412" x2="58" y2="486"/>
-<line class="tick" x1="54" y1="425.4" x2="58" y2="425.4"/>
-<line class="ref" x1="58" y1="425.4" x2="684" y2="425.4"/>
-<text class="yl" x="52" y="428.9" text-anchor="end">I<tspan class="sub">o</tspan></text>
-<line class="tick" x1="54" y1="472.6" x2="58" y2="472.6"/>
-<line class="ref" x1="58" y1="472.6" x2="684" y2="472.6"/>
-<text class="yl" x="52" y="476.1" text-anchor="end">−I<tspan class="sub">o</tspan></text>
-<path class="tr t-is" d="M58.0 425.4 L214.2 425.4 L214.6 472.6 L370.8 472.6 L371.2 425.4 L527.4 425.4 L527.8 472.6 L684.0 472.6"/>
-<text class="pl" x="62" y="407">i<tspan class="sub">s</tspan></text>
-<text class="xl" x="58.0" y="502" text-anchor="middle">0</text>
-<text class="xl" x="214.5" y="502" text-anchor="middle">π</text>
-<text class="xl" x="371.0" y="502" text-anchor="middle">2π</text>
-<text class="xl" x="527.5" y="502" text-anchor="middle">3π</text>
-<text class="xl" x="684.0" y="502" text-anchor="middle">4π</text>
-<text class="xl" x="684" y="514" text-anchor="end">ωt</text>
-</svg></div><span class="swipe" aria-hidden="true">swipe →</span><figcaption>Bridge or centre-tap with L ≫ R. Exam answer for 'very high inductance': v<sub>o</sub> = humps, i<sub>o</sub> = flat line, i<sub>D</sub> = rectangles, i<sub>s</sub> = square wave.</figcaption></figure>
-    <div class="box mem"><span class="bh">Formulas to memorise</span>
-      <div class="fgrid">
-        <div class="f"><span class="fl">Average and rms</span><span class="fx"><span class="mx">\(V_{o}=\dfrac{2V_{m}}{\pi }\)</span>, <span class="mx">\(V_{\mathrm{rms}}=\dfrac{V_{m}}{\sqrt{2}}\)</span></span></div>
-        <div class="f"><span class="fl">PIV</span><span class="fx">Bridge: V<sub>m</sub> · Centre-tap: 2V<sub>m</sub></span></div>
-        <div class="f"><span class="fl">Figures of merit (R load)</span><span class="fx">FF = 1.11 · RF = 0.483 · η = 81.06% · ripple frequency 2f</span></div>
-        <div class="f"><span class="fl">L ≫ R</span><span class="fx">I<sub>D,avg</sub> = I<sub>o</sub>/2 · I<sub>D,rms</sub> = I<sub>o</sub>/√2 · I<sub>s,rms</sub> = I<sub>o</sub></span></div>
-      </div></div>
-    <div class="box trap"><span class="bh">Traps</span>
-      <ul class="tight">
-        <li>Don't draw v<sub>o</sub> flat for a high inductance. Only the current is flat (the 2022 student lost marks here).</li>
-        <li>"230-0-230 V" means each half gives 230 V rms: V<sub>m</sub> = 230√2 = 325.3 V, and the PIV is 2V<sub>m</sub> = 650.5 V.</li>
-      </ul>
-    </div>
-    <p class="small">More detail: <a href="#fw-r">resistive load</a> · <a href="#fw-l">highly inductive load</a>.</p>
-    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="6"> I can draw all 8 waveforms from memory</label><a class="ft-next" href="#ft-7">Next: step 7 →</a></div>
-  </div>
-
-  <!-- ================= STEP 7 ================= -->
-  <div class="ft-step" data-step="7">
-    <div class="ft-head"><h3 id="ft-7">Step 7 · Mock exam and the night before</h3><span class="tag">1 h +</span></div>
+    <div class="ft-head"><h3 id="ft-5">Step 5 · Do the 2025 paper</h3><span class="tag">1 h</span></div>
     <div class="box plain"><span class="bh">Put it together</span>
+      <p>This is last year's full midterm (20 marks, 1 hour). Every question is from steps 1, 3 and 4. Set a 1-hour timer, close this page, and answer on paper.</p>
       <ol class="tight">
-        <li>Set a 1-hour timer and do the <a href="#ex-2025">Dec 2025 paper</a> on paper, without looking. It uses steps 1, 2 and 4 exactly as you learned them.</li>
-        <li>Mark it against the solutions. Anything you got wrong: go back to that step.</li>
-        <li>If you have time, skim the <a href="#repeated">questions that repeat almost word for word</a>. Most are in steps 1, 5 and 6.</li>
-        <li><b>The night before:</b> read the <a href="#quick-fire">theory quick-fire</a> aloud, and write the formula boxes from steps 2 and 4 once from memory.</li>
+        <li>What are the merits and demerits of power electronic systems? <b>[2]</b> (step 1)</li>
+        <li>Explain the two types of losses which occur in non-ideal switches. <b>[2]</b> (step 1)</li>
+        <li>For an R-L load on a single-phase uncontrolled half-wave rectifier, discuss the principle of operation and draw the load current and output voltage. <b>[4]</b> (step 3)</li>
+        <li>R-L half-wave rectifier, R = 100 Ω, L = 0.1 H, ω = 314 rad/s, V<sub>m</sub> = 200 V: find i(ωt), I<sub>dc</sub>, I<sub>rms</sub>, P and PF. <b>[7]</b> (step 3)</li>
+        <li>Controlled full-wave bridge, 150 V rms, 60 Hz, R = 10 Ω, L = 100 mH, α = 60°: verify continuous current, find I<sub>dc</sub> and the power. <b>[5]</b> (step 4)</li>
       </ol>
-      <p class="small">Dr. Elgohary copies his lecture examples and changes the numbers. If you can redo Ex 2.8 and Ex 7.2 cold, you are ready for the calculation half.</p>
+      <p>Then mark yourself with the answers in steps 1, 3 and 4. Anything you got wrong: go back to that step only.</p>
+      <p class="small">The night before: read step 1's box aloud and write the formula boxes from steps 3 and 4 once from memory. Dr. Elgohary copies his lecture examples and changes the numbers, so if you can redo both worked examples cold, you are ready.</p>
     </div>
-    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="7"> I did the 2025 paper in 1 hour</label><button class="btn ft-reset" type="button" id="ftReset">Reset my ticks</button></div>
+    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="5"> I did the paper in 1 hour</label><button class="btn ft-reset" type="button" id="ftReset">Reset my ticks</button></div>
   </div>
 </section>
 
@@ -1064,7 +889,7 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
   <h2 id="what-to-do-now">What to do now</h2>
   <div class="box now">
     <span class="bh">Start here · today</span>
-    <p><b>Short on time?</b> Follow the <a href="#fast-track">Midterm fast track</a> above instead: 7 steps, about 7–8 hours, only what the midterm needs. The list below is the full route.</p>
+    <p><b>Short on time?</b> Follow the <a href="#fast-track">Midterm fast track</a> above instead: 6 steps, about 5–6 hours, written for a first read. The list below is the full route.</p>
     <ol class="steps">
       <li>Read <a href="#big-picture">The big picture</a> and the <a href="#glossary">symbol glossary</a> (25 min). Every later page uses those words.</li>
       <li>Learn the four free-mark theory answers that appear in almost every midterm: <a href="#l1">merits/demerits, ideal vs real switch, the two losses</a> (30 min).</li>
@@ -4033,15 +3858,16 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
 </script>
 <script>/* Midterm fast track: progress ticks and the two answer checkers */
 (function(){
-  var KEY='pe1-fasttrack-v1', state={};
+  var KEY='pe1-fasttrack-v2', state={};
   try{ state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ state={}; }
   var boxes=[].slice.call(document.querySelectorAll('.ft-done input'));
   function paint(){
     var n=0;
-    boxes.forEach(function(b){
+    var lis=document.querySelectorAll('.ft-map li');
+    boxes.forEach(function(b,idx){
       var s=b.getAttribute('data-step'), on=!!state[s]; b.checked=on; if(on) n++;
       var card=document.querySelector('.ft-step[data-step="'+s+'"]'); if(card) card.classList.toggle('done',on);
-      var li=document.querySelectorAll('.ft-map li')[+s-1]; if(li) li.classList.toggle('done',on);
+      var li=lis[idx]; if(li) li.classList.toggle('done',on);
     });
     var bar=document.getElementById('ftBar'), c=document.getElementById('ftCount');
     if(bar) bar.style.width=(100*n/boxes.length)+'%';
