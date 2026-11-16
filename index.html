@@ -35,6 +35,7 @@
 .exam-paper .exam-h{display:block; text-align:center; text-transform:none; font-family:"Times New Roman",Times,serif; font-size:15px; letter-spacing:0; color:var(--ink); font-weight:700; line-height:1.5}
 .exam-paper .exam-b > p.qt{margin-top:14px; border-bottom:1px solid var(--line); padding-bottom:2px}
 .exam-paper ol.qs{padding-left:24px; margin:6px 0} .exam-paper ol.qs li{margin:6px 0; max-width:none}
+.exam .opt{display:inline-block; white-space:nowrap; margin-right:12px}
 details.sol{margin-top:-2px}
 details.sol > summary{padding:4px 0}
 </style>
@@ -364,7 +365,9 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
 <li class="t3"><a href="#ft-2">Step 2 · Half-wave, R load</a></li>
 <li class="t3"><a href="#ft-3">Step 3 · Half-wave, R-L load</a></li>
 <li class="t3"><a href="#ft-4">Step 4 · Controlled bridge, R-L</a></li>
-<li class="t3"><a href="#ft-5">Step 5 · Do the 2025 paper</a></li>
+<li class="t3"><a href="#ft-5">Step 5 · Full-wave waveforms</a></li>
+<li class="t3"><a href="#ft-6">Step 6 · Capacitor filter and FWD</a></li>
+<li class="t3"><a href="#ft-7">Step 7 · Do the 2025 paper</a></li>
 <li class="t2"><a href="#what-to-do-now">What to do now</a></li>
 <li class="t2"><a href="#big-picture">The big picture</a></li>
 <li class="t3"><a href="#map">Lecture → what they ask</a></li>
@@ -439,8 +442,9 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
 <section id="fast">
   <div class="kicker">First time? Short on time? Start here</div>
   <h2 id="fast-track">Midterm fast track</h2>
-  <p class="lede">Six steps, about 5–6 hours, read top to bottom. Each step only uses what came before it, and everything you need is written here. You don't have to jump anywhere else. In the Dec 2025 midterm these steps covered all 20 marks.</p>
-  <div class="ft-progress" aria-live="polite"><div class="ft-bar"><i id="ftBar"></i></div><span id="ftCount">0 of 6 steps done</span></div>
+  <p class="lede">Eight steps, about 7–8 hours, read top to bottom. Each step only uses what came before it, and everything you need is written here. You don't have to jump anywhere else.</p>
+  <p>Steps 0–4 covered all 20 marks of the Dec 2025 midterm. Steps 5–6 add the questions the other doctors keep asking (waveform drawings and the capacitor filter), so you are covered whoever sets the paper.</p>
+  <div class="ft-progress" aria-live="polite"><div class="ft-bar"><i id="ftBar"></i></div><span id="ftCount">0 of 8 steps done</span></div>
 
   <ol class="ft-map" start="0">
     <li><a href="#ft-0">The basics</a> <span class="small">20 min</span></li>
@@ -448,7 +452,9 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
     <li><a href="#ft-2">Half-wave rectifier, R load</a> <span class="small">30 min</span></li>
     <li><a href="#ft-3">Half-wave rectifier, R-L load</a> <span class="small">2 h · 11 marks</span></li>
     <li><a href="#ft-4">Controlled bridge, R-L load</a> <span class="small">1 h · 5 marks</span></li>
-    <li><a href="#ft-5">Do the 2025 paper</a> <span class="small">1 h</span></li>
+    <li><a href="#ft-5">Full-wave waveforms (centre-tap)</a> <span class="small">1 h · 8 marks (Hamouda)</span></li>
+    <li><a href="#ft-6">Capacitor filter and freewheeling diode</a> <span class="small">1 h · 6 marks</span></li>
+    <li><a href="#ft-7">Do the 2025 paper</a> <span class="small">1 h</span></li>
   </ol>
 
   <!-- ================= STEP 0 ================= -->
@@ -594,6 +600,7 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
         <div class="f"><span class="fl">Average: area of one half sine 2V<sub>m</sub> ÷ 2π</span><span class="fx"><span class="mx">\(V_{\mathrm{dc}}=\dfrac{V_{m}}{\pi }\)</span>, <span class="mx">\(I_{\mathrm{dc}}=\dfrac{V_{m}}{\pi R}\)</span></span></div>
         <div class="f"><span class="fl">RMS</span><span class="fx"><span class="mx">\(V_{\mathrm{rms}}=\dfrac{V_{m}}{2}\)</span>, <span class="mx">\(I_{\mathrm{rms}}=\dfrac{V_{m}}{2R}\)</span></span></div>
         <div class="f"><span class="fl">Power factor</span><span class="fx"><span class="mx">\(\mathrm{PF}=\dfrac{I_{\mathrm{rms}}^{2}R}{V_{\mathrm{s,rms}}I_{\mathrm{rms}}}=0.707\)</span></span></div>
+        <div class="f"><span class="fl">Figures of merit (MCQ favourites, just memorise)</span><span class="fx">FF = 1.57 · RF = 1.21 · η = 40.5% · TUF = 0.287 · PIV = V<sub>m</sub></span></div>
         <div class="f"><span class="fl">Diode with a resistance r<sub>on</sub> (asked in 3 past papers)</span><span class="fx">Peak current <span class="mx">\(I_{m}=\dfrac{V_{m}}{R+r_{\mathrm{on}}}\)</span>, output peak I<sub>m</sub>R, then the same formulas with that peak. Diode rms current = I<sub>m</sub>/2. Input power uses R + r<sub>on</sub>. Diode drawn reversed → the output is the negative half: add a minus sign.</span></div>
       </div></div>
     <div class="exam"><div class="exam-h"><span><b>Mid-term Dec 2024</b> · Dr. Hamouda</span><span>Question (6)</span></div><div class="exam-b">
@@ -966,7 +973,308 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
 
   <!-- ================= STEP 5 ================= -->
   <div class="ft-step" data-step="5">
-    <div class="ft-head"><h3 id="ft-5">Step 5 · Do the 2025 paper</h3><span class="tag">1 h</span></div>
+    <div class="ft-head"><h3 id="ft-5">Step 5 · Full-wave waveforms (Lecture 4)</h3><span class="tag md">8 marks in 3 papers</span><span class="tag">1 h</span></div>
+    <div class="box plain"><span class="bh">The idea, from step 4's bridge</span>
+      <p>Step 4 showed the bridge: the negative half is flipped up, so the load gets a hump every half-cycle and <span class="mx">\(V_{o}=\dfrac{2V_{m}}{\pi }\)</span>. The <b>centre-tapped</b> version does the same with only 2 diodes: the transformer secondary is split in two halves. In the positive half, the top half feeds the load through D1; in the negative half, the bottom half feeds it through D2. The current goes through the load the same way both times.</p>
+      <p>The repeated exam question gives this circuit and asks for 4 waveforms: v<sub>o</sub>, i<sub>o</sub>, the diode currents and the supply current. Ask yourself "who conducts in each half?" and the drawings follow:</p>
+      <ul class="tight">
+        <li><b>Pure R:</b> v<sub>o</sub> = humps · i<sub>o</sub> = the same humps ÷ R · i<sub>D1</sub> = humps in the positive halves only · i<sub>D2</sub> = humps in the negative halves only · i<sub>s</sub> = a full sine in phase with v<sub>s</sub>.</li>
+        <li><b>Very high L (L ≫ R):</b> the inductor (step 0) keeps the current flat. v<sub>o</sub> = <b>still humps</b> · i<sub>o</sub> = a flat line at I<sub>o</sub> · i<sub>D1</sub>, i<sub>D2</sub> = rectangles of height I<sub>o</sub>, taking turns · i<sub>s</sub> = a square wave ±I<sub>o</sub>.</li>
+      </ul>
+    </div>
+    <div class="box mem"><span class="bh">Formulas to memorise</span>
+      <div class="fgrid">
+        <div class="f"><span class="fl">Average and rms</span><span class="fx"><span class="mx">\(V_{o}=\dfrac{2V_{m}}{\pi }\)</span>, <span class="mx">\(I_{o}=\dfrac{2V_{m}}{\pi R}\)</span>, <span class="mx">\(V_{\mathrm{rms}}=\dfrac{V_{m}}{\sqrt{2}}\)</span></span></div>
+        <div class="f"><span class="fl">PIV (peak reverse voltage on each diode)</span><span class="fx">Bridge: V<sub>m</sub> · Centre-tap: 2V<sub>m</sub></span></div>
+        <div class="f"><span class="fl">Figures of merit (R load)</span><span class="fx">FF = 1.11 · RF = 0.483 · η = 81.06% · TUF = 0.81 (bridge) · ripple at 2f</span></div>
+        <div class="f"><span class="fl">L ≫ R</span><span class="fx">I<sub>D,avg</sub> = I<sub>o</sub>/2 · I<sub>D,rms</sub> = I<sub>o</sub>/√2 · I<sub>s,rms</sub> = I<sub>o</sub> · PF = 0.90</span></div>
+      </div></div>
+    <div class="box trap"><span class="bh">Traps</span>
+      <ul class="tight">
+        <li>Don't draw v<sub>o</sub> flat for a high inductance. Only the <b>current</b> is flat (a 2022 student lost marks here).</li>
+        <li>"230-0-230 V" means <b>each half</b> gives 230 V rms, so V<sub>m</sub> = 230√2 = 325.3 V.</li>
+      </ul>
+    </div>
+    <div class="exam"><div class="exam-h"><span><b>Mid-term Dec 2022 &amp; Dec 2024</b> · Dr. Hamouda</span><span>Question (4)</span></div><div class="exam-b">
+      <div class="exam-fig"><svg class="sch" viewBox="0 0 400 230" role="img" aria-label="Centre-tapped transformer rectifier; orange: D1 path (positive half), blue: D2 path (negative half)" xmlns="http://www.w3.org/2000/svg"><circle class="cmp" cx="38" cy="115" r="18"/><path class="cmp" d="M28 115 q5 -11 10 0 t10 0"/><text class="cl" x="14" y="119" text-anchor="end">v<tspan class="sub">s</tspan></text><path class="w" d="M38 97 L38 70 L95 70 L95 75"/><path class="w" d="M38 133 L38 160 L95 160 L95 155"/><path class="cmp" d="M95 75 A6 10.0 0 0 1 95 95.0 A6 10.0 0 0 1 95 115.0 A6 10.0 0 0 1 95 135.0 A6 10.0 0 0 1 95 155.0"/><line class="cmp" x1="110" y1="40" x2="110" y2="190"/><line class="cmp" x1="116" y1="40" x2="116" y2="190"/><path class="cmp" d="M130 30 A6 14.2 0 0 0 130 58.3 A6 14.2 0 0 0 130 86.7 A6 14.2 0 0 0 130 115.0 A6 14.2 0 0 0 130 143.3 A6 14.2 0 0 0 130 171.7 A6 14.2 0 0 0 130 200.0"/><text class="cl" x="100" y="64" text-anchor="middle">•</text><text class="cl" x="140" y="24" text-anchor="middle">•</text><path class="w" d="M130 30 L180 30"/><path class="w" d="M130 200 L180 200"/><path class="w" d="M180 30 L205.0 30.0"/><path class="w" d="M225.0 30.0 L250 30"/><polygon class="dio" points="205.0,40.0 205.0,20.0 225.0,30.0"/><line class="cmp" x1="225.0" y1="40.0" x2="225.0" y2="20.0"/><text class="cl" x="215.0" y="10.0" text-anchor="middle">D<tspan class="sub">1</tspan></text><path class="w" d="M180 200 L205.0 200.0"/><path class="w" d="M225.0 200.0 L250 200"/><polygon class="dio" points="205.0,210.0 205.0,190.0 225.0,200.0"/><line class="cmp" x1="225.0" y1="210.0" x2="225.0" y2="190.0"/><text class="cl" x="215.0" y="224.0" text-anchor="middle">D<tspan class="sub">2</tspan></text><path class="w" d="M250 30 L340 30 L340 200 L250 200"/><circle class="node" cx="340" cy="115" r="3"/><circle class="node" cx="130" cy="115" r="3"/><path class="w" d="M130 115 L175 115"/><path class="w" d="M175 115 L219.5 115.0"/><path class="w" d="M255.5 115.0 L300 115"/><path class="cmp" d="M219.5 115.0 L224.6 121.0 L229.8 109.0 L234.9 121.0 L240.1 109.0 L245.2 121.0 L250.4 109.0 L255.5 115.0"/><text class="cl" x="237.5" y="137.0" text-anchor="middle">R</text><path class="w" d="M300 115 L340 115"/><text class="cl" x="150" y="75" text-anchor="start">v<tspan class="sub">s1</tspan></text><text class="cl" x="150" y="168" text-anchor="start">v<tspan class="sub">s2</tspan></text><text class="cl" x="184" y="142" text-anchor="middle">−</text><text class="cl" x="298" y="142" text-anchor="middle">+</text><text class="cl" x="240" y="160" text-anchor="middle">v<tspan class="sub">o</tspan></text></svg></div>
+      <p><span class="qt">4)</span> For the circuit shown in figure, draw the waveforms of: 1. output voltage, 2. output current, 3. diodes current, 4. supply current, for the following cases:</p>
+      <ol class="parts"><li>(a) if the load is a pure Resistive <span class="mk">[4 Marks]</span></li><li>(b) and if the load has a very high inductance <span class="mk">[4 Marks]</span></li></ol>
+    </div></div>
+    <details class="sol"><summary>Show the answer</summary>
+      <p><b>(a) Pure R:</b> v<sub>o</sub> and i<sub>o</sub> are humps; each diode carries every other hump; i<sub>s</sub> is a full sine.</p>
+      <figure class="wv"><div class="scroll" tabindex="0"><svg class="wave" viewBox="0 0 700 628" role="img" aria-label="Centre-tapped rectifier with R load: one diode at a time; PIV = 2Vm" xmlns="http://www.w3.org/2000/svg">
+<line class="grid" x1="58.0" y1="20" x2="58.0" y2="584"/>
+<line class="grid" x1="214.5" y1="20" x2="214.5" y2="584"/>
+<line class="grid" x1="371.0" y1="20" x2="371.0" y2="584"/>
+<line class="grid" x1="527.5" y1="20" x2="527.5" y2="584"/>
+<line class="grid" x1="684.0" y1="20" x2="684.0" y2="584"/>
+<line class="ax" x1="58" y1="57.0" x2="684" y2="57.0"/>
+<line class="ax" x1="58" y1="20" x2="58" y2="94"/>
+<line class="tick" x1="54" y1="24.8" x2="58" y2="24.8"/>
+<line class="ref" x1="58" y1="24.8" x2="684" y2="24.8"/>
+<text class="yl" x="52" y="28.3" text-anchor="end">V<tspan class="sub">m</tspan></text>
+<line class="tick" x1="54" y1="89.2" x2="58" y2="89.2"/>
+<line class="ref" x1="58" y1="89.2" x2="684" y2="89.2"/>
+<text class="yl" x="52" y="92.7" text-anchor="end">−V<tspan class="sub">m</tspan></text>
+<path class="tr t-vs" d="M58.0 57.0 L83.1 41.5 L92.9 36.3 L101.9 32.2 L110.8 28.9 L119.3 26.7 L127.8 25.3 L136.3 24.8 L144.8 25.3 L153.8 26.8 L162.7 29.3 L171.7 32.6 L181.5 37.2 L191.8 42.8 L232.5 68.4 L250.4 78.2 L260.3 82.6 L269.6 85.8 L279.0 88.0 L288.0 89.0 L297.4 89.0 L307.2 87.8 L317.1 85.4 L327.4 81.7 L337.2 77.2 L348.0 71.4 L388.7 45.8 L406.1 36.1 L416.0 31.7 L424.9 28.6 L433.9 26.3 L442.8 25.1 L452.7 24.9 L463.0 26.0 L473.2 28.5 L484.0 32.3 L493.8 36.9 L505.0 43.0 L544.4 67.7 L560.9 77.0 L570.3 81.4 L578.8 84.6 L587.3 87.0 L595.4 88.5 L605.2 89.2 L614.6 88.7 L624.5 86.9 L634.8 83.9 L645.1 79.7 L655.8 74.3 L667.9 67.2 L684.0 57.0"/>
+<text class="pl" x="62" y="15">v<tspan class="sub">s1</tspan></text>
+<line class="ax" x1="58" y1="181.0" x2="684" y2="181.0"/>
+<line class="ax" x1="58" y1="118" x2="58" y2="192"/>
+<line class="tick" x1="54" y1="126.2" x2="58" y2="126.2"/>
+<line class="ref" x1="58" y1="126.2" x2="684" y2="126.2"/>
+<text class="yl" x="52" y="129.7" text-anchor="end">V<tspan class="sub">m</tspan></text>
+<polygon class="f-vo" points="58.0,181.0 58.0,181.0 72.3,165.5 83.1,154.6 92.9,145.7 101.9,138.8 110.8,133.2 119.3,129.4 127.8,127.0 136.3,126.2 144.4,126.9 152.9,129.2 161.4,133.0 170.3,138.5 179.3,145.4 188.7,153.9 214.6,180.9 237.9,156.2 246.8,147.9 255.3,141.0 263.4,135.5 271.4,131.2 279.0,128.3 286.7,126.6 295.6,126.3 305.0,127.9 314.4,131.3 323.8,136.5 333.6,143.7 343.9,152.7 355.6,164.3 370.8,180.8 371.2,180.8 389.6,161.1 399.9,151.0 410.6,141.9 420.4,135.1 430.3,130.1 440.1,127.1 449.5,126.2 459.4,127.4 466.5,129.5 473.7,132.7 481.3,137.2 488.9,142.7 497.0,149.5 505.5,157.6 527.4,180.9 544.4,162.8 554.7,152.6 564.5,143.9 573.9,137.0 583.3,131.7 592.3,128.2 601.2,126.4 610.2,126.4 617.8,127.8 625.8,130.6 633.9,134.7 642.4,140.4 650.9,147.2 660.3,155.9 684.0,181.0 684.0,181.0"/>
+<path class="tr t-vo" d="M58.0 181.0 L72.3 165.5 L83.1 154.6 L92.9 145.7 L101.9 138.8 L110.8 133.2 L119.3 129.4 L127.8 127.0 L136.3 126.2 L144.4 126.9 L152.9 129.2 L161.4 133.0 L170.3 138.5 L179.3 145.4 L188.7 153.9 L214.6 180.9 L237.9 156.2 L246.8 147.9 L255.3 141.0 L263.4 135.5 L271.4 131.2 L279.0 128.3 L286.7 126.6 L295.6 126.3 L305.0 127.9 L314.4 131.3 L323.8 136.5 L333.6 143.7 L343.9 152.7 L355.6 164.3 L370.8 180.8 L371.2 180.8 L389.6 161.1 L399.9 151.0 L410.6 141.9 L420.4 135.1 L430.3 130.1 L440.1 127.1 L449.5 126.2 L459.4 127.4 L466.5 129.5 L473.7 132.7 L481.3 137.2 L488.9 142.7 L497.0 149.5 L505.5 157.6 L527.4 180.9 L544.4 162.8 L554.7 152.6 L564.5 143.9 L573.9 137.0 L583.3 131.7 L592.3 128.2 L601.2 126.4 L610.2 126.4 L617.8 127.8 L625.8 130.6 L633.9 134.7 L642.4 140.4 L650.9 147.2 L660.3 155.9 L684.0 181.0"/>
+<text class="pl" x="62" y="113">v<tspan class="sub">o</tspan></text>
+<rect class="cond" x="58.0" y="216" width="156.5" height="74"/>
+<rect class="cond" x="371.0" y="216" width="156.5" height="74"/>
+<line class="ax" x1="58" y1="279.0" x2="684" y2="279.0"/>
+<line class="ax" x1="58" y1="216" x2="58" y2="290"/>
+<path class="tr t-io" d="M58.0 279.0 L72.3 263.5 L83.1 252.6 L92.9 243.7 L101.9 236.8 L110.8 231.2 L119.3 227.4 L127.8 225.0 L136.3 224.2 L144.8 225.0 L153.3 227.4 L161.8 231.3 L170.8 236.9 L179.7 243.8 L189.1 252.3 L214.6 279.0 L370.8 279.0 L396.7 252.0 L406.1 243.5 L415.1 236.6 L424.0 231.1 L432.5 227.3 L441.0 225.0 L449.1 224.2 L457.6 225.0 L466.1 227.3 L474.6 231.2 L483.5 236.7 L492.5 243.6 L501.9 252.1 L527.8 279.0 L684.0 279.0"/>
+<text class="pl" x="62" y="211">i<tspan class="sub">D1</tspan></text>
+<rect class="cond" x="214.5" y="314" width="156.5" height="74"/>
+<rect class="cond" x="527.5" y="314" width="156.5" height="74"/>
+<line class="ax" x1="58" y1="377.0" x2="684" y2="377.0"/>
+<line class="ax" x1="58" y1="314" x2="58" y2="388"/>
+<path class="tr t-ix" d="M58.0 377.0 L214.2 377.0 L240.1 350.1 L249.5 341.6 L258.5 334.7 L267.4 329.2 L275.9 325.3 L284.4 323.0 L292.9 322.2 L301.0 323.0 L309.5 325.3 L318.0 329.1 L326.9 334.6 L335.9 341.5 L345.3 350.0 L371.2 377.0 L527.4 377.0 L552.9 350.3 L562.3 341.8 L571.2 334.9 L580.2 329.3 L588.7 325.4 L597.2 323.0 L605.7 322.2 L614.2 323.0 L622.7 325.4 L631.2 329.2 L640.1 334.8 L649.1 341.7 L658.9 350.6 L669.7 361.5 L684.0 377.0"/>
+<text class="pl" x="62" y="309">i<tspan class="sub">D2</tspan></text>
+<line class="ax" x1="58" y1="449.0" x2="684" y2="449.0"/>
+<line class="ax" x1="58" y1="412" x2="58" y2="486"/>
+<line class="tick" x1="54" y1="416.8" x2="58" y2="416.8"/>
+<line class="ref" x1="58" y1="416.8" x2="684" y2="416.8"/>
+<path class="tr t-is" d="M58.0 449.0 L83.1 433.5 L92.9 428.3 L101.9 424.2 L110.8 420.9 L119.3 418.7 L127.8 417.3 L136.3 416.8 L144.8 417.3 L153.8 418.8 L162.7 421.3 L171.7 424.6 L181.5 429.2 L191.8 434.8 L232.5 460.4 L250.4 470.2 L260.3 474.6 L269.6 477.8 L279.0 480.0 L288.0 481.0 L297.4 481.0 L307.2 479.8 L317.1 477.4 L327.4 473.7 L337.2 469.2 L348.0 463.4 L388.7 437.8 L406.1 428.1 L416.0 423.7 L424.9 420.6 L433.9 418.3 L442.8 417.1 L452.7 416.9 L463.0 418.0 L473.2 420.5 L484.0 424.3 L493.8 428.9 L505.0 435.0 L544.4 459.7 L560.9 469.0 L570.3 473.4 L578.8 476.6 L587.3 479.0 L595.4 480.5 L605.2 481.2 L614.6 480.7 L624.5 478.9 L634.8 475.9 L645.1 471.7 L655.8 466.3 L667.9 459.2 L684.0 449.0"/>
+<text class="pl" x="62" y="407">i<tspan class="sub">s</tspan></text>
+<line class="ax" x1="58" y1="518.9" x2="684" y2="518.9"/>
+<line class="ax" x1="58" y1="510" x2="58" y2="584"/>
+<line class="tick" x1="54" y1="578.1" x2="58" y2="578.1"/>
+<line class="ref" x1="58" y1="578.1" x2="684" y2="578.1"/>
+<text class="yl" x="52" y="581.6" text-anchor="end">−2V<tspan class="sub">m</tspan></text>
+<path class="tr t-vd" d="M58.0 518.9 L214.2 518.9 L240.1 548.0 L249.5 557.1 L258.5 564.6 L267.4 570.6 L275.9 574.7 L284.4 577.3 L292.9 578.1 L301.0 577.3 L309.5 574.8 L318.0 570.7 L326.9 564.7 L335.9 557.2 L345.3 548.1 L371.2 518.9 L527.4 518.9 L552.9 547.8 L562.3 556.9 L571.2 564.4 L580.2 570.5 L588.7 574.6 L597.2 577.2 L605.7 578.1 L614.2 577.2 L622.7 574.7 L631.2 570.5 L640.1 564.5 L649.1 557.0 L658.9 547.4 L669.7 535.7 L684.0 518.9"/>
+<text class="pl" x="62" y="505">v<tspan class="sub">D1</tspan></text>
+<text class="xl" x="58.0" y="600" text-anchor="middle">0</text>
+<text class="xl" x="214.5" y="600" text-anchor="middle">π</text>
+<text class="xl" x="371.0" y="600" text-anchor="middle">2π</text>
+<text class="xl" x="527.5" y="600" text-anchor="middle">3π</text>
+<text class="xl" x="684.0" y="600" text-anchor="middle">4π</text>
+<text class="xl" x="684" y="612" text-anchor="end">ωt</text>
+</svg></div><span class="swipe" aria-hidden="true">swipe →</span><figcaption>Centre-tap with R. Same v<sub>o</sub>; but the off diode sees −2V<sub>m</sub> (PIV = 2V<sub>m</sub>).</figcaption></figure>
+      <p><b>(b) Very high L:</b> v<sub>o</sub> is still humps; i<sub>o</sub> is flat; each diode current is a rectangle for half a cycle; i<sub>s</sub> is a square wave.</p>
+      <figure class="wv"><div class="scroll" tabindex="0"><svg class="wave" viewBox="0 0 700 530" role="img" aria-label="Highly inductive load: the output voltage is still the full-wave sine, the current is flat, the supply current is a square wave" xmlns="http://www.w3.org/2000/svg">
+<line class="grid" x1="58.0" y1="20" x2="58.0" y2="486"/>
+<line class="grid" x1="214.5" y1="20" x2="214.5" y2="486"/>
+<line class="grid" x1="371.0" y1="20" x2="371.0" y2="486"/>
+<line class="grid" x1="527.5" y1="20" x2="527.5" y2="486"/>
+<line class="grid" x1="684.0" y1="20" x2="684.0" y2="486"/>
+<line class="ax" x1="58" y1="83.0" x2="684" y2="83.0"/>
+<line class="ax" x1="58" y1="20" x2="58" y2="94"/>
+<line class="tick" x1="54" y1="28.2" x2="58" y2="28.2"/>
+<line class="ref" x1="58" y1="28.2" x2="684" y2="28.2"/>
+<text class="yl" x="52" y="31.7" text-anchor="end">V<tspan class="sub">m</tspan></text>
+<line class="tick" x1="54" y1="48.1" x2="58" y2="48.1"/>
+<line class="ref" x1="58" y1="48.1" x2="684" y2="48.1"/>
+<polygon class="f-vo" points="58.0,83.0 58.0,83.0 72.3,67.5 83.1,56.6 92.9,47.7 101.9,40.8 110.8,35.2 119.3,31.4 127.8,29.0 136.3,28.2 144.4,28.9 152.9,31.2 161.4,35.0 170.3,40.5 179.3,47.4 188.7,55.9 214.6,82.9 237.9,58.2 246.8,49.9 255.3,43.0 263.4,37.5 271.4,33.2 279.0,30.3 286.7,28.6 295.6,28.3 305.0,29.9 314.4,33.3 323.8,38.5 333.6,45.7 343.9,54.7 355.6,66.3 370.8,82.8 371.2,82.8 389.6,63.1 399.9,53.0 410.6,43.9 420.4,37.1 430.3,32.1 440.1,29.1 449.5,28.2 459.4,29.4 466.5,31.5 473.7,34.7 481.3,39.2 488.9,44.7 497.0,51.5 505.5,59.6 527.4,82.9 544.4,64.8 554.7,54.6 564.5,45.9 573.9,39.0 583.3,33.7 592.3,30.2 601.2,28.4 610.2,28.4 617.8,29.8 625.8,32.6 633.9,36.7 642.4,42.4 650.9,49.2 660.3,57.9 684.0,83.0 684.0,83.0"/>
+<path class="tr t-vo" d="M58.0 83.0 L72.3 67.5 L83.1 56.6 L92.9 47.7 L101.9 40.8 L110.8 35.2 L119.3 31.4 L127.8 29.0 L136.3 28.2 L144.4 28.9 L152.9 31.2 L161.4 35.0 L170.3 40.5 L179.3 47.4 L188.7 55.9 L214.6 82.9 L237.9 58.2 L246.8 49.9 L255.3 43.0 L263.4 37.5 L271.4 33.2 L279.0 30.3 L286.7 28.6 L295.6 28.3 L305.0 29.9 L314.4 33.3 L323.8 38.5 L333.6 45.7 L343.9 54.7 L355.6 66.3 L370.8 82.8 L371.2 82.8 L389.6 63.1 L399.9 53.0 L410.6 43.9 L420.4 37.1 L430.3 32.1 L440.1 29.1 L449.5 28.2 L459.4 29.4 L466.5 31.5 L473.7 34.7 L481.3 39.2 L488.9 44.7 L497.0 51.5 L505.5 59.6 L527.4 82.9 L544.4 64.8 L554.7 54.6 L564.5 45.9 L573.9 39.0 L583.3 33.7 L592.3 30.2 L601.2 28.4 L610.2 28.4 L617.8 29.8 L625.8 32.6 L633.9 36.7 L642.4 42.4 L650.9 49.2 L660.3 57.9 L684.0 83.0"/>
+<text class="pl" x="62" y="15">v<tspan class="sub">o</tspan></text>
+<line class="ax" x1="58" y1="181.0" x2="684" y2="181.0"/>
+<line class="ax" x1="58" y1="118" x2="58" y2="192"/>
+<line class="tick" x1="54" y1="146.1" x2="58" y2="146.1"/>
+<line class="ref" x1="58" y1="146.1" x2="684" y2="146.1"/>
+<text class="yl" x="52" y="149.6" text-anchor="end">I<tspan class="sub">o</tspan></text>
+<path class="tr t-io" d="M58.0 146.1 L684.0 146.1"/>
+<text class="pl" x="62" y="113">i<tspan class="sub">o</tspan></text>
+<rect class="cond" x="58.0" y="216" width="156.5" height="74"/>
+<rect class="cond" x="371.0" y="216" width="156.5" height="74"/>
+<line class="ax" x1="58" y1="279.0" x2="684" y2="279.0"/>
+<line class="ax" x1="58" y1="216" x2="58" y2="290"/>
+<path class="tr t-io" d="M58.0 244.1 L214.2 244.1 L214.6 279.0 L370.8 279.0 L371.2 244.1 L527.4 244.1 L527.8 279.0 L684.0 279.0"/>
+<text class="pl" x="62" y="211">i<tspan class="sub">D1,D2</tspan>  (centre-tap: i<tspan class="sub">D1</tspan>)</text>
+<rect class="cond" x="214.5" y="314" width="156.5" height="74"/>
+<rect class="cond" x="527.5" y="314" width="156.5" height="74"/>
+<line class="ax" x1="58" y1="377.0" x2="684" y2="377.0"/>
+<line class="ax" x1="58" y1="314" x2="58" y2="388"/>
+<path class="tr t-ix" d="M58.0 377.0 L214.2 377.0 L214.6 342.1 L370.8 342.1 L371.2 377.0 L527.4 377.0 L527.8 342.1 L684.0 342.1"/>
+<text class="pl" x="62" y="309">i<tspan class="sub">D3,D4</tspan>  (centre-tap: i<tspan class="sub">D2</tspan>)</text>
+<line class="ax" x1="58" y1="449.0" x2="684" y2="449.0"/>
+<line class="ax" x1="58" y1="412" x2="58" y2="486"/>
+<line class="tick" x1="54" y1="425.4" x2="58" y2="425.4"/>
+<line class="ref" x1="58" y1="425.4" x2="684" y2="425.4"/>
+<text class="yl" x="52" y="428.9" text-anchor="end">I<tspan class="sub">o</tspan></text>
+<line class="tick" x1="54" y1="472.6" x2="58" y2="472.6"/>
+<line class="ref" x1="58" y1="472.6" x2="684" y2="472.6"/>
+<text class="yl" x="52" y="476.1" text-anchor="end">−I<tspan class="sub">o</tspan></text>
+<path class="tr t-is" d="M58.0 425.4 L214.2 425.4 L214.6 472.6 L370.8 472.6 L371.2 425.4 L527.4 425.4 L527.8 472.6 L684.0 472.6"/>
+<text class="pl" x="62" y="407">i<tspan class="sub">s</tspan></text>
+<text class="xl" x="58.0" y="502" text-anchor="middle">0</text>
+<text class="xl" x="214.5" y="502" text-anchor="middle">π</text>
+<text class="xl" x="371.0" y="502" text-anchor="middle">2π</text>
+<text class="xl" x="527.5" y="502" text-anchor="middle">3π</text>
+<text class="xl" x="684.0" y="502" text-anchor="middle">4π</text>
+<text class="xl" x="684" y="514" text-anchor="end">ωt</text>
+</svg></div><span class="swipe" aria-hidden="true">swipe →</span><figcaption>Bridge or centre-tap with L ≫ R. Exam answer for 'very high inductance': v<sub>o</sub> = humps, i<sub>o</sub> = flat line, i<sub>D</sub> = rectangles, i<sub>s</sub> = square wave.</figcaption></figure>
+    </details>
+    <div class="exam"><div class="exam-h"><span><b>Mid-term Dec 2021</b> · Dr. Ghanem · MCQ</span><span>Points 12, 13, 14, 15</span></div><div class="exam-b">
+      <p>Data for points 12 to 15: a single-phase, full-wave rectifier arrangement uses a centre-tapped transformer having 230–0–230 V. It uses ideal diodes rated to handle a maximum current of 10 A.</p>
+      <ol class="parts">
+        <li>(12) The output dc voltage component will be: <span class="opt">ⓐ 73.21 V</span>  <span class="opt">ⓑ 146.4 V</span>  <span class="opt">ⓒ 207.07 V</span>  <span class="opt">ⓓ 230 V</span> </li>
+        <li>(13) The output dc current component will be: <span class="opt">ⓐ 3.18 A</span>  <span class="opt">ⓑ 6.36 A</span>  <span class="opt">ⓒ 8.21 A</span>  <span class="opt">ⓓ 10 A</span> </li>
+        <li>(14) The value of load resistance R<sub>L</sub> that gives the maximum dc output power is: <span class="opt">ⓐ 20.7 Ω</span>  <span class="opt">ⓑ 25.3 Ω</span>  <span class="opt">ⓒ 32.53 Ω</span>  <span class="opt">ⓓ 34.7 Ω</span> </li>
+        <li>(15) The PIV of each diode is equal to: <span class="opt">ⓐ 230 V</span>  <span class="opt">ⓑ 325.27 V</span>  <span class="opt">ⓒ 600 V</span>  <span class="opt">ⓓ 650.5 V</span> </li>
+      </ol>
+    </div></div>
+    <details class="sol"><summary>Show the answer</summary>
+      <div class="eqs">
+        <div class="el">\(V_{m}\)</div><div class="ee">=</div><div class="er">\(230\sqrt{2}=325.27\ \mathrm{V}\)</div>
+        <div class="el">(12) \(V_{o}\)</div><div class="ee">=</div><div class="er">\(\dfrac{2V_{m}}{\pi }=\dfrac{2\times 325.27}{\pi }=\)<span class="ans">\(207.07\ \mathrm{V}\ (c)\)</span></div>
+        <div class="en">The diodes allow a peak current of 10 A, so I<sub>m</sub> = 10 A.</div>
+        <div class="el">(13) \(I_{o}\)</div><div class="ee">=</div><div class="er">\(\dfrac{2I_{m}}{\pi }=\dfrac{2\times 10}{\pi }=\)<span class="ans">\(6.36\ \mathrm{A}\ (b)\)</span></div>
+        <div class="el">(14) \(R_{L}\)</div><div class="ee">=</div><div class="er">\(\dfrac{V_{m}}{I_{m}}=\dfrac{325.27}{10}=\)<span class="ans">\(32.53\ \Omega \ (c)\)</span></div>
+        <div class="el">(15) \(\mathrm{PIV}\)</div><div class="ee">=</div><div class="er">\(2V_{m}=2\times 325.27=\)<span class="ans">\(650.5\ \mathrm{V}\ (d)\)</span></div>
+      </div>
+    </details>
+    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="5"> I can draw all 8 waveforms from memory</label><a class="ft-next" href="#ft-6">Next: step 6 →</a></div>
+  </div>
+
+  <!-- ================= STEP 6 ================= -->
+  <div class="ft-step" data-step="6">
+    <div class="ft-head"><h3 id="ft-6">Step 6 · Capacitor filter and freewheeling diode (Lecture 3)</h3><span class="tag md">6 marks in 4 papers</span><span class="tag">1 h</span></div>
+    <h4>6A · Freewheeling diode (FWD)</h4>
+    <div class="box plain"><span class="bh">The idea, fixing step 3's problem</span>
+      <p>In step 3, the negative piece of v<sub>o</sub> (from π to β) lowered the average. Put a second diode D2 across the R-L load. When v<sub>s</sub> goes negative, the inductor's current now "freewheels" round L → R → D2 instead of through the supply, so <b>v<sub>o</sub> = 0 instead of negative</b>. The output is the plain half sine again, so step 2's formula comes back: <span class="mx">\(V_{o}=\dfrac{V_{m}}{\pi }\)</span>, <span class="mx">\(I_{o}=\dfrac{V_{o}}{R}\)</span>.</p>
+    </div>
+    <figure class="wv"><div class="scroll" tabindex="0"><svg class="wave" viewBox="0 0 700 432" role="img" aria-label="Half-wave with freewheeling diode: the output is never negative; D2 carries the current in the negative half" xmlns="http://www.w3.org/2000/svg">
+<line class="grid" x1="58.0" y1="20" x2="58.0" y2="388"/>
+<line class="grid" x1="214.5" y1="20" x2="214.5" y2="388"/>
+<line class="grid" x1="371.0" y1="20" x2="371.0" y2="388"/>
+<line class="grid" x1="527.5" y1="20" x2="527.5" y2="388"/>
+<line class="grid" x1="684.0" y1="20" x2="684.0" y2="388"/>
+<line class="ax" x1="58" y1="83.0" x2="684" y2="83.0"/>
+<line class="ax" x1="58" y1="20" x2="58" y2="94"/>
+<line class="tick" x1="54" y1="28.2" x2="58" y2="28.2"/>
+<line class="ref" x1="58" y1="28.2" x2="684" y2="28.2"/>
+<text class="yl" x="52" y="31.7" text-anchor="end">V<tspan class="sub">m</tspan></text>
+<polygon class="f-vo" points="58.0,83.0 58.0,83.0 72.3,67.5 83.1,56.6 92.9,47.7 101.9,40.8 110.8,35.2 119.3,31.4 127.8,29.0 136.3,28.2 144.8,29.0 153.3,31.4 161.8,35.3 170.8,40.9 179.7,47.8 189.1,56.3 214.6,83.0 370.8,83.0 396.7,56.0 406.1,47.5 415.1,40.6 424.0,35.1 432.5,31.3 441.0,29.0 449.1,28.2 457.6,29.0 466.1,31.3 474.6,35.2 483.5,40.7 492.5,47.6 501.9,56.1 527.8,83.0 684.0,83.0 684.0,83.0"/>
+<path class="tr t-vo" d="M58.0 83.0 L72.3 67.5 L83.1 56.6 L92.9 47.7 L101.9 40.8 L110.8 35.2 L119.3 31.4 L127.8 29.0 L136.3 28.2 L144.8 29.0 L153.3 31.4 L161.8 35.3 L170.8 40.9 L179.7 47.8 L189.1 56.3 L214.6 83.0 L370.8 83.0 L396.7 56.0 L406.1 47.5 L415.1 40.6 L424.0 35.1 L432.5 31.3 L441.0 29.0 L449.1 28.2 L457.6 29.0 L466.1 31.3 L474.6 35.2 L483.5 40.7 L492.5 47.6 L501.9 56.1 L527.8 83.0 L684.0 83.0"/>
+<text class="pl" x="62" y="15">v<tspan class="sub">o</tspan></text>
+<line class="ax" x1="58" y1="185.8" x2="684" y2="185.8"/>
+<line class="ax" x1="58" y1="118" x2="58" y2="192"/>
+<line class="tick" x1="54" y1="145.3" x2="58" y2="145.3"/>
+<line class="ref" x1="58" y1="145.3" x2="684" y2="145.3"/>
+<text class="yl" x="52" y="148.8" text-anchor="end">I<tspan class="sub">o</tspan></text>
+<path class="tr t-io" d="M58.0 161.0 L66.1 161.5 L73.2 161.4 L80.8 160.5 L90.2 158.5 L109.0 152.4 L141.7 138.7 L159.1 132.3 L168.1 129.9 L176.1 128.3 L183.7 127.4 L190.9 127.1 L199.0 127.5 L207.9 128.9 L258.0 141.5 L281.3 146.5 L309.0 151.7 L338.6 156.5 L371.2 161.0 L378.8 161.5 L386.4 161.3 L400.3 159.2 L414.2 155.3 L426.7 150.6 L459.4 136.8 L475.0 131.5 L488.9 128.3 L503.7 127.1 L511.7 127.5 L521.1 128.9 L563.2 139.7 L606.6 148.9 L643.7 155.3 L684.0 161.0"/>
+<text class="pl" x="62" y="113">i<tspan class="sub">o</tspan></text>
+<rect class="cond" x="58.0" y="216" width="156.5" height="74"/>
+<rect class="cond" x="371.0" y="216" width="156.5" height="74"/>
+<line class="ax" x1="58" y1="283.8" x2="684" y2="283.8"/>
+<line class="ax" x1="58" y1="216" x2="58" y2="290"/>
+<path class="tr t-io" d="M58.0 283.8 L58.4 259.0 L66.5 259.6 L75.0 259.2 L82.6 258.2 L92.0 256.1 L109.0 250.4 L141.7 236.7 L154.2 232.0 L168.1 227.9 L179.3 225.8 L188.2 225.1 L197.2 225.3 L206.6 226.6 L214.2 228.4 L214.6 283.8 L370.8 283.8 L371.2 259.0 L378.8 259.5 L386.4 259.3 L394.0 258.4 L403.4 256.5 L420.4 251.0 L456.2 236.1 L471.9 230.4 L479.5 228.3 L488.9 226.3 L503.7 225.1 L514.9 225.8 L527.4 228.4 L527.8 283.8 L684.0 283.8"/>
+<text class="pl" x="62" y="211">i<tspan class="sub">D1</tspan></text>
+<rect class="cond" x="214.5" y="314" width="156.5" height="74"/>
+<rect class="cond" x="527.5" y="314" width="156.5" height="74"/>
+<line class="ax" x1="58" y1="381.8" x2="684" y2="381.8"/>
+<line class="ax" x1="58" y1="314" x2="58" y2="388"/>
+<path class="tr t-ix" d="M58.0 357.0 L58.4 381.8 L214.2 381.8 L214.6 326.5 L251.8 336.1 L288.9 344.0 L327.8 350.8 L370.8 356.9 L371.2 381.8 L527.4 381.8 L527.8 326.6 L563.2 335.7 L602.1 344.0 L643.7 351.3 L684.0 357.0"/>
+<text class="pl" x="62" y="309">i<tspan class="sub">D2</tspan></text>
+<text class="xl" x="58.0" y="404" text-anchor="middle">0</text>
+<text class="xl" x="214.5" y="404" text-anchor="middle">π</text>
+<text class="xl" x="371.0" y="404" text-anchor="middle">2π</text>
+<text class="xl" x="527.5" y="404" text-anchor="middle">3π</text>
+<text class="xl" x="684.0" y="404" text-anchor="middle">4π</text>
+<text class="xl" x="684" y="416" text-anchor="end">ωt</text>
+</svg></div><span class="swipe" aria-hidden="true">swipe →</span><figcaption>To scale for the Lect 3 example (R = 2 Ω, L = 25 mH, 50 Hz): the current never reaches zero. D1 and D2 take turns.</figcaption></figure>
+    <div class="exam"><div class="exam-h"><span><b>Mid 2023/24</b> · DU and MU papers</span><span>Question (3)</span></div><div class="exam-b">
+      <div class="exam-fig"><svg class="sch" viewBox="0 0 360 190" role="img" aria-label="Half-wave rectifier circuit (FWD)" xmlns="http://www.w3.org/2000/svg"><circle class="cmp" cx="50" cy="95" r="18"/><path class="cmp" d="M40 95 q5 -11 10 0 t10 0"/><text class="cl" x="26" y="99" text-anchor="end">v<tspan class="sub">s</tspan></text><path class="w" d="M50 77 L50 30 L90 30"/><path class="w" d="M90 30 L110.0 30.0"/><path class="w" d="M130.0 30.0 L150 30"/><polygon class="dio" points="110.0,40.0 110.0,20.0 130.0,30.0"/><line class="cmp" x1="130.0" y1="40.0" x2="130.0" y2="20.0"/><text class="cl" x="120.0" y="10.0" text-anchor="middle">D<tspan class="sub">1</tspan></text><path class="w" d="M150 30 L290 30"/><path class="w" d="M50 113 L50 160 L290 160"/><path class="w" d="M290 30 L290.0 44.5"/><path class="w" d="M290.0 80.5 L290 95"/><path class="cmp" d="M290.0 44.5 L284.0 49.6 L296.0 54.8 L284.0 59.9 L296.0 65.1 L284.0 70.2 L296.0 75.4 L290.0 80.5"/><text class="cl" x="308.0" y="66.5" text-anchor="start">R</text><path class="w" d="M290 95 L290.0 107.5"/><path class="w" d="M290.0 147.5 L290 160"/><path class="cmp" d="M290.0 107.5 A5 5 0 0 1 290.0 117.5 A5 5 0 0 1 290.0 127.5 A5 5 0 0 1 290.0 137.5 A5 5 0 0 1 290.0 147.5"/><text class="cl" x="308.0" y="131.5" text-anchor="start">L</text><path class="w" d="M200 30 L200 65"/><path class="w" d="M200 125 L200.0 105.0"/><path class="w" d="M200.0 85.0 L200 65"/><polygon class="dio" points="210.0,105.0 190.0,105.0 200.0,85.0"/><line class="cmp" x1="210.0" y1="85.0" x2="190.0" y2="85.0"/><text class="cl" x="180.0" y="99.0" text-anchor="end">D<tspan class="sub">2</tspan></text><path class="w" d="M200 125 L200 160"/><circle class="node" cx="200" cy="30" r="3"/><circle class="node" cx="200" cy="160" r="3"/><text class="cl" x="330" y="34" text-anchor="middle">+</text><text class="cl" x="330" y="165" text-anchor="middle">−</text><text class="cl" x="336" y="100" text-anchor="middle">v<tspan class="sub">o</tspan></text></svg></div>
+      <p><span class="qt">3)</span> For single-phase uncontrolled half-wave rectifiers, what happens to the output power if a freewheeling diode is used with an R-L load?</p>
+    </div></div>
+    <details class="sol"><summary>Show the answer</summary>
+      <p>With the FWD, the negative part of v<sub>o</sub> disappears, so <b>V<sub>dc</sub> and I<sub>dc</sub> increase</b> and P<sub>dc</sub> = V<sub>dc</sub>I<sub>dc</sub> increases. The <b>output rms voltage decreases</b>. The load current becomes continuous and smoother, and the power delivered to the load (I<sub>rms</sub><sup>2</sup>R) increases slightly. Draw v<sub>o</sub> without the FWD (negative dip up to β) and with it (half sines only).</p>
+    </details>
+
+    <h4>6B · Capacitor filter</h4>
+    <div class="box plain"><span class="bh">The idea</span>
+      <p>Go back to step 2's circuit and put a capacitor across R. It works like a small water tank: it charges up to V<sub>m</sub> while the diode conducts. After the peak, v<sub>s</sub> falls faster than the capacitor can discharge, so the diode turns off and the capacitor feeds the load alone, its voltage decaying slowly (time constant RC). When v<sub>s</sub> rises above it again, the diode turns back on. The result is an almost flat output with a small saw-tooth <b>ripple ΔV<sub>o</sub></b>.</p>
+      <ul class="tight">
+        <li><b>Low C:</b> it discharges fast, so v<sub>o</sub> almost follows the half sine.</li>
+        <li><b>Medium C:</b> a clear saw-tooth between the peaks.</li>
+        <li><b>High C:</b> nearly flat at V<sub>m</sub>, a tiny ripple.</li>
+      </ul>
+    </div>
+    <div class="box mem"><span class="bh">Formulas to memorise</span>
+      <div class="fgrid">
+        <div class="f"><span class="fl">Ripple (approximate)</span><span class="fx"><span class="mx">\(\Delta V_{o}\approx \dfrac{V_{m}}{fRC}\)</span> → <span class="mx">\(C=\dfrac{V_{m}}{fR\,\Delta V_{o}}\)</span></span></div>
+        <div class="f"><span class="fl">Trade-off</span><span class="fx">Bigger C → smaller ripple, but a shorter, higher diode current pulse</span></div>
+        <div class="f"><span class="fl">Full-wave rectifier with C</span><span class="fx">The capacitor discharges for half a period: use 2f instead of f</span></div>
+      </div></div>
+    <div class="exam"><div class="exam-h"><span><b>Mid-term Dec 2022 &amp; Dec 2024</b> · Dr. Hamouda</span><span>Question (3)</span></div><div class="exam-b">
+      <div class="exam-fig"><svg class="sch" viewBox="0 0 360 190" role="img" aria-label="Half-wave rectifier circuit (C)" xmlns="http://www.w3.org/2000/svg"><circle class="cmp" cx="50" cy="95" r="18"/><path class="cmp" d="M40 95 q5 -11 10 0 t10 0"/><text class="cl" x="26" y="99" text-anchor="end">v<tspan class="sub">s</tspan></text><path class="w" d="M50 77 L50 30 L90 30"/><path class="w" d="M90 30 L110.0 30.0"/><path class="w" d="M130.0 30.0 L150 30"/><polygon class="dio" points="110.0,40.0 110.0,20.0 130.0,30.0"/><line class="cmp" x1="130.0" y1="40.0" x2="130.0" y2="20.0"/><text class="cl" x="120.0" y="10.0" text-anchor="middle">D</text><path class="w" d="M150 30 L290 30"/><path class="w" d="M50 113 L50 160 L290 160"/><path class="w" d="M200 30 L200 70"/><path class="w" d="M200 70 L200.0 91.0"/><path class="w" d="M200.0 99.0 L200 120"/><line class="cmp" x1="188.0" y1="91.0" x2="212.0" y2="91.0"/><line class="cmp" x1="188.0" y1="99.0" x2="212.0" y2="99.0"/><text class="cl" x="178.0" y="99.0" text-anchor="end">C</text><path class="w" d="M200 120 L200 160"/><circle class="node" cx="200" cy="30" r="3"/><circle class="node" cx="200" cy="160" r="3"/><path class="w" d="M290 30 L290.0 77.0"/><path class="w" d="M290.0 113.0 L290 160"/><path class="cmp" d="M290.0 77.0 L284.0 82.1 L296.0 87.3 L284.0 92.4 L296.0 97.6 L284.0 102.7 L296.0 107.9 L290.0 113.0"/><text class="cl" x="308.0" y="99.0" text-anchor="start">R</text><text class="cl" x="330" y="34" text-anchor="middle">+</text><text class="cl" x="330" y="165" text-anchor="middle">−</text><text class="cl" x="336" y="100" text-anchor="middle">v<tspan class="sub">o</tspan></text></svg></div>
+      <p><span class="qt">3)</span> For the circuit shown in figure, draw the expected waveform for the output voltage V<sub>o</sub> in the following cases:</p>
+      <ol class="parts"><li>(a) The capacitor has a very low capacitance <span class="mk">[2 Marks]</span></li><li>(b) The capacitor has a medium capacitance <span class="mk">[2 Marks]</span></li><li>(c) The capacitor has a very high capacitance <span class="mk">[2 Marks]</span></li></ol>
+      <p class="small">2024 asked the same with a bridge: then the capacitor is recharged every half-cycle.</p>
+    </div></div>
+    <details class="sol"><summary>Show the answer</summary>
+      <figure class="wv"><div class="scroll" tabindex="0"><svg class="wave" viewBox="0 0 700 334" role="img" aria-label="Output voltage with a small, medium and large filter capacitor" xmlns="http://www.w3.org/2000/svg">
+<line class="grid" x1="58.0" y1="20" x2="58.0" y2="290"/>
+<line class="grid" x1="214.5" y1="20" x2="214.5" y2="290"/>
+<line class="grid" x1="371.0" y1="20" x2="371.0" y2="290"/>
+<line class="grid" x1="527.5" y1="20" x2="527.5" y2="290"/>
+<line class="grid" x1="684.0" y1="20" x2="684.0" y2="290"/>
+<line class="ax" x1="58" y1="57.0" x2="684" y2="57.0"/>
+<line class="ax" x1="58" y1="20" x2="58" y2="94"/>
+<line class="tick" x1="54" y1="24.8" x2="58" y2="24.8"/>
+<line class="ref" x1="58" y1="24.8" x2="684" y2="24.8"/>
+<text class="yl" x="52" y="28.3" text-anchor="end">V<tspan class="sub">m</tspan></text>
+<line class="tick" x1="54" y1="89.2" x2="58" y2="89.2"/>
+<line class="ref" x1="58" y1="89.2" x2="684" y2="89.2"/>
+<text class="yl" x="52" y="92.7" text-anchor="end">−V<tspan class="sub">m</tspan></text>
+<path class="tr t-vs dash" d="M58.0 57.0 L83.1 41.5 L92.9 36.3 L101.9 32.2 L110.8 28.9 L119.3 26.7 L127.8 25.3 L136.3 24.8 L144.8 25.3 L153.8 26.8 L162.7 29.3 L171.7 32.6 L181.5 37.2 L191.8 42.8 L232.5 68.4 L250.4 78.2 L260.3 82.6 L269.6 85.8 L279.0 88.0 L288.0 89.0 L297.4 89.0 L307.2 87.8 L317.1 85.4 L327.4 81.7 L337.2 77.2 L348.0 71.4 L388.7 45.8 L406.1 36.1 L416.0 31.7 L424.9 28.6 L433.9 26.3 L442.8 25.1 L452.7 24.9 L463.0 26.0 L473.2 28.5 L484.0 32.3 L493.8 36.9 L505.0 43.0 L544.4 67.7 L560.9 77.0 L570.3 81.4 L578.8 84.6 L587.3 87.0 L595.4 88.5 L605.2 89.2 L614.6 88.7 L624.5 86.9 L634.8 83.9 L645.1 79.7 L655.8 74.3 L667.9 67.2 L684.0 57.0"/>
+<path class="tr t-vo" d="M58.0 57.0 L83.1 41.5 L92.9 36.3 L101.9 32.2 L110.8 28.9 L119.3 26.7 L127.8 25.3 L136.3 24.8 L136.8 25.5 L137.2 24.8 L137.6 25.5 L138.1 24.8 L138.5 25.6 L139.0 24.9 L139.4 25.6 L139.9 24.9 L140.3 25.6 L140.8 25.0 L141.2 25.7 L141.7 25.0 L142.1 25.7 L142.6 25.1 L143.0 25.8 L143.5 25.2 L143.9 25.9 L144.4 25.3 L144.8 26.0 L145.3 25.4 L145.7 26.1 L146.2 25.5 L146.6 26.2 L147.0 25.6 L147.5 26.3 L147.9 25.7 L148.4 26.4 L148.8 25.8 L149.3 26.5 L149.7 26.0 L150.2 26.7 L150.6 26.2 L151.1 26.8 L151.5 26.3 L152.0 27.0 L152.4 26.5 L152.9 27.2 L153.3 26.7 L153.8 27.4 L154.2 26.9 L154.7 27.6 L155.1 27.1 L155.5 27.8 L156.0 27.3 L156.4 28.0 L156.9 27.5 L157.3 28.2 L157.8 27.8 L158.2 28.4 L158.7 28.0 L159.1 28.7 L159.6 28.3 L160.0 28.9 L160.5 28.6 L160.9 29.2 L161.4 28.8 L161.8 29.5 L162.3 29.1 L162.7 29.7 L163.2 29.4 L163.6 30.0 L164.0 29.7 L164.5 30.3 L164.9 30.0 L165.4 30.6 L165.8 30.3 L166.3 30.9 L166.7 30.7 L167.2 31.2 L167.6 31.0 L168.1 31.6 L168.5 31.3 L169.0 31.9 L170.3 32.1 L170.8 32.6 L172.1 32.8 L181.1 37.0 L181.9 37.9 L182.4 37.7 L183.3 38.5 L185.1 39.1 L199.8 47.5 L209.2 51.1 L223.1 54.1 L241.5 55.8 L278.6 56.8 L370.8 57.0 L396.7 41.1 L406.1 36.1 L415.1 32.1 L424.0 28.9 L432.5 26.6 L441.0 25.3 L449.1 24.8 L449.5 25.5 L450.0 24.8 L450.4 25.5 L450.9 24.8 L451.3 25.6 L451.8 24.9 L452.2 25.6 L452.7 24.9 L453.1 25.6 L453.6 24.9 L454.0 25.7 L454.5 25.0 L454.9 25.7 L455.3 25.1 L455.8 25.8 L456.2 25.1 L456.7 25.8 L457.1 25.2 L457.6 25.9 L458.0 25.3 L458.5 26.0 L458.9 25.4 L459.4 26.1 L459.8 25.5 L460.3 26.2 L460.7 25.7 L461.2 26.4 L461.6 25.8 L462.1 26.5 L462.5 26.0 L463.0 26.6 L463.4 26.1 L463.8 26.8 L464.3 26.3 L464.7 27.0 L465.2 26.5 L465.6 27.1 L466.1 26.6 L466.5 27.3 L467.0 26.8 L467.4 27.5 L467.9 27.0 L468.3 27.7 L468.8 27.3 L469.2 27.9 L469.7 27.5 L470.1 28.1 L470.6 27.7 L471.0 28.4 L471.5 28.0 L471.9 28.6 L472.4 28.2 L472.8 28.9 L473.2 28.5 L473.7 29.1 L474.1 28.8 L474.6 29.4 L475.0 29.0 L475.5 29.7 L475.9 29.3 L476.4 29.9 L476.8 29.6 L477.3 30.2 L477.7 29.9 L478.2 30.5 L478.6 30.3 L479.1 30.8 L479.5 30.6 L480.0 31.2 L481.3 31.3 L481.7 31.8 L483.1 32.0 L483.5 32.5 L484.0 32.3 L484.4 32.9 L484.9 32.7 L485.3 33.2 L485.8 33.1 L492.0 36.0 L494.7 37.8 L495.2 37.6 L496.1 38.4 L496.5 38.3 L502.3 41.4 L510.4 46.3 L516.2 49.0 L526.0 52.1 L537.7 54.3 L554.2 55.8 L577.5 56.6 L684.0 57.0"/>
+<text class="pl" x="62" y="15">low C</text>
+<line class="ax" x1="58" y1="155.0" x2="684" y2="155.0"/>
+<line class="ax" x1="58" y1="118" x2="58" y2="192"/>
+<line class="tick" x1="54" y1="122.8" x2="58" y2="122.8"/>
+<line class="ref" x1="58" y1="122.8" x2="684" y2="122.8"/>
+<text class="yl" x="52" y="126.3" text-anchor="end">V<tspan class="sub">m</tspan></text>
+<line class="tick" x1="54" y1="187.2" x2="58" y2="187.2"/>
+<line class="ref" x1="58" y1="187.2" x2="684" y2="187.2"/>
+<text class="yl" x="52" y="190.7" text-anchor="end">−V<tspan class="sub">m</tspan></text>
+<path class="tr t-vs dash" d="M58.0 155.0 L83.1 139.5 L92.9 134.3 L101.9 130.2 L110.8 126.9 L119.3 124.7 L127.8 123.3 L136.3 122.8 L144.8 123.3 L153.8 124.8 L162.7 127.3 L171.7 130.6 L181.5 135.2 L191.8 140.8 L232.5 166.4 L250.4 176.2 L260.3 180.6 L269.6 183.8 L279.0 186.0 L288.0 187.0 L297.4 187.0 L307.2 185.8 L317.1 183.4 L327.4 179.7 L337.2 175.2 L348.0 169.4 L388.7 143.8 L406.1 134.1 L416.0 129.7 L424.9 126.6 L433.9 124.3 L442.8 123.1 L452.7 122.9 L463.0 124.0 L473.2 126.5 L484.0 130.3 L493.8 134.9 L505.0 141.0 L544.4 165.7 L560.9 175.0 L570.3 179.4 L578.8 182.6 L587.3 185.0 L595.4 186.5 L605.2 187.2 L614.6 186.7 L624.5 184.9 L634.8 181.9 L645.1 177.7 L655.8 172.3 L667.9 165.2 L684.0 155.0"/>
+<path class="tr t-vo" d="M58.0 144.8 L72.8 145.5 L91.6 134.9 L107.2 128.1 L114.8 125.8 L122.0 124.1 L129.1 123.2 L136.3 122.8 L145.7 123.4 L175.2 127.8 L206.1 131.7 L256.2 136.9 L317.5 141.7 L385.5 145.5 L404.8 134.8 L420.0 128.2 L427.6 125.8 L434.8 124.2 L441.9 123.2 L449.1 122.8 L458.0 123.3 L518.9 131.6 L564.5 136.4 L621.4 141.0 L684.0 144.8"/>
+<text class="pl" x="62" y="113">medium C</text>
+<line class="ax" x1="58" y1="253.0" x2="684" y2="253.0"/>
+<line class="ax" x1="58" y1="216" x2="58" y2="290"/>
+<line class="tick" x1="54" y1="220.8" x2="58" y2="220.8"/>
+<line class="ref" x1="58" y1="220.8" x2="684" y2="220.8"/>
+<text class="yl" x="52" y="224.3" text-anchor="end">V<tspan class="sub">m</tspan></text>
+<line class="tick" x1="54" y1="285.2" x2="58" y2="285.2"/>
+<line class="ref" x1="58" y1="285.2" x2="684" y2="285.2"/>
+<text class="yl" x="52" y="288.7" text-anchor="end">−V<tspan class="sub">m</tspan></text>
+<path class="tr t-vs dash" d="M58.0 253.0 L83.1 237.5 L92.9 232.3 L101.9 228.2 L110.8 224.9 L119.3 222.7 L127.8 221.3 L136.3 220.8 L144.8 221.3 L153.8 222.8 L162.7 225.3 L171.7 228.6 L181.5 233.2 L191.8 238.8 L232.5 264.4 L250.4 274.2 L260.3 278.6 L269.6 281.8 L279.0 284.0 L288.0 285.0 L297.4 285.0 L307.2 283.8 L317.1 281.4 L327.4 277.7 L337.2 273.2 L348.0 267.4 L388.7 241.8 L406.1 232.1 L416.0 227.7 L424.9 224.6 L433.9 222.3 L442.8 221.1 L452.7 220.9 L463.0 222.0 L473.2 224.5 L484.0 228.3 L493.8 232.9 L505.0 239.0 L544.4 263.7 L560.9 273.0 L570.3 277.4 L578.8 280.6 L587.3 283.0 L595.4 284.5 L605.2 285.2 L614.6 284.7 L624.5 282.9 L634.8 279.9 L645.1 275.7 L655.8 270.3 L667.9 263.2 L684.0 253.0"/>
+<path class="tr t-vo" d="M58.0 222.7 L117.1 223.1 L126.9 221.4 L136.3 220.8 L430.3 223.1 L439.7 221.4 L449.1 220.8 L684.0 222.7"/>
+<text class="pl" x="62" y="211">high C</text>
+<text class="xl" x="58.0" y="306" text-anchor="middle">0</text>
+<text class="xl" x="214.5" y="306" text-anchor="middle">π</text>
+<text class="xl" x="371.0" y="306" text-anchor="middle">2π</text>
+<text class="xl" x="527.5" y="306" text-anchor="middle">3π</text>
+<text class="xl" x="684.0" y="306" text-anchor="middle">4π</text>
+<text class="xl" x="684" y="318" text-anchor="end">ωt</text>
+</svg></div><span class="swipe" aria-hidden="true">swipe →</span><figcaption>Dashed: v<sub>s</sub>. Low C: v<sub>o</sub> almost follows the half-wave (fast decay). Medium C: visible saw-tooth ripple. High C: almost flat at V<sub>m</sub>.</figcaption></figure>
+      <p>Low C: v<sub>o</sub> almost follows the half sine. Medium C: a visible saw-tooth. High C: almost flat at V<sub>m</sub>. In every case v<sub>o</sub> touches V<sub>m</sub> at the peaks and never goes negative.</p>
+    </details>
+    <div class="exam"><div class="exam-h"><span><b>Mid-term Dec 2021</b> · Dr. Ghanem · MCQ</span><span>Point 18</span></div><div class="exam-b">
+      <p>The half-wave rectifier with a capacitor filter has a 220 V rms source at 50 Hz, R<sub>L</sub> = 300 Ω and C = 150 µF.</p>
+      <ol class="parts"><li>(18) The approximate value of C such that ΔV<sub>o</sub> is 5 V: <span class="opt">ⓐ 4000 µF</span>  <span class="opt">ⓑ 4150 µF</span>  <span class="opt">ⓒ 5700 µF</span>  <span class="opt">ⓓ 6600 µF</span> </li></ol>
+    </div></div>
+    <details class="sol"><summary>Show the answer</summary>
+      <div class="eqs">
+        <div class="el">\(V_{m}\)</div><div class="ee">=</div><div class="er">\(220\sqrt{2}=311.1\ \mathrm{V}\)</div>
+        <div class="el">\(C\)</div><div class="ee">=</div><div class="er">\(\dfrac{V_{m}}{fR\,\Delta V_{o}}=\dfrac{311.1}{50\times 300\times 5}=4.15\times 10^{-3}\ \mathrm{F}=\)<span class="ans">\(4150\ \mu \mathrm{F}\ (b)\)</span></div>
+      </div>
+    </details>
+    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="6"> I can draw the three capacitor cases and explain the FWD</label><a class="ft-next" href="#ft-7">Next: step 7 →</a></div>
+  </div>
+
+  <!-- ================= STEP 7 ================= -->
+  <div class="ft-step" data-step="7">
+    <div class="ft-head"><h3 id="ft-7">Step 7 · Do the 2025 paper</h3><span class="tag">1 h</span></div>
     <p>This is last year's full midterm, written out as it appeared. Every question is from steps 1, 3 and 4. Set a 1-hour timer, close the answers, and answer on paper.</p>
     <div class="exam exam-paper"><div class="exam-h">Damietta University · Faculty of Engineering · Electrical Engineering Dept.<br>Power Electronics (1) · 2nd Grade · First Semester, Mid-Term Exam 2025<br>Allowed Time: 1 hr · Total mark: 20</div><div class="exam-b">
       <p><i>Answer the following questions, assume any missing data.</i></p>
@@ -988,7 +1296,7 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
       <p>The answers are in step 1 (Q1.1–1.2), step 3 (Q1.3 and Q2.1) and step 4 (Q2.2). Anything you got wrong: go back to that step only.</p>
       <p class="small">The night before: read step 1's box aloud and write the formula boxes from steps 3 and 4 once from memory. Dr. Elgohary copies his lecture examples and changes the numbers, so if you can redo both worked examples cold, you are ready.</p>
     </div>
-    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="5"> I did the paper in 1 hour</label><button class="btn ft-reset" type="button" id="ftReset">Reset my ticks</button></div>
+    <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="7"> I did the paper in 1 hour</label><button class="btn ft-reset" type="button" id="ftReset">Reset my ticks</button></div>
   </div>
 </section>
 
@@ -997,7 +1305,7 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
   <h2 id="what-to-do-now">What to do now</h2>
   <div class="box now">
     <span class="bh">Start here · today</span>
-    <p><b>Short on time?</b> Follow the <a href="#fast-track">Midterm fast track</a> above instead: 6 steps, about 5–6 hours, written for a first read. The list below is the full route.</p>
+    <p><b>Short on time?</b> Follow the <a href="#fast-track">Midterm fast track</a> above instead: 8 steps, about 7–8 hours, written for a first read. The list below is the full route.</p>
     <ol class="steps">
       <li>Read <a href="#big-picture">The big picture</a> and the <a href="#glossary">symbol glossary</a> (25 min). Every later page uses those words.</li>
       <li>Learn the four free-mark theory answers that appear in almost every midterm: <a href="#l1">merits/demerits, ideal vs real switch, the two losses</a> (30 min).</li>
