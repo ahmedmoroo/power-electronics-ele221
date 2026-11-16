@@ -19,14 +19,6 @@
 .ft-work li{margin:3px 0; max-width:none}
 details.sol{margin-top:-2px}
 details.sol > summary{padding:4px 0}
-.calc{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr)); gap:8px; margin:8px 0}
-.calc label{display:flex; flex-direction:column; gap:3px; font-size:13px; color:var(--muted); font-weight:600}
-.calc input{font:15px var(--f-mono); padding:8px; border:1px solid var(--line); border-radius:8px; background:var(--paper); color:var(--ink); min-width:0; width:100%; box-sizing:border-box}
-.calc-out{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr)); gap:6px; margin-top:8px}
-.calc-out div{border:1px solid var(--line); border-radius:8px; padding:6px 10px; background:var(--paper); font-family:var(--f-mono); font-size:14px}
-.calc-out div span{display:block; font-family:var(--f-body); font-size:12px; color:var(--muted)}
-.calc-out .warn{grid-column:1/-1; background:var(--bad-soft); border-color:var(--bad); color:var(--bad); font-family:var(--f-body)}
-.calc-out .note{grid-column:1/-1; background:var(--ok-soft); border-color:var(--ok); font-family:var(--f-body)}
 </style>
 </head><body>
 <title>Power Electronics 1 Midterm Guide</title>
@@ -722,16 +714,27 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
         <div class="el">(e) \(\mathrm{PF}\)</div><div class="ee">=</div><div class="er">\(\dfrac{91.6}{(200/\sqrt{2})\times 0.957}=\)<span class="ans">\(0.677\)</span></div>
       </div>
     </details>
-    <div class="box calc-box"><span class="bh">Check any numbers of your own</span>
-      <p class="small">Change the values, solve on paper, then compare. Same formulas as above.</p>
-      <div class="calc" id="calcHW">
-        <label>R (Ω)<input type="number" step="any" inputmode="decimal" data-k="R" value="100"></label>
-        <label>L (H)<input type="number" step="any" inputmode="decimal" data-k="L" value="0.1"></label>
-        <label>ω (rad/s)<input type="number" step="any" inputmode="decimal" data-k="w" value="314"></label>
-        <label>V<sub>m</sub> (V)<input type="number" step="any" inputmode="decimal" data-k="Vm" value="200"></label>
+    <div class="q"><div class="qh"><span class="qn">One more for practice</span><span class="tag src">Lect 3 · Quiz 3</span></div><div class="qb">
+      <table class="given"><tr><th>Load</th><td>R = 50 Ω, L = 0.1 H</td></tr><tr><th>Supply</th><td>V<sub>m</sub> = 100 V, ω = 200 rad/s</td></tr></table>
+      <p class="find"><b>FIND</b> (a) i(ωt) (b) I<sub>dc</sub> (c) I<sub>rms</sub> (d) P (e) PF</p></div></div>
+    <details class="sol"><summary>Show the answer</summary>
+      <div class="eqs">
+        <div class="el">\(\omega L\)</div><div class="ee">=</div><div class="er">\(200\times 0.1=20\ \Omega \)</div>
+        <div class="el">\(Z\)</div><div class="ee">=</div><div class="er">\(\sqrt{50^{2}+20^{2}}=\)<span class="ans">\(53.85\ \Omega \)</span></div>
+        <div class="el">\(\theta \)</div><div class="ee">=</div><div class="er">\(\tan ^{-1}\dfrac{20}{50}=21.8^{\circ}=\)<span class="ans">\(0.3805\ \mathrm{rad}\)</span></div>
+        <div class="el">\(\omega \tau \)</div><div class="ee">=</div><div class="er">\(\dfrac{20}{50}=\)<span class="ans">\(0.4\ \mathrm{rad}\)</span></div>
+        <div class="el">(a) \(i(\omega t)\)</div><div class="ee">=</div><div class="er">\(\dfrac{100}{53.85}[\sin (\omega t-0.3805)+\sin (0.3805)\ e^{-\omega t/0.4}]\)</div>
+        <div class="el"></div><div class="ee">=</div><div class="er"><span class="ans">\(1.857\sin (\omega t-0.3805)+0.690\ e^{-\omega t/0.4}\ \mathrm{A}\)</span></div>
+        <div class="en">β: SOLVE sin(X − 0.3805) + 0.3714 e<sup>−X/0.4</sup> = 0, starting from 3.5</div>
+        <div class="el">\(\beta \)</div><div class="ee">=</div><div class="er"><span class="ans">\(3.522\ \mathrm{rad}=201.8^{\circ}\)</span></div>
+        <div class="el">\(V_{\mathrm{dc}}\)</div><div class="ee">=</div><div class="er">\(\dfrac{100}{2\pi }(1-\cos 3.522)=30.69\ \mathrm{V}\)</div>
+        <div class="el">(b) \(I_{\mathrm{dc}}\)</div><div class="ee">=</div><div class="er">\(\dfrac{30.69}{50}=\)<span class="ans">\(0.614\ \mathrm{A}\)</span></div>
+        <div class="el">\(V_{\mathrm{rms}}\)</div><div class="ee">=</div><div class="er">\(\sqrt{\dfrac{100^{2}}{4\pi }(3.522-\tfrac{1}{2}\sin 7.044)}=50.28\ \mathrm{V}\)</div>
+        <div class="el">(c) \(I_{\mathrm{rms}}\)</div><div class="ee">=</div><div class="er">\(\dfrac{50.28}{53.85}=\)<span class="ans">\(0.934\ \mathrm{A}\)</span></div>
+        <div class="el">(d) \(P\)</div><div class="ee">=</div><div class="er">\(0.934^{2}\times 50=\)<span class="ans">\(43.6\ \mathrm{W}\)</span></div>
+        <div class="el">(e) \(\mathrm{PF}\)</div><div class="ee">=</div><div class="er">\(\dfrac{43.6}{(100/\sqrt{2})\times 0.934}=\)<span class="ans">\(0.660\)</span></div>
       </div>
-      <div class="calc-out" id="outHW" aria-live="polite"></div>
-    </div>
+    </details>
     <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="3"> I solved 2025 Q2.1 without looking</label><a class="ft-next" href="#ft-4">Next: step 4 →</a></div>
   </div>
 
@@ -901,16 +904,21 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
         <div class="el">(c) \(P\)</div><div class="ee">=</div><div class="er">\(I_{\mathrm{dc}}^{2}R=6.752^{2}\times 10=\)<span class="ans">\(455.9\ \mathrm{W}\)</span></div>
       </div>
     </details>
-    <div class="box calc-box"><span class="bh">Check any numbers of your own</span>
-      <div class="calc" id="calcCB">
-        <label>V<sub>s</sub> (V rms)<input type="number" step="any" inputmode="decimal" data-k="Vs" value="150"></label>
-        <label>f (Hz)<input type="number" step="any" inputmode="decimal" data-k="f" value="60"></label>
-        <label>R (Ω)<input type="number" step="any" inputmode="decimal" data-k="R" value="10"></label>
-        <label>L (H)<input type="number" step="any" inputmode="decimal" data-k="L" value="0.1"></label>
-        <label>α (°)<input type="number" step="any" inputmode="decimal" data-k="a" value="60"></label>
+    <div class="q"><div class="qh"><span class="qn">One more for practice</span></div><div class="qb">
+      <table class="given"><tr><th>Supply</th><td>220 V rms, 50 Hz</td></tr><tr><th>Load</th><td>R = 5 Ω, L = 50 mH</td></tr><tr><th>Firing angle</th><td>α = 45°</td></tr></table>
+      <p class="find"><b>FIND</b> (a) show the current is continuous (b) I<sub>dc</sub> (c) power</p></div></div>
+    <details class="sol"><summary>Show the answer</summary>
+      <div class="eqs">
+        <div class="el">\(\omega \)</div><div class="ee">=</div><div class="er">\(2\pi \times 50=314.2\ \mathrm{rad/s}\)</div>
+        <div class="el">\(\omega L\)</div><div class="ee">=</div><div class="er">\(314.2\times 0.05=15.71\ \Omega \)</div>
+        <div class="el">(a) \(\theta \)</div><div class="ee">=</div><div class="er">\(\tan ^{-1}\dfrac{15.71}{5}=\)<span class="ans">\(72.34^{\circ}\)</span></div>
+        <div class="en">α = 45° &lt; θ = 72.34° → continuous current</div>
+        <div class="el">\(V_{m}\)</div><div class="ee">=</div><div class="er">\(\sqrt{2}\times 220=311.1\ \mathrm{V}\)</div>
+        <div class="el">\(V_{\mathrm{dc}}\)</div><div class="ee">=</div><div class="er">\(\dfrac{2\times 311.1}{\pi }\cos 45^{\circ}=140.06\ \mathrm{V}\)</div>
+        <div class="el">(b) \(I_{\mathrm{dc}}\)</div><div class="ee">=</div><div class="er">\(\dfrac{140.06}{5}=\)<span class="ans">\(28.01\ \mathrm{A}\)</span></div>
+        <div class="el">(c) \(P\)</div><div class="ee">=</div><div class="er">\(I_{\mathrm{dc}}^{2}R=28.01^{2}\times 5=\)<span class="ans">\(3923\ \mathrm{W}\)</span></div>
       </div>
-      <div class="calc-out" id="outCB" aria-live="polite"></div>
-    </div>
+    </details>
     <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="4"> I solved 2025 Q2.2 without looking</label><a class="ft-next" href="#ft-5">Next: step 5 →</a></div>
   </div>
 
@@ -3905,7 +3913,7 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
   update();
 })();
 </script>
-<script>/* Midterm fast track: progress ticks and the two answer checkers */
+<script>/* Midterm fast track: progress ticks */
 (function(){
   var KEY='pe1-fasttrack-v2', state={};
   try{ state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ state={}; }
@@ -3928,39 +3936,6 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
   if(r) r.addEventListener('click',function(){ state={}; save(); paint(); });
   paint();
 
-  function vals(id){ var o={}; document.querySelectorAll('#'+id+' input').forEach(function(i){ o[i.getAttribute('data-k')]=parseFloat(i.value); }); return o; }
-  function cell(label,val){ return '<div><span>'+label+'</span>'+val+'</div>'; }
-  function f(x,d){ return (Math.abs(x)>=1000? x.toFixed(1) : x.toPrecision(d||4)); }
-  var DEG=180/Math.PI;
-
-  function hw(){
-    var v=vals('calcHW'), out=document.getElementById('outHW'); if(!out) return;
-    if(!(v.R>0&&v.L>0&&v.w>0&&v.Vm>0)){ out.innerHTML='<div class="warn">Enter positive numbers for R, L, ω and V<sub>m</sub>.</div>'; return; }
-    var wL=v.w*v.L, Z=Math.sqrt(v.R*v.R+wL*wL), th=Math.atan(wL/v.R), wt=wL/v.R;
-    var g=function(b){ return Math.sin(b-th)+Math.sin(th)*Math.exp(-b/wt); };
-    var lo=Math.PI, hi=2*Math.PI;
-    for(var k=0;k<80;k++){ var m=(lo+hi)/2; if(g(m)>0) lo=m; else hi=m; }
-    var b=(lo+hi)/2, Vdc=v.Vm/(2*Math.PI)*(1-Math.cos(b)), Idc=Vdc/v.R;
-    var Vrms=Math.sqrt(v.Vm*v.Vm/(4*Math.PI)*(b-0.5*Math.sin(2*b))), Irms=Vrms/Z, P=Irms*Irms*v.R, PF=P/(v.Vm/Math.SQRT2*Irms);
-    out.innerHTML=cell('Z',f(Z)+' Ω')+cell('θ',f(th)+' rad = '+f(th*DEG)+'°')+cell('ωτ',f(wt)+' rad')+cell('sin θ (for i(ωt))',f(Math.sin(th)))+
-      cell('V<sub>m</sub>/Z',f(v.Vm/Z)+' A')+cell('β',f(b,5)+' rad = '+f(b*DEG)+'°')+cell('V<sub>dc</sub>',f(Vdc)+' V')+cell('I<sub>dc</sub>',f(Idc)+' A')+
-      cell('V<sub>rms</sub>',f(Vrms)+' V')+cell('I<sub>rms</sub>',f(Irms)+' A')+cell('P',f(P)+' W')+cell('PF',f(PF,3));
-  }
-  function cb(){
-    var v=vals('calcCB'), out=document.getElementById('outCB'); if(!out) return;
-    if(!(v.Vs>0&&v.f>0&&v.R>0&&v.L>=0&&v.a>=0&&v.a<180)){ out.innerHTML='<div class="warn">Enter positive numbers, with α between 0° and 180°.</div>'; return; }
-    var w=2*Math.PI*v.f, th=Math.atan(w*v.L/v.R)*DEG, Vm=Math.SQRT2*v.Vs;
-    var html=cell('ω = 2πf',f(w)+' rad/s')+cell('θ',f(th)+'°')+cell('V<sub>m</sub>',f(Vm)+' V');
-    if(v.a<=th){
-      var Vdc=2*Vm/Math.PI*Math.cos(v.a/DEG), Idc=Vdc/v.R;
-      html='<div class="note">α = '+v.a+'° ≤ θ = '+f(th)+'° → continuous current</div>'+html+cell('V<sub>dc</sub>',f(Vdc)+' V')+cell('I<sub>dc</sub>',f(Idc)+' A')+cell('P ≅ I<sub>dc</sub><sup>2</sup>R',f(Idc*Idc*v.R)+' W');
-    } else {
-      html='<div class="warn">α = '+v.a+'° &gt; θ = '+f(th)+'° → discontinuous: the 2V<sub>m</sub>cos α/π formula does not apply. See <a href="#dis">discontinuous current</a>.</div>'+html;
-    }
-    out.innerHTML=html;
-  }
-  ['calcHW','calcCB'].forEach(function(id){ var el=document.getElementById(id); if(el) el.addEventListener('input', id==='calcHW'?hw:cb); });
-  hw(); cb();
 })();
 </script>
 </body></html>
