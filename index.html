@@ -17,6 +17,24 @@
 .ft-next{text-decoration:none; font-weight:700; padding:10px 14px; border-radius:10px; background:var(--accent); color:var(--accent-ink); margin-left:auto}
 .ft-work{padding-left:22px; margin:6px 0; font-family:var(--f-mono); font-size:14.5px; line-height:1.8}
 .ft-work li{margin:3px 0; max-width:none}
+/* exam-paper style questions */
+.exam{border:1.5px solid var(--ink); border-radius:3px; background:var(--paper); margin:20px 0 8px; color:var(--ink);
+  font-family:"Times New Roman",Times,Georgia,serif; font-size:17.5px; line-height:1.55; box-shadow:3px 3px 0 var(--line)}
+.exam-h{display:flex; justify-content:space-between; flex-wrap:wrap; gap:2px 12px; padding:6px 12px; border-bottom:1.5px solid var(--ink);
+  font:600 12px/1.4 var(--f-mono); letter-spacing:.05em; text-transform:uppercase; color:var(--muted)}
+.exam-h b{color:var(--ink)}
+.exam-b{padding:10px 14px 12px; display:flow-root}
+.exam-b p{margin:6px 0; max-width:none}
+.exam .qt{font-weight:700}
+.exam .mk{float:right; font-weight:700; margin-left:12px; white-space:nowrap}
+.exam .parts{list-style:none; padding-left:14px; margin:4px 0} .exam .parts li{margin:2px 0; max-width:none}
+.exam-fig{float:right; width:min(44%,300px); margin:2px 0 8px 16px}
+.exam-fig svg{display:block; width:100%; height:auto}
+.exam-fig .pa,.exam-fig .pb{display:none}
+@media (max-width:620px){ .exam-fig{float:none; width:100%; max-width:320px; margin:4px auto 8px} }
+.exam-paper .exam-h{display:block; text-align:center; text-transform:none; font-family:"Times New Roman",Times,serif; font-size:15px; letter-spacing:0; color:var(--ink); font-weight:700; line-height:1.5}
+.exam-paper .exam-b > p.qt{margin-top:14px; border-bottom:1px solid var(--line); padding-bottom:2px}
+.exam-paper ol.qs{padding-left:24px; margin:6px 0} .exam-paper ol.qs li{margin:6px 0; max-width:none}
 details.sol{margin-top:-2px}
 details.sol > summary{padding:4px 0}
 </style>
@@ -462,8 +480,10 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
           <span class="mx">\(Z=\sqrt{R^{2}+(\omega L)^{2}}\)</span> (total opposition) and <span class="mx">\(\theta =\tan ^{-1}\dfrac{\omega L}{R}\)</span> (how far the current lags).</li>
       </ul>
     </div>
-    <div class="q"><div class="qh"><span class="qn">Check yourself</span></div><div class="qb">
-      <p>(a) A supply is 150 V rms. What is V<sub>m</sub>? (b) f = 60 Hz. What is ω? (c) R = 100 Ω, L = 0.1 H, ω = 314 rad/s. Find Z and θ.</p></div></div>
+    <div class="exam"><div class="exam-h"><span><b>Self-check</b> · step 0</span><span>not from an exam</span></div><div class="exam-b">
+      <p><span class="qt">Answer the following:</span></p>
+      <ol class="parts"><li>(a) A sinusoidal supply is 150 V rms. Find its peak value V<sub>m</sub>.</li><li>(b) The supply frequency is 60 Hz. Find ω.</li><li>(c) An R-L load has R = 100 Ω and L = 0.1 H with ω = 314 rad/s. Find Z and θ.</li></ol>
+    </div></div>
     <details class="sol"><summary>Show the answer</summary>
       <div class="eqs">
         <div class="el">(a) \(V_{m}\)</div><div class="ee">=</div><div class="er">\(\sqrt{2}\times 150=\)<span class="ans">\(212.1\ \mathrm{V}\)</span></div>
@@ -492,6 +512,15 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
         <div class="f"><span class="fl">The two losses (2025 Q1.2)</span><span class="fx"><b>Conduction loss</b>: on-voltage × current while ON (and leakage × voltage while OFF). <b>Switching loss</b>: while changing state, voltage and current are both non-zero for a short time.</span></div>
         <div class="f"><span class="fl">Thyristor (SCR), used in step 4</span><span class="fx">A diode that waits: it turns ON only with forward voltage <b>and</b> a gate pulse. It turns OFF when its current falls below the <b>holding current I<sub>H</sub></b>.</span></div>
       </div></div>
+    <div class="exam"><div class="exam-h"><span><b>Mid-term Dec 2025</b> · Dr. Elgohary</span><span>Question (1)</span></div><div class="exam-b">
+      <p><span class="qt">Question (1): Answer the following questions</span></p>
+      <p>1. What are the merits and demerits of power electronic systems? <span class="mk">[2]</span></p>
+      <p>2. Explain the two types of losses which occur in the non-ideal switches. <span class="mk">[2]</span></p>
+    </div></div>
+    <details class="sol"><summary>Show the answer</summary>
+      <p><b>1. Merits:</b> high efficiency; high reliability; long life and less maintenance (no moving parts); flexibility; fast dynamic response; small size and weight.<br><b>Demerits:</b> harmonics in the supply and load; low input power factor under some conditions; regeneration of power is difficult; low overload capacity.</p>
+      <p><b>2. Conduction loss:</b> while ON the real switch has a small on-voltage while carrying current, and while OFF a small leakage current while blocking voltage, so V × I ≠ 0. <b>Switching loss:</b> while changing between ON and OFF, voltage and current are both non-zero for a short time. Both heat the switch.</p>
+    </details>
     <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="1"> I can write all of these without looking</label><a class="ft-next" href="#ft-2">Next: step 2 →</a></div>
   </div>
 
@@ -567,9 +596,12 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
         <div class="f"><span class="fl">Power factor</span><span class="fx"><span class="mx">\(\mathrm{PF}=\dfrac{I_{\mathrm{rms}}^{2}R}{V_{\mathrm{s,rms}}I_{\mathrm{rms}}}=0.707\)</span></span></div>
         <div class="f"><span class="fl">Diode with a resistance r<sub>on</sub> (asked in 3 past papers)</span><span class="fx">Peak current <span class="mx">\(I_{m}=\dfrac{V_{m}}{R+r_{\mathrm{on}}}\)</span>, output peak I<sub>m</sub>R, then the same formulas with that peak. Diode rms current = I<sub>m</sub>/2. Input power uses R + r<sub>on</sub>. Diode drawn reversed → the output is the negative half: add a minus sign.</span></div>
       </div></div>
-    <div class="q"><div class="qh"><span class="qn">Try it</span><span class="tag src">Dec 2024 Q6 · 6 marks</span></div><div class="qb">
-      <table class="given"><tr><th>Supply</th><td>v<sub>s</sub> = 110 sin ωt V</td></tr><tr><th>Load</th><td>R = 10 Ω, diode r<sub>on</sub> = 1 Ω</td></tr></table>
-      <p class="find"><b>FIND</b> (a) average output voltage (b) diode rms current (c) power factor</p></div></div>
+    <div class="exam"><div class="exam-h"><span><b>Mid-term Dec 2024</b> · Dr. Hamouda</span><span>Question (6)</span></div><div class="exam-b">
+      <div class="exam-fig"><svg class="sch" viewBox="0 0 360 190" role="img" aria-label="Half-wave rectifier circuit (R)" xmlns="http://www.w3.org/2000/svg"><circle class="cmp" cx="50" cy="95" r="18"/><path class="cmp" d="M40 95 q5 -11 10 0 t10 0"/><text class="cl" x="26" y="99" text-anchor="end">v<tspan class="sub">s</tspan></text><path class="w" d="M50 77 L50 30 L90 30"/><path class="w" d="M90 30 L110.0 30.0"/><path class="w" d="M130.0 30.0 L150 30"/><polygon class="dio" points="110.0,40.0 110.0,20.0 130.0,30.0"/><line class="cmp" x1="130.0" y1="40.0" x2="130.0" y2="20.0"/><text class="cl" x="120.0" y="10.0" text-anchor="middle">D</text><path class="w" d="M150 30 L290 30"/><path class="w" d="M50 113 L50 160 L290 160"/><path class="w" d="M290 30 L290.0 77.0"/><path class="w" d="M290.0 113.0 L290 160"/><path class="cmp" d="M290.0 77.0 L284.0 82.1 L296.0 87.3 L284.0 92.4 L296.0 97.6 L284.0 102.7 L296.0 107.9 L290.0 113.0"/><text class="cl" x="308.0" y="99.0" text-anchor="start">R</text><text class="cl" x="330" y="34" text-anchor="middle">+</text><text class="cl" x="330" y="165" text-anchor="middle">−</text><text class="cl" x="336" y="100" text-anchor="middle">v<tspan class="sub">o</tspan></text></svg></div>
+      <p><span class="qt">6)</span> Consider the half-wave rectifier shown in figure with v<sub>s</sub> = 110 sin ωt V and R = 10 Ω. Assume ideal diode except the forward resistance (r<sub>on</sub>) is 1 Ω. Sketch v<sub>o</sub> and determine:</p>
+      <ol class="parts"><li>(a) The average output voltage.</li><li>(b) The diode rms current.</li><li>(c) The input power factor.</li></ol>
+      <p><span class="mk">[6 Marks]</span></p>
+    </div></div>
     <details class="sol"><summary>Show the answer</summary>
       <div class="eqs">
         <div class="el">\(I_{m}\)</div><div class="ee">=</div><div class="er">\(\dfrac{V_{m}}{R+r_{\mathrm{on}}}=\dfrac{110}{10+1}=10\ \mathrm{A}\)</div>
@@ -667,9 +699,10 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
         <li>β must be between π (3.14) and 2π (6.28). If not, start again from 4.</li>
       </ol>
     </div>
-    <div class="q"><div class="qh"><span class="qn">Worked example</span><span class="tag src">Lect 2 · slides 22–23</span><span class="tag hi">2025 exam twin</span></div><div class="qb">
-      <table class="given"><tr><th>Load</th><td>R = 100 Ω, L = 0.1 H</td></tr><tr><th>Supply</th><td>V<sub>m</sub> = 100 V, ω = 377 rad/s</td></tr></table>
-      <p class="find"><b>FIND</b> (a) i(ωt) (b) I<sub>dc</sub> (c) I<sub>rms</sub> (d) P (e) PF</p></div></div>
+    <div class="exam"><div class="exam-h"><span><b>Worked example</b> · Lecture 2, Ex 2.8 (slides 22–23)</span><span>2025 exam twin</span></div><div class="exam-b">
+      <div class="exam-fig"><svg class="sch" viewBox="0 0 360 190" role="img" aria-label="Half-wave rectifier circuit (RL)" xmlns="http://www.w3.org/2000/svg"><circle class="cmp" cx="50" cy="95" r="18"/><path class="cmp" d="M40 95 q5 -11 10 0 t10 0"/><text class="cl" x="26" y="99" text-anchor="end">v<tspan class="sub">s</tspan></text><path class="w" d="M50 77 L50 30 L90 30"/><path class="w" d="M90 30 L110.0 30.0"/><path class="w" d="M130.0 30.0 L150 30"/><polygon class="dio" points="110.0,40.0 110.0,20.0 130.0,30.0"/><line class="cmp" x1="130.0" y1="40.0" x2="130.0" y2="20.0"/><text class="cl" x="120.0" y="10.0" text-anchor="middle">D</text><path class="w" d="M150 30 L290 30"/><path class="w" d="M50 113 L50 160 L290 160"/><path class="w" d="M290 30 L290.0 44.5"/><path class="w" d="M290.0 80.5 L290 95"/><path class="cmp" d="M290.0 44.5 L284.0 49.6 L296.0 54.8 L284.0 59.9 L296.0 65.1 L284.0 70.2 L296.0 75.4 L290.0 80.5"/><text class="cl" x="308.0" y="66.5" text-anchor="start">R</text><path class="w" d="M290 95 L290.0 107.5"/><path class="w" d="M290.0 147.5 L290 160"/><path class="cmp" d="M290.0 107.5 A5 5 0 0 1 290.0 117.5 A5 5 0 0 1 290.0 127.5 A5 5 0 0 1 290.0 137.5 A5 5 0 0 1 290.0 147.5"/><text class="cl" x="308.0" y="131.5" text-anchor="start">L</text><text class="cl" x="330" y="34" text-anchor="middle">+</text><text class="cl" x="330" y="165" text-anchor="middle">−</text><text class="cl" x="336" y="100" text-anchor="middle">v<tspan class="sub">o</tspan></text></svg></div>
+      <p>For the R-L half-wave rectifier shown, R = 100 Ω, L = 0.1 H, ω = 377 rad/s and V<sub>m</sub> = 100 V. Determine: (a) an expression for the current in this circuit, (b) the average current, (c) the rms current, (d) the power absorbed by the R-L load, and (e) the power factor.</p>
+    </div></div>
     <div class="sol"><div class="sh">Read it line by line: this is how to write it</div>
       <div class="eqs">
         <div class="el">\(\omega L\)</div><div class="ee">=</div><div class="er">\(377\times 0.1=37.7\ \Omega \)</div>
@@ -689,13 +722,18 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
         <div class="en">The slide prints 0.457 A, 21 W and 0.65: those are arithmetic slips. The numbers above are right.</div>
       </div>
     </div>
-    <div class="box"><span class="bh">The 4-mark "explain and draw" question (2025 Q1.3)</span>
+    <div class="exam"><div class="exam-h"><span><b>Mid-term Dec 2025</b> · Dr. Elgohary</span><span>Question (1) 3</span></div><div class="exam-b">
+      <p>3. For an R-L load connected to a single-phase uncontrolled half wave rectifier, discuss the principle of operation and draw the load current and the output voltage waveform. <span class="mk">[4]</span></p>
+    </div></div>
+    <details class="sol"><summary>Show the answer</summary>
       <p><b>Write:</b> When v<sub>s</sub> becomes positive the diode is forward biased and v<sub>o</sub> = v<sub>s</sub>. KVL: V<sub>m</sub> sin ωt = Ri + L di/dt. The current starts from zero and lags the voltage. At ωt = π the inductor keeps the current flowing, so the diode stays ON and v<sub>o</sub> follows v<sub>s</sub> into the negative half until i = 0 at β. From β to 2π the diode is OFF, i = 0 and v<sub>o</sub> = 0.</p>
       <p><b>Draw:</b> the picture above: v<sub>o</sub> = v<sub>s</sub> from 0 to β (including the negative dip), and i rising from 0, peaking after π/2, back to zero at β.</p>
-    </div>
-    <div class="q"><div class="qh"><span class="qn">Your turn: the real exam</span><span class="tag hi">Dec 2025 Q2.1 · 7 marks</span></div><div class="qb">
-      <table class="given"><tr><th>Load</th><td>R = 100 Ω, L = 0.1 H</td></tr><tr><th>Supply</th><td>V<sub>m</sub> = 200 V, ω = 314 rad/s</td></tr></table>
-      <p class="find"><b>FIND</b> (a) i(ωt) (b) I<sub>dc</sub> (c) I<sub>rms</sub> (d) P (e) PF</p></div></div>
+    </details>
+    <div class="exam"><div class="exam-h"><span><b>Mid-term Dec 2025</b> · Dr. Elgohary · your turn</span><span>Question (2) 1</span></div><div class="exam-b">
+      <div class="exam-fig"><svg class="sch" viewBox="0 0 360 190" role="img" aria-label="Half-wave rectifier circuit (RL)" xmlns="http://www.w3.org/2000/svg"><circle class="cmp" cx="50" cy="95" r="18"/><path class="cmp" d="M40 95 q5 -11 10 0 t10 0"/><text class="cl" x="26" y="99" text-anchor="end">v<tspan class="sub">s</tspan></text><path class="w" d="M50 77 L50 30 L90 30"/><path class="w" d="M90 30 L110.0 30.0"/><path class="w" d="M130.0 30.0 L150 30"/><polygon class="dio" points="110.0,40.0 110.0,20.0 130.0,30.0"/><line class="cmp" x1="130.0" y1="40.0" x2="130.0" y2="20.0"/><text class="cl" x="120.0" y="10.0" text-anchor="middle">D</text><path class="w" d="M150 30 L290 30"/><path class="w" d="M50 113 L50 160 L290 160"/><path class="w" d="M290 30 L290.0 44.5"/><path class="w" d="M290.0 80.5 L290 95"/><path class="cmp" d="M290.0 44.5 L284.0 49.6 L296.0 54.8 L284.0 59.9 L296.0 65.1 L284.0 70.2 L296.0 75.4 L290.0 80.5"/><text class="cl" x="308.0" y="66.5" text-anchor="start">R</text><path class="w" d="M290 95 L290.0 107.5"/><path class="w" d="M290.0 147.5 L290 160"/><path class="cmp" d="M290.0 107.5 A5 5 0 0 1 290.0 117.5 A5 5 0 0 1 290.0 127.5 A5 5 0 0 1 290.0 137.5 A5 5 0 0 1 290.0 147.5"/><text class="cl" x="308.0" y="131.5" text-anchor="start">L</text><text class="cl" x="330" y="34" text-anchor="middle">+</text><text class="cl" x="330" y="165" text-anchor="middle">−</text><text class="cl" x="336" y="100" text-anchor="middle">v<tspan class="sub">o</tspan></text></svg></div>
+      <p><span class="qt">Question (2): Answer the following questions</span></p>
+      <p>1. For the R-L half-wave rectifier, R = 100 Ω, L = 0.1 H, ω = 314 rad/s, and V<sub>m</sub> = 200 V. Determine: (a) an expression for the current in this circuit, (b) the average current, (c) the rms current, (d) the power absorbed by the R-L load, and (e) the power factor. <span class="mk">[7]</span></p>
+    </div></div>
     <details class="sol"><summary>Show the answer</summary>
       <div class="eqs">
         <div class="el">\(\omega L\)</div><div class="ee">=</div><div class="er">\(314\times 0.1=31.4\ \Omega \)</div>
@@ -714,9 +752,10 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
         <div class="el">(e) \(\mathrm{PF}\)</div><div class="ee">=</div><div class="er">\(\dfrac{91.6}{(200/\sqrt{2})\times 0.957}=\)<span class="ans">\(0.677\)</span></div>
       </div>
     </details>
-    <div class="q"><div class="qh"><span class="qn">One more for practice</span><span class="tag src">Lect 3 · Quiz 3</span></div><div class="qb">
-      <table class="given"><tr><th>Load</th><td>R = 50 Ω, L = 0.1 H</td></tr><tr><th>Supply</th><td>V<sub>m</sub> = 100 V, ω = 200 rad/s</td></tr></table>
-      <p class="find"><b>FIND</b> (a) i(ωt) (b) I<sub>dc</sub> (c) I<sub>rms</sub> (d) P (e) PF</p></div></div>
+    <div class="exam"><div class="exam-h"><span><b>One more for practice</b> · Lecture 3, Quiz 3</span><span>same style</span></div><div class="exam-b">
+      <div class="exam-fig"><svg class="sch" viewBox="0 0 360 190" role="img" aria-label="Half-wave rectifier circuit (RL)" xmlns="http://www.w3.org/2000/svg"><circle class="cmp" cx="50" cy="95" r="18"/><path class="cmp" d="M40 95 q5 -11 10 0 t10 0"/><text class="cl" x="26" y="99" text-anchor="end">v<tspan class="sub">s</tspan></text><path class="w" d="M50 77 L50 30 L90 30"/><path class="w" d="M90 30 L110.0 30.0"/><path class="w" d="M130.0 30.0 L150 30"/><polygon class="dio" points="110.0,40.0 110.0,20.0 130.0,30.0"/><line class="cmp" x1="130.0" y1="40.0" x2="130.0" y2="20.0"/><text class="cl" x="120.0" y="10.0" text-anchor="middle">D</text><path class="w" d="M150 30 L290 30"/><path class="w" d="M50 113 L50 160 L290 160"/><path class="w" d="M290 30 L290.0 44.5"/><path class="w" d="M290.0 80.5 L290 95"/><path class="cmp" d="M290.0 44.5 L284.0 49.6 L296.0 54.8 L284.0 59.9 L296.0 65.1 L284.0 70.2 L296.0 75.4 L290.0 80.5"/><text class="cl" x="308.0" y="66.5" text-anchor="start">R</text><path class="w" d="M290 95 L290.0 107.5"/><path class="w" d="M290.0 147.5 L290 160"/><path class="cmp" d="M290.0 107.5 A5 5 0 0 1 290.0 117.5 A5 5 0 0 1 290.0 127.5 A5 5 0 0 1 290.0 137.5 A5 5 0 0 1 290.0 147.5"/><text class="cl" x="308.0" y="131.5" text-anchor="start">L</text><text class="cl" x="330" y="34" text-anchor="middle">+</text><text class="cl" x="330" y="165" text-anchor="middle">−</text><text class="cl" x="336" y="100" text-anchor="middle">v<tspan class="sub">o</tspan></text></svg></div>
+      <p>For the R-L half-wave rectifier shown, R = 50 Ω, L = 0.1 H, ω = 200 rad/s and V<sub>m</sub> = 100 V. Determine: (a) an expression for the current, (b) the average current, (c) the rms current, (d) the power absorbed by the load, and (e) the power factor.</p>
+    </div></div>
     <details class="sol"><summary>Show the answer</summary>
       <div class="eqs">
         <div class="el">\(\omega L\)</div><div class="ee">=</div><div class="er">\(200\times 0.1=20\ \Omega \)</div>
@@ -873,9 +912,10 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
         <li>Write "α = 60° &lt; θ = … → continuous". That line earns a mark on its own.</li>
       </ul>
     </div>
-    <div class="q"><div class="qh"><span class="qn">Worked example</span><span class="tag src">Lect 7 · slide 25</span><span class="tag hi">2025 exam twin</span></div><div class="qb">
-      <table class="given"><tr><th>Supply</th><td>120 V rms, 50 Hz</td></tr><tr><th>Load</th><td>R = 10 Ω, L = 100 mH</td></tr><tr><th>Firing angle</th><td>α = 60°</td></tr></table>
-      <p class="find"><b>FIND</b> (a) show the current is continuous (b) I<sub>dc</sub> (c) power</p></div></div>
+    <div class="exam"><div class="exam-h"><span><b>Worked example</b> · Lecture 7, Ex 7.2 (slide 25)</span><span>2025 exam twin</span></div><div class="exam-b">
+      <div class="exam-fig"><svg class="sch" viewBox="0 0 430 240" role="img" aria-label="Single-phase bridge (RL); orange: positive half-cycle current path, blue: negative half-cycle path" xmlns="http://www.w3.org/2000/svg"><circle class="cmp" cx="45" cy="120" r="18"/><path class="cmp" d="M35 120 q5 -11 10 0 t10 0"/><text class="cl" x="21" y="124" text-anchor="end">v<tspan class="sub">s</tspan></text><path class="w" d="M45 102 L45 80 L100 80 L100 115 L150 115"/><path class="w" d="M45 138 L45 160 L190 160 L190 115 L230 115"/><circle class="node" cx="150" cy="115" r="3"/><circle class="node" cx="230" cy="115" r="3"/><path class="w" d="M150 115 L150.0 82.5"/><path class="w" d="M150.0 62.5 L150 30"/><polygon class="dio" points="160.0,82.5 140.0,82.5 150.0,62.5"/><line class="cmp" x1="160.0" y1="62.5" x2="140.0" y2="62.5"/><path class="cmp" d="M145.0 65.5 L133.0 59.5"/><text class="cl" x="130.0" y="76.5" text-anchor="end">T<tspan class="sub">1</tspan></text><path class="w" d="M230 115 L230.0 82.5"/><path class="w" d="M230.0 62.5 L230 30"/><polygon class="dio" points="240.0,82.5 220.0,82.5 230.0,62.5"/><line class="cmp" x1="240.0" y1="62.5" x2="220.0" y2="62.5"/><path class="cmp" d="M225.0 65.5 L213.0 59.5"/><text class="cl" x="250.0" y="76.5" text-anchor="start">T<tspan class="sub">3</tspan></text><path class="w" d="M150 200 L150.0 167.5"/><path class="w" d="M150.0 147.5 L150 115"/><polygon class="dio" points="160.0,167.5 140.0,167.5 150.0,147.5"/><line class="cmp" x1="160.0" y1="147.5" x2="140.0" y2="147.5"/><path class="cmp" d="M145.0 150.5 L133.0 144.5"/><text class="cl" x="130.0" y="161.5" text-anchor="end">T<tspan class="sub">4</tspan></text><path class="w" d="M230 200 L230.0 167.5"/><path class="w" d="M230.0 147.5 L230 115"/><polygon class="dio" points="240.0,167.5 220.0,167.5 230.0,147.5"/><line class="cmp" x1="240.0" y1="147.5" x2="220.0" y2="147.5"/><path class="cmp" d="M225.0 150.5 L213.0 144.5"/><text class="cl" x="250.0" y="161.5" text-anchor="start">T<tspan class="sub">2</tspan></text><path class="w" d="M150 30 L360 30"/><path class="w" d="M150 200 L360 200"/><circle class="node" cx="230" cy="30" r="3"/><circle class="node" cx="230" cy="200" r="3"/><path class="w" d="M360 30 L360.0 54.5"/><path class="w" d="M360.0 90.5 L360 115"/><path class="cmp" d="M360.0 54.5 L354.0 59.6 L366.0 64.8 L354.0 69.9 L366.0 75.1 L354.0 80.2 L366.0 85.4 L360.0 90.5"/><text class="cl" x="378.0" y="76.5" text-anchor="start">R</text><path class="w" d="M360 115 L360.0 137.5"/><path class="w" d="M360.0 177.5 L360 200"/><path class="cmp" d="M360.0 137.5 A5 5 0 0 1 360.0 147.5 A5 5 0 0 1 360.0 157.5 A5 5 0 0 1 360.0 167.5 A5 5 0 0 1 360.0 177.5"/><text class="cl" x="378.0" y="161.5" text-anchor="start">L</text><text class="cl" x="406" y="34" text-anchor="middle">+</text><text class="cl" x="406" y="205" text-anchor="middle">−</text><text class="cl" x="410" y="120" text-anchor="middle">v<tspan class="sub">o</tspan></text><text class="cl sm" x="158" y="132" text-anchor="start">a</text><text class="cl sm" x="222" y="132" text-anchor="end">b</text></svg></div>
+      <p>A controlled full-wave bridge rectifier of Fig. a has a source of 120 V rms at 50 Hz and an RL load where R = 10 Ω and L = 100 mH. The delay angle α = 60°. (a) Verify that the load current is continuous. (b) Determine the dc (average) component of the current. (c) Determine the power absorbed by the load.</p>
+    </div></div>
     <div class="sol"><div class="sh">Read it line by line: this is how to write it</div>
       <div class="eqs">
         <div class="el">\(\omega \)</div><div class="ee">=</div><div class="er">\(2\pi f=2\pi \times 50=314.2\ \mathrm{rad/s}\)</div>
@@ -889,9 +929,10 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
         <div class="el">(c) \(P\)</div><div class="ee">=</div><div class="er">\(I_{\mathrm{dc}}^{2}R=5.402^{2}\times 10=\)<span class="ans">\(291.8\ \mathrm{W}\)</span></div>
       </div>
     </div>
-    <div class="q"><div class="qh"><span class="qn">Your turn: the real exam</span><span class="tag hi">Dec 2025 Q2.2 · 5 marks</span></div><div class="qb">
-      <table class="given"><tr><th>Supply</th><td>150 V rms, 60 Hz</td></tr><tr><th>Load</th><td>R = 10 Ω, L = 100 mH</td></tr><tr><th>Firing angle</th><td>α = 60°</td></tr></table>
-      <p class="find"><b>FIND</b> (a) verify continuous current (b) I<sub>dc</sub> (c) power</p></div></div>
+    <div class="exam"><div class="exam-h"><span><b>Mid-term Dec 2025</b> · Dr. Elgohary · your turn</span><span>Question (2) 2</span></div><div class="exam-b">
+      <div class="exam-fig"><svg class="sch" viewBox="0 0 430 240" role="img" aria-label="Single-phase bridge (RL); orange: positive half-cycle current path, blue: negative half-cycle path" xmlns="http://www.w3.org/2000/svg"><circle class="cmp" cx="45" cy="120" r="18"/><path class="cmp" d="M35 120 q5 -11 10 0 t10 0"/><text class="cl" x="21" y="124" text-anchor="end">v<tspan class="sub">s</tspan></text><path class="w" d="M45 102 L45 80 L100 80 L100 115 L150 115"/><path class="w" d="M45 138 L45 160 L190 160 L190 115 L230 115"/><circle class="node" cx="150" cy="115" r="3"/><circle class="node" cx="230" cy="115" r="3"/><path class="w" d="M150 115 L150.0 82.5"/><path class="w" d="M150.0 62.5 L150 30"/><polygon class="dio" points="160.0,82.5 140.0,82.5 150.0,62.5"/><line class="cmp" x1="160.0" y1="62.5" x2="140.0" y2="62.5"/><path class="cmp" d="M145.0 65.5 L133.0 59.5"/><text class="cl" x="130.0" y="76.5" text-anchor="end">T<tspan class="sub">1</tspan></text><path class="w" d="M230 115 L230.0 82.5"/><path class="w" d="M230.0 62.5 L230 30"/><polygon class="dio" points="240.0,82.5 220.0,82.5 230.0,62.5"/><line class="cmp" x1="240.0" y1="62.5" x2="220.0" y2="62.5"/><path class="cmp" d="M225.0 65.5 L213.0 59.5"/><text class="cl" x="250.0" y="76.5" text-anchor="start">T<tspan class="sub">3</tspan></text><path class="w" d="M150 200 L150.0 167.5"/><path class="w" d="M150.0 147.5 L150 115"/><polygon class="dio" points="160.0,167.5 140.0,167.5 150.0,147.5"/><line class="cmp" x1="160.0" y1="147.5" x2="140.0" y2="147.5"/><path class="cmp" d="M145.0 150.5 L133.0 144.5"/><text class="cl" x="130.0" y="161.5" text-anchor="end">T<tspan class="sub">4</tspan></text><path class="w" d="M230 200 L230.0 167.5"/><path class="w" d="M230.0 147.5 L230 115"/><polygon class="dio" points="240.0,167.5 220.0,167.5 230.0,147.5"/><line class="cmp" x1="240.0" y1="147.5" x2="220.0" y2="147.5"/><path class="cmp" d="M225.0 150.5 L213.0 144.5"/><text class="cl" x="250.0" y="161.5" text-anchor="start">T<tspan class="sub">2</tspan></text><path class="w" d="M150 30 L360 30"/><path class="w" d="M150 200 L360 200"/><circle class="node" cx="230" cy="30" r="3"/><circle class="node" cx="230" cy="200" r="3"/><path class="w" d="M360 30 L360.0 54.5"/><path class="w" d="M360.0 90.5 L360 115"/><path class="cmp" d="M360.0 54.5 L354.0 59.6 L366.0 64.8 L354.0 69.9 L366.0 75.1 L354.0 80.2 L366.0 85.4 L360.0 90.5"/><text class="cl" x="378.0" y="76.5" text-anchor="start">R</text><path class="w" d="M360 115 L360.0 137.5"/><path class="w" d="M360.0 177.5 L360 200"/><path class="cmp" d="M360.0 137.5 A5 5 0 0 1 360.0 147.5 A5 5 0 0 1 360.0 157.5 A5 5 0 0 1 360.0 167.5 A5 5 0 0 1 360.0 177.5"/><text class="cl" x="378.0" y="161.5" text-anchor="start">L</text><text class="cl" x="406" y="34" text-anchor="middle">+</text><text class="cl" x="406" y="205" text-anchor="middle">−</text><text class="cl" x="410" y="120" text-anchor="middle">v<tspan class="sub">o</tspan></text><text class="cl sm" x="158" y="132" text-anchor="start">a</text><text class="cl sm" x="222" y="132" text-anchor="end">b</text></svg></div>
+      <p>2. A controlled full-wave bridge rectifier of Fig. a has a source of 150 V rms at 60 Hz, an RL load where R = 10 Ω and L = 100 mH. The delay angle = 60°. (a) Verify that the load current is continuous. (b) Determine the dc (average) component of the current. (c) Determine the power absorbed by the load. <span class="mk">[5]</span></p>
+    </div></div>
     <details class="sol"><summary>Show the answer</summary>
       <div class="eqs">
         <div class="el">\(\omega \)</div><div class="ee">=</div><div class="er">\(2\pi \times 60=377\ \mathrm{rad/s}\)</div>
@@ -904,9 +945,10 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
         <div class="el">(c) \(P\)</div><div class="ee">=</div><div class="er">\(I_{\mathrm{dc}}^{2}R=6.752^{2}\times 10=\)<span class="ans">\(455.9\ \mathrm{W}\)</span></div>
       </div>
     </details>
-    <div class="q"><div class="qh"><span class="qn">One more for practice</span></div><div class="qb">
-      <table class="given"><tr><th>Supply</th><td>220 V rms, 50 Hz</td></tr><tr><th>Load</th><td>R = 5 Ω, L = 50 mH</td></tr><tr><th>Firing angle</th><td>α = 45°</td></tr></table>
-      <p class="find"><b>FIND</b> (a) show the current is continuous (b) I<sub>dc</sub> (c) power</p></div></div>
+    <div class="exam"><div class="exam-h"><span><b>One more for practice</b></span><span>same style</span></div><div class="exam-b">
+      <div class="exam-fig"><svg class="sch" viewBox="0 0 430 240" role="img" aria-label="Single-phase bridge (RL); orange: positive half-cycle current path, blue: negative half-cycle path" xmlns="http://www.w3.org/2000/svg"><circle class="cmp" cx="45" cy="120" r="18"/><path class="cmp" d="M35 120 q5 -11 10 0 t10 0"/><text class="cl" x="21" y="124" text-anchor="end">v<tspan class="sub">s</tspan></text><path class="w" d="M45 102 L45 80 L100 80 L100 115 L150 115"/><path class="w" d="M45 138 L45 160 L190 160 L190 115 L230 115"/><circle class="node" cx="150" cy="115" r="3"/><circle class="node" cx="230" cy="115" r="3"/><path class="w" d="M150 115 L150.0 82.5"/><path class="w" d="M150.0 62.5 L150 30"/><polygon class="dio" points="160.0,82.5 140.0,82.5 150.0,62.5"/><line class="cmp" x1="160.0" y1="62.5" x2="140.0" y2="62.5"/><path class="cmp" d="M145.0 65.5 L133.0 59.5"/><text class="cl" x="130.0" y="76.5" text-anchor="end">T<tspan class="sub">1</tspan></text><path class="w" d="M230 115 L230.0 82.5"/><path class="w" d="M230.0 62.5 L230 30"/><polygon class="dio" points="240.0,82.5 220.0,82.5 230.0,62.5"/><line class="cmp" x1="240.0" y1="62.5" x2="220.0" y2="62.5"/><path class="cmp" d="M225.0 65.5 L213.0 59.5"/><text class="cl" x="250.0" y="76.5" text-anchor="start">T<tspan class="sub">3</tspan></text><path class="w" d="M150 200 L150.0 167.5"/><path class="w" d="M150.0 147.5 L150 115"/><polygon class="dio" points="160.0,167.5 140.0,167.5 150.0,147.5"/><line class="cmp" x1="160.0" y1="147.5" x2="140.0" y2="147.5"/><path class="cmp" d="M145.0 150.5 L133.0 144.5"/><text class="cl" x="130.0" y="161.5" text-anchor="end">T<tspan class="sub">4</tspan></text><path class="w" d="M230 200 L230.0 167.5"/><path class="w" d="M230.0 147.5 L230 115"/><polygon class="dio" points="240.0,167.5 220.0,167.5 230.0,147.5"/><line class="cmp" x1="240.0" y1="147.5" x2="220.0" y2="147.5"/><path class="cmp" d="M225.0 150.5 L213.0 144.5"/><text class="cl" x="250.0" y="161.5" text-anchor="start">T<tspan class="sub">2</tspan></text><path class="w" d="M150 30 L360 30"/><path class="w" d="M150 200 L360 200"/><circle class="node" cx="230" cy="30" r="3"/><circle class="node" cx="230" cy="200" r="3"/><path class="w" d="M360 30 L360.0 54.5"/><path class="w" d="M360.0 90.5 L360 115"/><path class="cmp" d="M360.0 54.5 L354.0 59.6 L366.0 64.8 L354.0 69.9 L366.0 75.1 L354.0 80.2 L366.0 85.4 L360.0 90.5"/><text class="cl" x="378.0" y="76.5" text-anchor="start">R</text><path class="w" d="M360 115 L360.0 137.5"/><path class="w" d="M360.0 177.5 L360 200"/><path class="cmp" d="M360.0 137.5 A5 5 0 0 1 360.0 147.5 A5 5 0 0 1 360.0 157.5 A5 5 0 0 1 360.0 167.5 A5 5 0 0 1 360.0 177.5"/><text class="cl" x="378.0" y="161.5" text-anchor="start">L</text><text class="cl" x="406" y="34" text-anchor="middle">+</text><text class="cl" x="406" y="205" text-anchor="middle">−</text><text class="cl" x="410" y="120" text-anchor="middle">v<tspan class="sub">o</tspan></text><text class="cl sm" x="158" y="132" text-anchor="start">a</text><text class="cl sm" x="222" y="132" text-anchor="end">b</text></svg></div>
+      <p>A controlled full-wave bridge rectifier has a source of 220 V rms at 50 Hz and an RL load where R = 5 Ω and L = 50 mH. The delay angle α = 45°. (a) Verify that the load current is continuous. (b) Determine the dc (average) component of the current. (c) Determine the power absorbed by the load.</p>
+    </div></div>
     <details class="sol"><summary>Show the answer</summary>
       <div class="eqs">
         <div class="el">\(\omega \)</div><div class="ee">=</div><div class="er">\(2\pi \times 50=314.2\ \mathrm{rad/s}\)</div>
@@ -925,16 +967,25 @@ main > section.hero, main > section#now{border-top:0; margin-top:0}
   <!-- ================= STEP 5 ================= -->
   <div class="ft-step" data-step="5">
     <div class="ft-head"><h3 id="ft-5">Step 5 · Do the 2025 paper</h3><span class="tag">1 h</span></div>
-    <div class="box plain"><span class="bh">Put it together</span>
-      <p>This is last year's full midterm (20 marks, 1 hour). Every question is from steps 1, 3 and 4. Set a 1-hour timer, close this page, and answer on paper.</p>
-      <ol class="tight">
-        <li>What are the merits and demerits of power electronic systems? <b>[2]</b> (step 1)</li>
-        <li>Explain the two types of losses which occur in non-ideal switches. <b>[2]</b> (step 1)</li>
-        <li>For an R-L load on a single-phase uncontrolled half-wave rectifier, discuss the principle of operation and draw the load current and output voltage. <b>[4]</b> (step 3)</li>
-        <li>R-L half-wave rectifier, R = 100 Ω, L = 0.1 H, ω = 314 rad/s, V<sub>m</sub> = 200 V: find i(ωt), I<sub>dc</sub>, I<sub>rms</sub>, P and PF. <b>[7]</b> (step 3)</li>
-        <li>Controlled full-wave bridge, 150 V rms, 60 Hz, R = 10 Ω, L = 100 mH, α = 60°: verify continuous current, find I<sub>dc</sub> and the power. <b>[5]</b> (step 4)</li>
+    <p>This is last year's full midterm, written out as it appeared. Every question is from steps 1, 3 and 4. Set a 1-hour timer, close the answers, and answer on paper.</p>
+    <div class="exam exam-paper"><div class="exam-h">Damietta University · Faculty of Engineering · Electrical Engineering Dept.<br>Power Electronics (1) · 2nd Grade · First Semester, Mid-Term Exam 2025<br>Allowed Time: 1 hr · Total mark: 20</div><div class="exam-b">
+      <p><i>Answer the following questions, assume any missing data.</i></p>
+      <p class="qt">Question (1): Answer the following questions</p>
+      <ol class="qs">
+        <li>What are the merits and demerits of power electronic systems? <span class="mk">[2]</span></li>
+        <li>Explain the two types of losses which occur in the non-ideal switches. <span class="mk">[2]</span></li>
+        <li>For an R-L load connected to a single-phase uncontrolled half wave rectifier, discuss the principle of operation and draw the load current and the output voltage waveform. <span class="mk">[4]</span></li>
       </ol>
-      <p>Then mark yourself with the answers in steps 1, 3 and 4. Anything you got wrong: go back to that step only.</p>
+      <p class="qt">Question (2): Answer the following questions</p>
+      <div class="exam-fig"><svg class="sch" viewBox="0 0 430 240" role="img" aria-label="Single-phase bridge (RL); orange: positive half-cycle current path, blue: negative half-cycle path" xmlns="http://www.w3.org/2000/svg"><circle class="cmp" cx="45" cy="120" r="18"/><path class="cmp" d="M35 120 q5 -11 10 0 t10 0"/><text class="cl" x="21" y="124" text-anchor="end">v<tspan class="sub">s</tspan></text><path class="w" d="M45 102 L45 80 L100 80 L100 115 L150 115"/><path class="w" d="M45 138 L45 160 L190 160 L190 115 L230 115"/><circle class="node" cx="150" cy="115" r="3"/><circle class="node" cx="230" cy="115" r="3"/><path class="w" d="M150 115 L150.0 82.5"/><path class="w" d="M150.0 62.5 L150 30"/><polygon class="dio" points="160.0,82.5 140.0,82.5 150.0,62.5"/><line class="cmp" x1="160.0" y1="62.5" x2="140.0" y2="62.5"/><path class="cmp" d="M145.0 65.5 L133.0 59.5"/><text class="cl" x="130.0" y="76.5" text-anchor="end">T<tspan class="sub">1</tspan></text><path class="w" d="M230 115 L230.0 82.5"/><path class="w" d="M230.0 62.5 L230 30"/><polygon class="dio" points="240.0,82.5 220.0,82.5 230.0,62.5"/><line class="cmp" x1="240.0" y1="62.5" x2="220.0" y2="62.5"/><path class="cmp" d="M225.0 65.5 L213.0 59.5"/><text class="cl" x="250.0" y="76.5" text-anchor="start">T<tspan class="sub">3</tspan></text><path class="w" d="M150 200 L150.0 167.5"/><path class="w" d="M150.0 147.5 L150 115"/><polygon class="dio" points="160.0,167.5 140.0,167.5 150.0,147.5"/><line class="cmp" x1="160.0" y1="147.5" x2="140.0" y2="147.5"/><path class="cmp" d="M145.0 150.5 L133.0 144.5"/><text class="cl" x="130.0" y="161.5" text-anchor="end">T<tspan class="sub">4</tspan></text><path class="w" d="M230 200 L230.0 167.5"/><path class="w" d="M230.0 147.5 L230 115"/><polygon class="dio" points="240.0,167.5 220.0,167.5 230.0,147.5"/><line class="cmp" x1="240.0" y1="147.5" x2="220.0" y2="147.5"/><path class="cmp" d="M225.0 150.5 L213.0 144.5"/><text class="cl" x="250.0" y="161.5" text-anchor="start">T<tspan class="sub">2</tspan></text><path class="w" d="M150 30 L360 30"/><path class="w" d="M150 200 L360 200"/><circle class="node" cx="230" cy="30" r="3"/><circle class="node" cx="230" cy="200" r="3"/><path class="w" d="M360 30 L360.0 54.5"/><path class="w" d="M360.0 90.5 L360 115"/><path class="cmp" d="M360.0 54.5 L354.0 59.6 L366.0 64.8 L354.0 69.9 L366.0 75.1 L354.0 80.2 L366.0 85.4 L360.0 90.5"/><text class="cl" x="378.0" y="76.5" text-anchor="start">R</text><path class="w" d="M360 115 L360.0 137.5"/><path class="w" d="M360.0 177.5 L360 200"/><path class="cmp" d="M360.0 137.5 A5 5 0 0 1 360.0 147.5 A5 5 0 0 1 360.0 157.5 A5 5 0 0 1 360.0 167.5 A5 5 0 0 1 360.0 177.5"/><text class="cl" x="378.0" y="161.5" text-anchor="start">L</text><text class="cl" x="406" y="34" text-anchor="middle">+</text><text class="cl" x="406" y="205" text-anchor="middle">−</text><text class="cl" x="410" y="120" text-anchor="middle">v<tspan class="sub">o</tspan></text><text class="cl sm" x="158" y="132" text-anchor="start">a</text><text class="cl sm" x="222" y="132" text-anchor="end">b</text></svg></div>
+      <ol class="qs">
+        <li>For the R-L half-wave rectifier, R = 100 Ω, L = 0.1 H, ω = 314 rad/s, and V<sub>m</sub> = 200 V. Determine: (a) an expression for the current in this circuit, (b) the average current, (c) the rms current, (d) the power absorbed by the R-L load, and (e) the power factor. <span class="mk">[7]</span></li>
+        <li>A controlled full-wave bridge rectifier of Fig. a has a source of 150 V rms at 60 Hz, an RL load where R = 10 Ω and L = 100 mH. The delay angle = 60°. (a) Verify that the load current is continuous. (b) Determine the dc (average) component of the current. (c) Determine the power absorbed by the load. <span class="mk">[5]</span></li>
+      </ol>
+      <p style="text-align:center"><i>Good Luck</i></p>
+    </div></div>
+    <div class="box plain"><span class="bh">Then mark it</span>
+      <p>The answers are in step 1 (Q1.1–1.2), step 3 (Q1.3 and Q2.1) and step 4 (Q2.2). Anything you got wrong: go back to that step only.</p>
       <p class="small">The night before: read step 1's box aloud and write the formula boxes from steps 3 and 4 once from memory. Dr. Elgohary copies his lecture examples and changes the numbers, so if you can redo both worked examples cold, you are ready.</p>
     </div>
     <div class="ft-foot"><label class="ft-done"><input type="checkbox" data-step="5"> I did the paper in 1 hour</label><button class="btn ft-reset" type="button" id="ftReset">Reset my ticks</button></div>
